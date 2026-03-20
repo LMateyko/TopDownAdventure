@@ -185,7 +185,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: projectiles_animated_0
+      name: Arrow_1
       rect:
         serializedVersion: 2
         x: 0
@@ -193,7 +193,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -207,7 +207,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_1
+      name: Arrow_2
       rect:
         serializedVersion: 2
         x: 16
@@ -215,7 +215,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -229,7 +229,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_2
+      name: Bone_1
       rect:
         serializedVersion: 2
         x: 0
@@ -237,7 +237,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -251,7 +251,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_3
+      name: Bone_2
       rect:
         serializedVersion: 2
         x: 16
@@ -259,7 +259,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -273,7 +273,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_4
+      name: Bone_3
       rect:
         serializedVersion: 2
         x: 32
@@ -281,7 +281,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -295,7 +295,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_5
+      name: Bone_4
       rect:
         serializedVersion: 2
         x: 48
@@ -303,7 +303,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -317,7 +317,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_6
+      name: Bone_5
       rect:
         serializedVersion: 2
         x: 64
@@ -325,7 +325,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -339,7 +339,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_7
+      name: Bone_6
       rect:
         serializedVersion: 2
         x: 80
@@ -347,7 +347,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -361,7 +361,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_8
+      name: Bone_7
       rect:
         serializedVersion: 2
         x: 96
@@ -369,7 +369,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -383,7 +383,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_9
+      name: Bone_8
       rect:
         serializedVersion: 2
         x: 112
@@ -391,7 +391,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -405,7 +405,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_10
+      name: Fireball_1
       rect:
         serializedVersion: 2
         x: 0
@@ -413,7 +413,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -427,7 +427,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_11
+      name: Fireball_2
       rect:
         serializedVersion: 2
         x: 16
@@ -435,7 +435,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -449,7 +449,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_12
+      name: Fireball_3
       rect:
         serializedVersion: 2
         x: 32
@@ -457,7 +457,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -471,7 +471,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_13
+      name: Axe_1
       rect:
         serializedVersion: 2
         x: 0
@@ -479,7 +479,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -493,7 +493,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_14
+      name: Axe_2
       rect:
         serializedVersion: 2
         x: 16
@@ -501,7 +501,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -515,7 +515,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_15
+      name: Axe_3
       rect:
         serializedVersion: 2
         x: 32
@@ -523,7 +523,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -537,7 +537,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_16
+      name: Axe_4
       rect:
         serializedVersion: 2
         x: 48
@@ -545,7 +545,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -559,7 +559,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_17
+      name: Axe_5
       rect:
         serializedVersion: 2
         x: 64
@@ -567,7 +567,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -581,7 +581,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_18
+      name: Axe_6
       rect:
         serializedVersion: 2
         x: 80
@@ -589,7 +589,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -603,7 +603,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_19
+      name: Axe_7
       rect:
         serializedVersion: 2
         x: 96
@@ -611,7 +611,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -625,7 +625,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_20
+      name: Axe_8
       rect:
         serializedVersion: 2
         x: 112
@@ -633,7 +633,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -647,7 +647,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_21
+      name: Tornado_1
       rect:
         serializedVersion: 2
         x: 0
@@ -655,7 +655,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -669,7 +669,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_22
+      name: Tornado_2
       rect:
         serializedVersion: 2
         x: 16
@@ -677,7 +677,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -691,7 +691,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_23
+      name: Tornado_3
       rect:
         serializedVersion: 2
         x: 32
@@ -699,7 +699,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -713,7 +713,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_24
+      name: Spark_1
       rect:
         serializedVersion: 2
         x: 0
@@ -721,7 +721,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -735,7 +735,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_25
+      name: Spark_2
       rect:
         serializedVersion: 2
         x: 16
@@ -743,7 +743,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -757,7 +757,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectiles_animated_26
+      name: Spark_3
       rect:
         serializedVersion: 2
         x: 32
@@ -765,7 +765,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -792,33 +792,33 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      projectiles_animated_0: 5586893323023542045
-      projectiles_animated_1: 710025986130395986
-      projectiles_animated_10: -7758976079953819543
-      projectiles_animated_11: 6542683333259143704
-      projectiles_animated_12: -3424850566095960912
-      projectiles_animated_13: 2884764326225254705
-      projectiles_animated_14: -5459307548176927784
-      projectiles_animated_15: -5521875851767396865
-      projectiles_animated_16: 3230574024418423409
-      projectiles_animated_17: 2765494993599200608
-      projectiles_animated_18: 3804224456035187940
-      projectiles_animated_19: -6803844804462682419
-      projectiles_animated_2: 533854682510514685
-      projectiles_animated_20: 5429301217675283534
-      projectiles_animated_21: 3863820443937887691
-      projectiles_animated_22: -3546176095373675549
-      projectiles_animated_23: 6275166944831259895
-      projectiles_animated_24: -1756710713196441331
-      projectiles_animated_25: 892841964
-      projectiles_animated_26: -2006656687
-      projectiles_animated_3: 425589423846265076
-      projectiles_animated_4: 2727294238010262201
-      projectiles_animated_5: -1635217011464536243
-      projectiles_animated_6: -5480391197257148358
-      projectiles_animated_7: 7312900649342027165
-      projectiles_animated_8: -6585234603580087921
-      projectiles_animated_9: 6815490075663543902
+      Arrow_1: 5586893323023542045
+      Arrow_2: 710025986130395986
+      Axe_1: 2884764326225254705
+      Axe_2: -5459307548176927784
+      Axe_3: -5521875851767396865
+      Axe_4: 3230574024418423409
+      Axe_5: 2765494993599200608
+      Axe_6: 3804224456035187940
+      Axe_7: -6803844804462682419
+      Axe_8: 5429301217675283534
+      Bone_1: 533854682510514685
+      Bone_2: 425589423846265076
+      Bone_3: 2727294238010262201
+      Bone_4: -1635217011464536243
+      Bone_5: -5480391197257148358
+      Bone_6: 7312900649342027165
+      Bone_7: -6585234603580087921
+      Bone_8: 6815490075663543902
+      Fireball_1: -7758976079953819543
+      Fireball_2: 6542683333259143704
+      Fireball_3: -3424850566095960912
+      Spark_1: -1756710713196441331
+      Spark_2: 892841964
+      Spark_3: -2006656687
+      Tornado_1: 3863820443937887691
+      Tornado_2: -3546176095373675549
+      Tornado_3: 6275166944831259895
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

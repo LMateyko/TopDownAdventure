@@ -3001,6 +3001,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &826332356 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5206849243859295674, guid: 9c19e09916fafbf4ca5aae89ae5e85ee, type: 3}
+  m_PrefabInstance: {fileID: 5295757682106180333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1072891800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3078,6 +3083,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072891800}
   m_CullTransparentMesh: 1
+--- !u!4 &1134598698 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2707059229607901924, guid: 9c19e09916fafbf4ca5aae89ae5e85ee, type: 3}
+  m_PrefabInstance: {fileID: 5295757682106180333}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1196932017 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4284545352042371797, guid: 9c19e09916fafbf4ca5aae89ae5e85ee, type: 3}
+  m_PrefabInstance: {fileID: 5295757682106180333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1206001878
 GameObject:
   m_ObjectHideFlags: 0
@@ -3725,6 +3740,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5596371825897323416, guid: 9c19e09916fafbf4ca5aae89ae5e85ee, type: 3}
+      propertyPath: m_socketUpSwing
+      value: 
+      objectReference: {fileID: 1134598698}
+    - target: {fileID: 5596371825897323416, guid: 9c19e09916fafbf4ca5aae89ae5e85ee, type: 3}
+      propertyPath: m_socketDownSwing
+      value: 
+      objectReference: {fileID: 1196932017}
+    - target: {fileID: 5596371825897323416, guid: 9c19e09916fafbf4ca5aae89ae5e85ee, type: 3}
+      propertyPath: m_socketForwardSwing
+      value: 
+      objectReference: {fileID: 826332356}
     - target: {fileID: 7521504739715578910, guid: 9c19e09916fafbf4ca5aae89ae5e85ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.5

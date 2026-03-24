@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
 
     public void OnSword(InputAction.CallbackContext context)
     {
-        m_weaponAnimator.Play("WeaponSword_Attack");
+        m_weaponAnimator.Play("Weapon_Sword_Attack");
     }
 
     public void OnAbilityOne(InputAction.CallbackContext context)
@@ -78,14 +78,13 @@ public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
         throw new System.NotImplementedException();
     }
 
-    public void OnAbilityThree(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void OnAbilityTwo(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        m_weaponAnimator.Play("Weapon_Bow_Attack");
     }
 
+    public void OnAbilityThree(InputAction.CallbackContext context)
+    {
+        m_weaponAnimator.Play("Weapon_Pick_Attack");
+    }
 }

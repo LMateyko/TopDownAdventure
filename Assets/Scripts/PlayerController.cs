@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
 
     public void OnAbilityOne(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        m_weaponAnimator.Play("Weapon_Book_Block");
     }
 
     public void OnAbilityTwo(InputAction.CallbackContext context)

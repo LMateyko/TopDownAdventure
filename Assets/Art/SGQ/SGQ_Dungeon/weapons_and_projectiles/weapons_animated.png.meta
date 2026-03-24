@@ -645,10 +645,10 @@ TextureImporter:
       name: Weapon_Book_1
       rect:
         serializedVersion: 2
-        x: 7
-        y: 353
-        width: 7
-        height: 12
+        x: 13
+        y: 341
+        width: 23
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -667,10 +667,10 @@ TextureImporter:
       name: Weapon_Book_2
       rect:
         serializedVersion: 2
-        x: 53
-        y: 353
-        width: 11
-        height: 12
+        x: 60
+        y: 341
+        width: 23
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -689,8 +689,8 @@ TextureImporter:
       name: Weapon_Book_3
       rect:
         serializedVersion: 2
-        x: 95
-        y: 349
+        x: 108
+        y: 342
         width: 23
         height: 23
       alignment: 0
@@ -711,8 +711,8 @@ TextureImporter:
       name: Weapon_Book_4
       rect:
         serializedVersion: 2
-        x: 143
-        y: 349
+        x: 156
+        y: 343
         width: 23
         height: 23
       alignment: 0
@@ -733,8 +733,8 @@ TextureImporter:
       name: Weapon_Book_5
       rect:
         serializedVersion: 2
-        x: 191
-        y: 349
+        x: 205
+        y: 345
         width: 23
         height: 23
       alignment: 0
@@ -755,10 +755,10 @@ TextureImporter:
       name: Weapon_Book_6
       rect:
         serializedVersion: 2
-        x: 243
-        y: 355
-        width: 15
-        height: 15
+        x: 252
+        y: 346
+        width: 23
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -777,10 +777,10 @@ TextureImporter:
       name: Weapon_Book_7
       rect:
         serializedVersion: 2
-        x: 291
-        y: 354
-        width: 15
-        height: 14
+        x: 300
+        y: 346
+        width: 23
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -799,10 +799,10 @@ TextureImporter:
       name: Weapon_Book_8
       rect:
         serializedVersion: 2
-        x: 339
-        y: 354
-        width: 15
-        height: 13
+        x: 350
+        y: 347
+        width: 23
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -813,72 +813,6 @@ TextureImporter:
       bones: []
       spriteID: 920a6b46272a2e130800000000000000
       internalID: 3594614064794738729
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Weapon_Book_9
-      rect:
-        serializedVersion: 2
-        x: 389
-        y: 353
-        width: 11
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6919038a71ac23bd0800000000000000
-      internalID: -2651835027612986986
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Weapon_Book_10
-      rect:
-        serializedVersion: 2
-        x: 437
-        y: 353
-        width: 11
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7bd187f571e67c100800000000000000
-      internalID: 128192161068359095
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Weapon_Book_11
-      rect:
-        serializedVersion: 2
-        x: 487
-        y: 354
-        width: 7
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7e054f1e27fd02230800000000000000
-      internalID: 3612132585661288679
       vertices: []
       indices: 
       edges: []
@@ -1033,84 +967,84 @@ TextureImporter:
       Weapon_Sword_3: -2628355943858528398
       Weapon_Sword_4: 7809248645385494123
       Weapon_Sword_5: 1047362786884787520
-      weapons_animated_0: 9166697368991561274
-      weapons_animated_1: -7195432196877399091
-      weapons_animated_100: -6071140968136964533
-      weapons_animated_101: 6372885043298711830
-      weapons_animated_102: 5887143513324854466
-      weapons_animated_103: 8675656957012093843
-      weapons_animated_15: 6053007328476571920
-      weapons_animated_16: -6360239995227067571
-      weapons_animated_17: 8797266167073658460
-      weapons_animated_18: -8787341332865225500
-      weapons_animated_19: 1114185480740044787
-      weapons_animated_2: 7005842912156087038
-      weapons_animated_20: 3412317091089675213
-      weapons_animated_21: 8818333903767970081
-      weapons_animated_22: -5961173191628868930
-      weapons_animated_23: 6200651933685040168
-      weapons_animated_24: 6814022934983414805
-      weapons_animated_25: -5023452937521108021
-      weapons_animated_26: 7746386640715815029
-      weapons_animated_27: 7435188486302622145
-      weapons_animated_28: 3439477985951605240
-      weapons_animated_29: -4007668090372418287
-      weapons_animated_3: -2450485638745080953
-      weapons_animated_35: -3159232577639965076
-      weapons_animated_36: -3742186032375062862
-      weapons_animated_37: -2915313078357983734
-      weapons_animated_38: -6577697752902395492
-      weapons_animated_39: -5422525519165331349
-      weapons_animated_4: 3656100507426132159
-      weapons_animated_5: -6665758717590994263
-      weapons_animated_51: 605682804608062889
-      weapons_animated_52: -3483949740938823414
-      weapons_animated_53: 5942414107231396222
-      weapons_animated_54: -7408286024730373233
-      weapons_animated_55: 2600040407090940635
-      weapons_animated_56: 4586922394080517986
-      weapons_animated_57: -1261630186894649414
-      weapons_animated_58: 471935235551858137
-      weapons_animated_59: -1364365855072047722
-      weapons_animated_6: 2662772056748406588
-      weapons_animated_60: -5303500770677539150
-      weapons_animated_61: 464175415807161706
-      weapons_animated_62: 8405818009893640157
-      weapons_animated_63: -6558332024500307770
-      weapons_animated_64: 6990457385232164626
-      weapons_animated_65: -2074561367947179085
-      weapons_animated_66: 5901597934335431219
-      weapons_animated_67: -618095193846476451
-      weapons_animated_68: 423127161109815144
-      weapons_animated_69: 2274437120290146529
-      weapons_animated_7: 6170102720982907595
-      weapons_animated_70: -1067152137286694418
-      weapons_animated_71: 7921361545806330553
-      weapons_animated_72: 4610172848058809105
-      weapons_animated_73: 4439480475169843503
-      weapons_animated_74: 6911923559392570620
-      weapons_animated_75: -794487623204212399
-      weapons_animated_76: -3080633386191815136
-      weapons_animated_77: -4463220305145263409
-      weapons_animated_78: -3796185314003396587
-      weapons_animated_79: 74343571779537186
-      weapons_animated_8: -8980968591432032284
-      weapons_animated_80: -7204490617790497329
-      weapons_animated_81: -262025607510199357
-      weapons_animated_82: -7683172774088899754
-      weapons_animated_83: -1322699721390255284
-      weapons_animated_84: -919501332012155257
-      weapons_animated_85: 7026734177009826471
-      weapons_animated_86: -1986818105025868833
-      weapons_animated_87: 5580936664262179229
-      weapons_animated_88: 2183564824867378925
-      weapons_animated_89: -7029531054215294968
-      weapons_animated_9: 9173734691675651854
-      weapons_animated_90: -694170213184506255
-      weapons_animated_91: 8359882725696856026
-      weapons_animated_92: -7867689002765753541
-      weapons_animated_93: 2017344130517465565
-      weapons_animated_99: -5384850982254919094
+      weapons_animated_0: 477757474
+      weapons_animated_1: 500490924
+      weapons_animated_100: 85671177
+      weapons_animated_101: 31178793
+      weapons_animated_102: -26170766
+      weapons_animated_103: -1991397977
+      weapons_animated_15: 1787136005
+      weapons_animated_16: -1795165100
+      weapons_animated_17: -1148304965
+      weapons_animated_18: -2094383204
+      weapons_animated_19: -979025001
+      weapons_animated_2: -1459512746
+      weapons_animated_20: 94379476
+      weapons_animated_21: -1082041781
+      weapons_animated_22: -1579359315
+      weapons_animated_23: 345124262
+      weapons_animated_24: 1256794387
+      weapons_animated_25: -1217921832
+      weapons_animated_26: -1770661323
+      weapons_animated_27: -1330211916
+      weapons_animated_28: -1213563703
+      weapons_animated_29: 500983732
+      weapons_animated_3: 662247427
+      weapons_animated_35: 1400513480
+      weapons_animated_36: 777069513
+      weapons_animated_37: -1696306639
+      weapons_animated_38: -1750372167
+      weapons_animated_39: -335508741
+      weapons_animated_4: -2106916219
+      weapons_animated_5: 615024924
+      weapons_animated_51: -1264989841
+      weapons_animated_52: 1489331667
+      weapons_animated_53: 1739927721
+      weapons_animated_54: -1525033452
+      weapons_animated_55: -450734884
+      weapons_animated_56: -74842097
+      weapons_animated_57: -41448918
+      weapons_animated_58: -471638671
+      weapons_animated_59: -4443073
+      weapons_animated_6: -1452224088
+      weapons_animated_60: 841929867
+      weapons_animated_61: -1304439952
+      weapons_animated_62: -1503599346
+      weapons_animated_63: -331622034
+      weapons_animated_64: -1340737823
+      weapons_animated_65: -2063574864
+      weapons_animated_66: 443749108
+      weapons_animated_67: -152934734
+      weapons_animated_68: 1132392872
+      weapons_animated_69: 185121139
+      weapons_animated_7: 1431034176
+      weapons_animated_70: 347187826
+      weapons_animated_71: -916766986
+      weapons_animated_72: 1493285264
+      weapons_animated_73: -291663467
+      weapons_animated_74: 1609519466
+      weapons_animated_75: -214947664
+      weapons_animated_76: 1933220774
+      weapons_animated_77: -1997361604
+      weapons_animated_78: -1798264681
+      weapons_animated_79: 2049703876
+      weapons_animated_8: -841307330
+      weapons_animated_80: 680867838
+      weapons_animated_81: -2029925343
+      weapons_animated_82: 1278158521
+      weapons_animated_83: 1517475834
+      weapons_animated_84: -1731464939
+      weapons_animated_85: 1607401089
+      weapons_animated_86: -1202841803
+      weapons_animated_87: -1859609951
+      weapons_animated_88: 296745188
+      weapons_animated_89: -222130817
+      weapons_animated_9: 1290558737
+      weapons_animated_90: 969482812
+      weapons_animated_91: -1047329718
+      weapons_animated_92: 1100601169
+      weapons_animated_93: 1138617717
+      weapons_animated_99: -1155311808
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

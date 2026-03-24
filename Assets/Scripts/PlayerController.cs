@@ -73,17 +73,25 @@ public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
         m_weaponAnimator.Play("Weapon_Sword_Attack");
     }
 
-    public void OnAbilityOne(InputAction.CallbackContext context)
+    public void OnBookBlock(InputAction.CallbackContext context)
     {
-        m_weaponAnimator.Play("Weapon_Book_Block");
+        if(context.started)
+        {
+            m_weaponAnimator.Play("Weapon_Book_Open");
+        }
+        else if(context.canceled)
+        {
+            m_weaponAnimator.Play("Weapon_Idle");
+        }
+        
     }
 
-    public void OnAbilityTwo(InputAction.CallbackContext context)
+    public void OnBowShoot(InputAction.CallbackContext context)
     {
         m_weaponAnimator.Play("Weapon_Bow_Attack");
     }
 
-    public void OnAbilityThree(InputAction.CallbackContext context)
+    public void OnPickSwing(InputAction.CallbackContext context)
     {
         m_weaponAnimator.Play("Weapon_Pick_Attack");
     }

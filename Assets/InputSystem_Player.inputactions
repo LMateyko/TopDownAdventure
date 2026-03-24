@@ -25,16 +25,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "AbilityOne",
+                    "name": "BookBlock",
                     "type": "Button",
                     "id": "60339b14-ee25-4107-b7ff-345739e2add7",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "AbilityTwo",
+                    "name": "BowShoot",
                     "type": "Button",
                     "id": "94ac3424-0a66-4c97-b3c0-059c6612e4eb",
                     "expectedControlType": "",
@@ -43,7 +43,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "AbilityThree",
+                    "name": "PickSwing",
                     "type": "Button",
                     "id": "7b962bbf-1ea9-4307-b1e2-9c845612c3c5",
                     "expectedControlType": "",
@@ -203,7 +203,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "AbilityOne",
+                    "action": "BookBlock",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -214,7 +214,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "AbilityOne",
+                    "action": "BookBlock",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -225,7 +225,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "AbilityOne",
+                    "action": "BookBlock",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -236,7 +236,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "AbilityTwo",
+                    "action": "BowShoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -247,7 +247,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "AbilityTwo",
+                    "action": "BowShoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -258,7 +258,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "AbilityTwo",
+                    "action": "BowShoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -269,7 +269,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "AbilityTwo",
+                    "action": "BowShoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -280,7 +280,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "AbilityThree",
+                    "action": "PickSwing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -291,7 +291,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "AbilityThree",
+                    "action": "PickSwing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -302,7 +302,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "AbilityThree",
+                    "action": "PickSwing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -313,7 +313,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "AbilityThree",
+                    "action": "PickSwing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

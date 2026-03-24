@@ -111,16 +111,16 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""AbilityOne"",
+                    ""name"": ""BookBlock"",
                     ""type"": ""Button"",
                     ""id"": ""60339b14-ee25-4107-b7ff-345739e2add7"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""AbilityTwo"",
+                    ""name"": ""BowShoot"",
                     ""type"": ""Button"",
                     ""id"": ""94ac3424-0a66-4c97-b3c0-059c6612e4eb"",
                     ""expectedControlType"": """",
@@ -129,7 +129,7 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""AbilityThree"",
+                    ""name"": ""PickSwing"",
                     ""type"": ""Button"",
                     ""id"": ""7b962bbf-1ea9-4307-b1e2-9c845612c3c5"",
                     ""expectedControlType"": """",
@@ -289,7 +289,7 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""AbilityOne"",
+                    ""action"": ""BookBlock"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -300,7 +300,7 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""AbilityOne"",
+                    ""action"": ""BookBlock"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -311,7 +311,7 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""AbilityOne"",
+                    ""action"": ""BookBlock"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -322,7 +322,7 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""AbilityTwo"",
+                    ""action"": ""BowShoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -333,7 +333,7 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""AbilityTwo"",
+                    ""action"": ""BowShoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -344,7 +344,7 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""AbilityTwo"",
+                    ""action"": ""BowShoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -355,7 +355,7 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""AbilityTwo"",
+                    ""action"": ""BowShoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -366,7 +366,7 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""AbilityThree"",
+                    ""action"": ""PickSwing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -377,7 +377,7 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""AbilityThree"",
+                    ""action"": ""PickSwing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -388,7 +388,7 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""AbilityThree"",
+                    ""action"": ""PickSwing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -399,7 +399,7 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""AbilityThree"",
+                    ""action"": ""PickSwing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -435,9 +435,9 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Sword = m_Player.FindAction("Sword", throwIfNotFound: true);
-        m_Player_AbilityOne = m_Player.FindAction("AbilityOne", throwIfNotFound: true);
-        m_Player_AbilityTwo = m_Player.FindAction("AbilityTwo", throwIfNotFound: true);
-        m_Player_AbilityThree = m_Player.FindAction("AbilityThree", throwIfNotFound: true);
+        m_Player_BookBlock = m_Player.FindAction("BookBlock", throwIfNotFound: true);
+        m_Player_BowShoot = m_Player.FindAction("BowShoot", throwIfNotFound: true);
+        m_Player_PickSwing = m_Player.FindAction("PickSwing", throwIfNotFound: true);
     }
 
     ~@InputSystem_Player()
@@ -520,9 +520,9 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Sword;
-    private readonly InputAction m_Player_AbilityOne;
-    private readonly InputAction m_Player_AbilityTwo;
-    private readonly InputAction m_Player_AbilityThree;
+    private readonly InputAction m_Player_BookBlock;
+    private readonly InputAction m_Player_BowShoot;
+    private readonly InputAction m_Player_PickSwing;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -543,17 +543,17 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Sword => m_Wrapper.m_Player_Sword;
         /// <summary>
-        /// Provides access to the underlying input action "Player/AbilityOne".
+        /// Provides access to the underlying input action "Player/BookBlock".
         /// </summary>
-        public InputAction @AbilityOne => m_Wrapper.m_Player_AbilityOne;
+        public InputAction @BookBlock => m_Wrapper.m_Player_BookBlock;
         /// <summary>
-        /// Provides access to the underlying input action "Player/AbilityTwo".
+        /// Provides access to the underlying input action "Player/BowShoot".
         /// </summary>
-        public InputAction @AbilityTwo => m_Wrapper.m_Player_AbilityTwo;
+        public InputAction @BowShoot => m_Wrapper.m_Player_BowShoot;
         /// <summary>
-        /// Provides access to the underlying input action "Player/AbilityThree".
+        /// Provides access to the underlying input action "Player/PickSwing".
         /// </summary>
-        public InputAction @AbilityThree => m_Wrapper.m_Player_AbilityThree;
+        public InputAction @PickSwing => m_Wrapper.m_Player_PickSwing;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -586,15 +586,15 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
             @Sword.started += instance.OnSword;
             @Sword.performed += instance.OnSword;
             @Sword.canceled += instance.OnSword;
-            @AbilityOne.started += instance.OnAbilityOne;
-            @AbilityOne.performed += instance.OnAbilityOne;
-            @AbilityOne.canceled += instance.OnAbilityOne;
-            @AbilityTwo.started += instance.OnAbilityTwo;
-            @AbilityTwo.performed += instance.OnAbilityTwo;
-            @AbilityTwo.canceled += instance.OnAbilityTwo;
-            @AbilityThree.started += instance.OnAbilityThree;
-            @AbilityThree.performed += instance.OnAbilityThree;
-            @AbilityThree.canceled += instance.OnAbilityThree;
+            @BookBlock.started += instance.OnBookBlock;
+            @BookBlock.performed += instance.OnBookBlock;
+            @BookBlock.canceled += instance.OnBookBlock;
+            @BowShoot.started += instance.OnBowShoot;
+            @BowShoot.performed += instance.OnBowShoot;
+            @BowShoot.canceled += instance.OnBowShoot;
+            @PickSwing.started += instance.OnPickSwing;
+            @PickSwing.performed += instance.OnPickSwing;
+            @PickSwing.canceled += instance.OnPickSwing;
         }
 
         /// <summary>
@@ -612,15 +612,15 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
             @Sword.started -= instance.OnSword;
             @Sword.performed -= instance.OnSword;
             @Sword.canceled -= instance.OnSword;
-            @AbilityOne.started -= instance.OnAbilityOne;
-            @AbilityOne.performed -= instance.OnAbilityOne;
-            @AbilityOne.canceled -= instance.OnAbilityOne;
-            @AbilityTwo.started -= instance.OnAbilityTwo;
-            @AbilityTwo.performed -= instance.OnAbilityTwo;
-            @AbilityTwo.canceled -= instance.OnAbilityTwo;
-            @AbilityThree.started -= instance.OnAbilityThree;
-            @AbilityThree.performed -= instance.OnAbilityThree;
-            @AbilityThree.canceled -= instance.OnAbilityThree;
+            @BookBlock.started -= instance.OnBookBlock;
+            @BookBlock.performed -= instance.OnBookBlock;
+            @BookBlock.canceled -= instance.OnBookBlock;
+            @BowShoot.started -= instance.OnBowShoot;
+            @BowShoot.performed -= instance.OnBowShoot;
+            @BowShoot.canceled -= instance.OnBowShoot;
+            @PickSwing.started -= instance.OnPickSwing;
+            @PickSwing.performed -= instance.OnPickSwing;
+            @PickSwing.canceled -= instance.OnPickSwing;
         }
 
         /// <summary>
@@ -702,25 +702,25 @@ public partial class @InputSystem_Player: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSword(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "AbilityOne" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "BookBlock" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAbilityOne(InputAction.CallbackContext context);
+        void OnBookBlock(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "AbilityTwo" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "BowShoot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAbilityTwo(InputAction.CallbackContext context);
+        void OnBowShoot(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "AbilityThree" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "PickSwing" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAbilityThree(InputAction.CallbackContext context);
+        void OnPickSwing(InputAction.CallbackContext context);
     }
 }

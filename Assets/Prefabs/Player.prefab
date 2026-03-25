@@ -52,6 +52,10 @@ MonoBehaviour:
   m_animator: {fileID: 4548420627166588551}
   m_weaponAnimator: {fileID: 5067734557167731747}
   m_rigidBody: {fileID: 6128169809739262719}
+  m_swordConfig: {fileID: 11400000, guid: 2a15ae4cacd0f494ebbc1ab00e3942f3, type: 2}
+  m_bookConfig: {fileID: 11400000, guid: 9b223c9c3114e614081aa228ddf22155, type: 2}
+  m_pickConfig: {fileID: 11400000, guid: 03b1dac52baa3bc47bac75de39ced64b, type: 2}
+  m_bowConfig: {fileID: 11400000, guid: 88ed82d042ab60645a2068a29baf7268, type: 2}
   m_socketUpSwing: {fileID: 2707059229607901924}
   m_socketForwardSwing: {fileID: 5206849243859295674}
   m_socketDownSwing: {fileID: 4284545352042371797}

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,7 +12,13 @@ public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
     [SerializeField] private Animator m_weaponAnimator;
     [SerializeField] private Rigidbody2D m_rigidBody;
 
-    [Header("Sword Sockets")]
+    [Header("Weapon Configurations")]
+    [SerializeField] private WeaponConfiguration m_swordConfig;
+    [SerializeField] private WeaponConfiguration m_bookConfig;
+    [SerializeField] private WeaponConfiguration m_pickConfig;
+    [SerializeField] private WeaponConfiguration m_bowConfig;
+
+    [Header("Weapon Sockets")]
     [SerializeField] private Transform m_socketUpSwing;
     [SerializeField] private Transform m_socketForwardSwing;
     [SerializeField] private Transform m_socketDownSwing;
@@ -22,11 +29,63 @@ public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
     private InputSystem_Player m_playerInputSystem;
     private InputSystem_Player.PlayerActions m_playerActions;
 
+    private bool m_weaponAnimStarted = false;
+    private WeaponConfiguration.WeaponEnum m_currentWeapon = WeaponConfiguration.WeaponEnum.None;
+    private Dictionary<WeaponConfiguration.WeaponEnum, WeaponConfiguration> m_weaponMap 
+        = new Dictionary<WeaponConfiguration.WeaponEnum, WeaponConfiguration>();
+
+    private Vector2 m_targetVelocity;
+
+    #region IPlayerActions Implementation
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        var moveValue = context.ReadValue<Vector2>();
+        m_targetVelocity = moveValue * m_characterSpeed;
+    }
+
+    public void OnSword(InputAction.CallbackContext context)
+    {
+        if(context.started)
+            UseWeapon(m_swordConfig);
+    }
+
+    public void OnBookBlock(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            UseWeapon(m_bookConfig);
+        }
+        else if (context.canceled)
+        {
+            StopWeapon();
+        }
+    }
+
+    public void OnBowShoot(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            UseWeapon(m_bowConfig);
+    }
+
+    public void OnPickSwing(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            UseWeapon(m_pickConfig);
+    }
+
+    #endregion
+
+    #region Unity Functions
     private void Awake()
     {
         m_playerInputSystem = new InputSystem_Player();
         m_playerActions = m_playerInputSystem.Player;
         m_playerActions.AddCallbacks(this);
+
+        m_weaponMap.Add(WeaponConfiguration.WeaponEnum.Sword,   m_swordConfig);
+        m_weaponMap.Add(WeaponConfiguration.WeaponEnum.Book,    m_bookConfig);
+        m_weaponMap.Add(WeaponConfiguration.WeaponEnum.Pick,    m_pickConfig);
+        m_weaponMap.Add(WeaponConfiguration.WeaponEnum.Bow,     m_bowConfig);
     }
 
     private void OnEnable()
@@ -44,17 +103,51 @@ public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
         m_playerInputSystem.Dispose();
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    private void Update()
     {
-        var moveValue = context.ReadValue<Vector2>();
+        if (m_currentWeapon == WeaponConfiguration.WeaponEnum.None)
+        {
+            m_rigidBody.linearVelocity = m_targetVelocity;
+            SetFacing(m_rigidBody.linearVelocity);
+        }
+        else
+        {
+            m_rigidBody.linearVelocity = m_targetVelocity * m_weaponMap[m_currentWeapon].SpeedMultiplier;
+            if (m_weaponMap[m_currentWeapon].AllowFacingChange)
+                SetFacing(m_rigidBody.linearVelocity);
 
-        m_rigidBody.linearVelocity = moveValue * m_characterSpeed;
-        if (m_rigidBody.linearVelocity == Vector2.zero)
+            if (IsInWeaponAnim(m_weaponMap[m_currentWeapon].WeaponAnimation))
+                m_weaponAnimStarted = true;
+
+            if (m_weaponMap[m_currentWeapon].AnimationTransition && m_weaponAnimStarted
+                && !IsInWeaponAnim(m_weaponMap[m_currentWeapon].WeaponAnimation))
+            {
+                m_currentWeapon = WeaponConfiguration.WeaponEnum.None;
+            }
+        }
+
+        if (m_targetVelocity == Vector2.zero)
             m_animator.Play("Player_Idle");
         else
             m_animator.Play("Player_Run");
+    }
+    #endregion
 
-        // TODO: Prevent Socket adjustment and sprite flipping while swinging
+    private void UseWeapon(WeaponConfiguration currentWeapon)
+    {
+        m_weaponAnimStarted = false;
+        m_currentWeapon = currentWeapon.WeaponType;
+        m_weaponAnimator.Play(currentWeapon.WeaponAnimation);
+    }
+
+    private void StopWeapon()
+    {
+        m_weaponAnimator.Play("Weapon_Idle");
+        m_currentWeapon = WeaponConfiguration.WeaponEnum.None;
+    }
+
+    private void SetFacing(Vector2 moveValue)
+    {
         if (moveValue.y > 0)
             m_weaponAnimator.transform.SetParent(m_socketUpSwing, false);
         else if (moveValue.y < 0)
@@ -68,31 +161,9 @@ public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
             transform.localScale = FaceLeftScale;
     }
 
-    public void OnSword(InputAction.CallbackContext context)
+    private bool IsInWeaponAnim(string weaponAnim)
     {
-        m_weaponAnimator.Play("Weapon_Sword_Attack");
-    }
-
-    public void OnBookBlock(InputAction.CallbackContext context)
-    {
-        if(context.started)
-        {
-            m_weaponAnimator.Play("Weapon_Book_Open");
-        }
-        else if(context.canceled)
-        {
-            m_weaponAnimator.Play("Weapon_Idle");
-        }
-        
-    }
-
-    public void OnBowShoot(InputAction.CallbackContext context)
-    {
-        m_weaponAnimator.Play("Weapon_Bow_Attack");
-    }
-
-    public void OnPickSwing(InputAction.CallbackContext context)
-    {
-        m_weaponAnimator.Play("Weapon_Pick_Attack");
+        var animHash = Animator.StringToHash(weaponAnim);
+        return m_weaponAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == animHash;
     }
 }

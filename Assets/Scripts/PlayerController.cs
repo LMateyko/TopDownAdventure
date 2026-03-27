@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
     [Header("Character References")]
     [SerializeField] private Animator m_animator;
     [SerializeField] private Animator m_weaponAnimator;
-    [SerializeField] private Rigidbody2D m_rigidBody;
+    [SerializeField] private Rigidbody2D m_rigidbody;
 
     [Header("Weapon Configurations")]
     [SerializeField] private WeaponConfiguration m_swordConfig;
@@ -107,14 +107,14 @@ public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
     {
         if (m_currentWeapon == WeaponConfiguration.WeaponEnum.None)
         {
-            m_rigidBody.linearVelocity = m_targetVelocity;
-            SetFacing(m_rigidBody.linearVelocity);
+            m_rigidbody.linearVelocity = m_targetVelocity;
+            SetFacing(m_rigidbody.linearVelocity);
         }
         else
         {
-            m_rigidBody.linearVelocity = m_targetVelocity * m_weaponMap[m_currentWeapon].SpeedMultiplier;
+            m_rigidbody.linearVelocity = m_targetVelocity * m_weaponMap[m_currentWeapon].SpeedMultiplier;
             if (m_weaponMap[m_currentWeapon].AllowFacingChange)
-                SetFacing(m_rigidBody.linearVelocity);
+                SetFacing(m_rigidbody.linearVelocity);
 
             if (IsInWeaponAnim(m_weaponMap[m_currentWeapon].WeaponAnimation))
                 m_weaponAnimStarted = true;

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4548420627166588551}
   - component: {fileID: 6128169809739262719}
   - component: {fileID: 7339507938217232347}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_characterSpeed: 3
   m_animator: {fileID: 4548420627166588551}
   m_weaponAnimator: {fileID: 5067734557167731747}
-  m_rigidBody: {fileID: 6128169809739262719}
+  m_rigidbody: {fileID: 6128169809739262719}
   m_swordConfig: {fileID: 11400000, guid: 2a15ae4cacd0f494ebbc1ab00e3942f3, type: 2}
   m_bookConfig: {fileID: 11400000, guid: 9b223c9c3114e614081aa228ddf22155, type: 2}
   m_pickConfig: {fileID: 11400000, guid: 03b1dac52baa3bc47bac75de39ced64b, type: 2}
@@ -125,7 +125,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -165,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5933656967633596296}
   - component: {fileID: 4663418756757276675}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 8305947454066232867}
   - component: {fileID: 7686287129130152996}
   - component: {fileID: 5067734557167731747}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2707059229607901924}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponSocket_Up
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -392,7 +392,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5206849243859295674}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponSocket_Forward
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
@@ -424,7 +424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6413246829424077916}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponSockets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4284545352042371797}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponSocket_Down
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}

@@ -5,48 +5,44 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private float m_speed = 5f;
+    [SerializeField] private int m_maxHealth = 3;
 
     [SerializeField] private Animator m_animator;
     [SerializeField] private Rigidbody2D m_rigidbody;
 
+    private bool IsAlive => m_currentHealth > 0;
+
     private Vector2 m_moveDirection = Vector2.right;
-    private int m_lastContactTotal = 0;
+    private int m_currentHealth;
 
     private readonly Vector3 FaceRightScale = new Vector3(1, 1, 1);
     private readonly Vector3 FaceLeftScale = new Vector3(-1, 1, 1);
     private readonly float WallOffset = .025f;
 
-    private ContactPoint2D[] m_contactCache = new ContactPoint2D[8];
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
         m_animator.Play("Slime_Run");
+        m_currentHealth = m_maxHealth;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        m_rigidbody.linearVelocity = m_moveDirection * m_speed;
-
-        //EvaluateContacts();
-    }
-
-    private void EvaluateContacts()
-    {
-        var totalContacts = m_rigidbody.GetContacts(m_contactCache);
-
-        // No Need to Update State
-        if (totalContacts == m_lastContactTotal)
+        if (!IsAlive)
+        {
+            m_rigidbody.linearVelocity = Vector2.zero;
             return;
+        }
 
-        ChangeDirection(m_contactCache);
-
-        m_lastContactTotal = totalContacts;
+        m_rigidbody.linearVelocity = m_moveDirection * m_speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!IsAlive)
+            return;
+
         ChangeDirection(collision.contacts);
     }
 
@@ -55,7 +51,7 @@ public class EnemyController : MonoBehaviour
         // Determine valid directions based on current contacts 
         List<Vector2> directions = new List<Vector2>() { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
         Vector3 cleanNormal;
-        foreach(var contact in currentContacts)
+        foreach (var contact in currentContacts)
         {
             cleanNormal = contact.normal;
             if (Mathf.Abs(cleanNormal.y) < 0.1f)
@@ -78,4 +74,24 @@ public class EnemyController : MonoBehaviour
         else if (m_moveDirection.x < 0)
             transform.localScale = FaceLeftScale;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!IsAlive)
+            return;
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Attack"))
+            TakeDamage();
+    }
+
+    private void TakeDamage()
+    {
+        m_currentHealth--;
+
+        if (m_currentHealth <= 0)
+            Destroy(gameObject);
+        else
+            m_animator.Play("Slime_Hurt");
+    }
+    
 }

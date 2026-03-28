@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -46,6 +47,11 @@ public class CharacterController : MonoBehaviour
         var fullAnimName = $"{m_characterPrefix}_{animationName}";
         return m_animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash(fullAnimName);
     }
+    
+    protected bool IsAnimComplete()
+    {
+        return m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f;
+    }
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
@@ -58,11 +64,20 @@ public class CharacterController : MonoBehaviour
 
     virtual protected void TakeDamage()
     {
+        // Prevent Multiple Hits while playing the hurt animation
+        if (IsAnimPlaying("Hurt"))
+            return;
+
         m_currentHealth--;
 
         if (m_currentHealth <= 0)
-            Destroy(gameObject);
+            KillCharacter();
         else
             PlayAnimation("Hurt");
+    }
+
+    virtual protected void KillCharacter()
+    {
+        Destroy(gameObject);
     }
 }

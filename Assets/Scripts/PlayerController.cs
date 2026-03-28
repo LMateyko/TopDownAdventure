@@ -95,6 +95,17 @@ public class PlayerController : CharacterController, InputSystem_Player.IPlayerA
 
     private void Update()
     {
+        if (!IsAlive)
+        {
+            m_rigidbody.linearVelocity = Vector2.zero;
+
+            // TODO: Return to checkpoint on death
+            if (IsAnimPlaying("Death") && IsAnimComplete())
+                Destroy(gameObject);
+
+            return;
+        }
+
         if (m_currentWeapon == WeaponConfiguration.WeaponEnum.None)
         {
             m_rigidbody.linearVelocity = m_targetVelocity;
@@ -116,11 +127,23 @@ public class PlayerController : CharacterController, InputSystem_Player.IPlayerA
             }
         }
 
-        if (m_targetVelocity == Vector2.zero)
-            PlayAnimation("Idle");
-        else
-            PlayAnimation("Run");
+        if(!IsAnimPlaying("Hurt"))
+        {
+            if (m_targetVelocity == Vector2.zero)
+                PlayAnimation("Idle");
+            else
+                PlayAnimation("Run");
+        }
     }
+    #endregion
+
+    #region Character Overrides
+
+    protected override void KillCharacter()
+    {
+        PlayAnimation("Death");
+    }
+    
     #endregion
 
     #region Weapon

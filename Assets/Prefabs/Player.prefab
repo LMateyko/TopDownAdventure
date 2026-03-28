@@ -49,10 +49,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac16ea1a5059a545ad15078dda466f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_characterSpeed: 3
+  m_characterPrefix: Player
+  m_speed: 3
+  m_maxHealth: 3
   m_animator: {fileID: 4548420627166588551}
-  m_weaponAnimator: {fileID: 5067734557167731747}
   m_rigidbody: {fileID: 6128169809739262719}
+  m_weaponAnimator: {fileID: 5067734557167731747}
   m_swordConfig: {fileID: 11400000, guid: 2a15ae4cacd0f494ebbc1ab00e3942f3, type: 2}
   m_bookConfig: {fileID: 11400000, guid: 9b223c9c3114e614081aa228ddf22155, type: 2}
   m_pickConfig: {fileID: 11400000, guid: 03b1dac52baa3bc47bac75de39ced64b, type: 2}

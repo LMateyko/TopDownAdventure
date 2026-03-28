@@ -2,17 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
+public class PlayerController : CharacterController, InputSystem_Player.IPlayerActions
 {
-    [Header("Character Settings")]
-    [SerializeField] private float m_characterSpeed = 3f;
-
-    [Header("Character References")]
-    [SerializeField] private Animator m_animator;
-    [SerializeField] private Animator m_weaponAnimator;
-    [SerializeField] private Rigidbody2D m_rigidbody;
-
     [Header("Weapon Configurations")]
+    [SerializeField] private Animator m_weaponAnimator;
     [SerializeField] private WeaponConfiguration m_swordConfig;
     [SerializeField] private WeaponConfiguration m_bookConfig;
     [SerializeField] private WeaponConfiguration m_pickConfig;
@@ -22,9 +15,6 @@ public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
     [SerializeField] private Transform m_socketUpSwing;
     [SerializeField] private Transform m_socketForwardSwing;
     [SerializeField] private Transform m_socketDownSwing;
-
-    private readonly Vector3 FaceRightScale = new Vector3(1, 1, 1);
-    private readonly Vector3 FaceLeftScale = new Vector3(-1, 1, 1);
 
     private InputSystem_Player m_playerInputSystem;
     private InputSystem_Player.PlayerActions m_playerActions;
@@ -40,7 +30,7 @@ public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
     public void OnMove(InputAction.CallbackContext context)
     {
         var moveValue = context.ReadValue<Vector2>();
-        m_targetVelocity = moveValue * m_characterSpeed;
+        m_targetVelocity = moveValue * m_speed;
     }
 
     public void OnSword(InputAction.CallbackContext context)
@@ -127,12 +117,13 @@ public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
         }
 
         if (m_targetVelocity == Vector2.zero)
-            m_animator.Play("Player_Idle");
+            PlayAnimation("Idle");
         else
-            m_animator.Play("Player_Run");
+            PlayAnimation("Run");
     }
     #endregion
 
+    #region Weapon
     private void UseWeapon(WeaponConfiguration currentWeapon)
     {
         m_weaponAnimStarted = false;
@@ -146,19 +137,16 @@ public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
         m_currentWeapon = WeaponConfiguration.WeaponEnum.None;
     }
 
-    private void SetFacing(Vector2 moveValue)
+    protected override void SetFacing(Vector2 moveValue)
     {
+        base.SetFacing(moveValue);
+
         if (moveValue.y > 0)
             m_weaponAnimator.transform.SetParent(m_socketUpSwing, false);
         else if (moveValue.y < 0)
             m_weaponAnimator.transform.SetParent(m_socketDownSwing, false);
         else if (moveValue.y == 0 && moveValue.x != 0)
             m_weaponAnimator.transform.SetParent(m_socketForwardSwing, false);
-
-        if (moveValue.x > 0)
-            transform.localScale = FaceRightScale;
-        else if (moveValue.x < 0)
-            transform.localScale = FaceLeftScale;
     }
 
     private bool IsInWeaponAnim(string weaponAnim)
@@ -166,4 +154,5 @@ public class PlayerController : MonoBehaviour, InputSystem_Player.IPlayerActions
         var animHash = Animator.StringToHash(weaponAnim);
         return m_weaponAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == animHash;
     }
+    #endregion
 }

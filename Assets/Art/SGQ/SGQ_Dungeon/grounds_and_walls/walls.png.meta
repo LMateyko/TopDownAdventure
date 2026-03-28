@@ -1202,7 +1202,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_48
+      name: Wall_Wood_Corner_1
       rect:
         serializedVersion: 2
         x: 0
@@ -1224,7 +1224,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_49
+      name: Wall_Wood_4
       rect:
         serializedVersion: 2
         x: 16
@@ -1246,7 +1246,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_50
+      name: Wall_Wood_Corner_7
       rect:
         serializedVersion: 2
         x: 32
@@ -1268,7 +1268,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_51
+      name: Wall_Wood_1
       rect:
         serializedVersion: 2
         x: 48
@@ -1290,7 +1290,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_52
+      name: Wall_Wood_Post_1
       rect:
         serializedVersion: 2
         x: 80
@@ -1312,7 +1312,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_53
+      name: Wall_Wood_Hole_1
       rect:
         serializedVersion: 2
         x: 96
@@ -1334,7 +1334,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_54
+      name: Wall_Wood_Crack_1
       rect:
         serializedVersion: 2
         x: 112
@@ -1356,7 +1356,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_55
+      name: Wall_Wood_Dark_1
       rect:
         serializedVersion: 2
         x: 128
@@ -1378,7 +1378,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_56
+      name: Wall_Wood_Door_Up_1
       rect:
         serializedVersion: 2
         x: 160
@@ -1400,7 +1400,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_57
+      name: Wall_Wood_Door_Up_2
       rect:
         serializedVersion: 2
         x: 176
@@ -1422,7 +1422,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_58
+      name: Wall_Wood_Door_Up_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1444,7 +1444,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_59
+      name: Wall_Wood_Door_Right_1
       rect:
         serializedVersion: 2
         x: 208
@@ -1466,7 +1466,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_60
+      name: Wall_Wood_Connection_1
       rect:
         serializedVersion: 2
         x: 0
@@ -1488,7 +1488,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_61
+      name: Wall_Wood_Corner_6
       rect:
         serializedVersion: 2
         x: 16
@@ -1510,7 +1510,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_62
+      name: Wall_Wood_SolidWhite
       rect:
         serializedVersion: 2
         x: 32
@@ -1532,7 +1532,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_63
+      name: Wall_Wood_Corner_8
       rect:
         serializedVersion: 2
         x: 48
@@ -1554,7 +1554,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_64
+      name: Wall_Wood_Post_2
       rect:
         serializedVersion: 2
         x: 80
@@ -1576,7 +1576,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_65
+      name: Wall_Wood_Hole_2
       rect:
         serializedVersion: 2
         x: 96
@@ -1598,7 +1598,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_66
+      name: Wall_Wood_Crack_2
       rect:
         serializedVersion: 2
         x: 112
@@ -1620,7 +1620,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_67
+      name: Wall_Wood_Dark_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1642,7 +1642,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_68
+      name: Wall_Wood_Door_Left_3
       rect:
         serializedVersion: 2
         x: 160
@@ -1664,7 +1664,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_69
+      name: Wall_Wood_Door_Up_4
       rect:
         serializedVersion: 2
         x: 176
@@ -1686,7 +1686,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_70
+      name: Wall_Wood_Door_Right_4
       rect:
         serializedVersion: 2
         x: 192
@@ -1708,7 +1708,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_71
+      name: Wall_Wood_Door_Right_2
       rect:
         serializedVersion: 2
         x: 208
@@ -1730,7 +1730,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_72
+      name: Wall_Wood_Corner_3
       rect:
         serializedVersion: 2
         x: 0
@@ -1752,7 +1752,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_73
+      name: Wall_Wood_3
       rect:
         serializedVersion: 2
         x: 16
@@ -1774,7 +1774,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_74
+      name: Wall_Wood_Corner_5
       rect:
         serializedVersion: 2
         x: 32
@@ -1796,7 +1796,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_75
+      name: Wall_Wood_2
       rect:
         serializedVersion: 2
         x: 48
@@ -1818,7 +1818,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_76
+      name: Wall_Wood_Post_4
       rect:
         serializedVersion: 2
         x: 80
@@ -1840,7 +1840,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_77
+      name: Wall_Wood_Hole_4
       rect:
         serializedVersion: 2
         x: 96
@@ -1862,7 +1862,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_78
+      name: Wall_Wood_Crack_4
       rect:
         serializedVersion: 2
         x: 112
@@ -1884,7 +1884,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_79
+      name: Wall_Wood_Dark_4
       rect:
         serializedVersion: 2
         x: 128
@@ -1906,7 +1906,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_80
+      name: Wall_Wood_Door_Left_2
       rect:
         serializedVersion: 2
         x: 160
@@ -1928,7 +1928,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_81
+      name: Wall_Wood_Door_Left_4
       rect:
         serializedVersion: 2
         x: 176
@@ -1950,7 +1950,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_82
+      name: Wall_Wood_Door_Down_4
       rect:
         serializedVersion: 2
         x: 192
@@ -1972,7 +1972,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_83
+      name: Wall_Wood_Door_Right_3
       rect:
         serializedVersion: 2
         x: 208
@@ -1994,7 +1994,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_84
+      name: Wall_Wood_SolidBlack
       rect:
         serializedVersion: 2
         x: 0
@@ -2016,7 +2016,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_85
+      name: Wall_Wood_Corner_4
       rect:
         serializedVersion: 2
         x: 16
@@ -2038,7 +2038,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_86
+      name: Wall_Wood_Connection_2
       rect:
         serializedVersion: 2
         x: 32
@@ -2060,7 +2060,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_87
+      name: Wall_Wood_Corner_2
       rect:
         serializedVersion: 2
         x: 48
@@ -2082,7 +2082,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_88
+      name: Wall_Wood_Post_3
       rect:
         serializedVersion: 2
         x: 80
@@ -2104,7 +2104,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_89
+      name: Wall_Wood_Hole_3
       rect:
         serializedVersion: 2
         x: 96
@@ -2126,7 +2126,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_90
+      name: Wall_Wood_Crack_3
       rect:
         serializedVersion: 2
         x: 112
@@ -2148,7 +2148,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_91
+      name: Wall_Wood_Dark_3
       rect:
         serializedVersion: 2
         x: 128
@@ -2170,7 +2170,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_92
+      name: Wall_Wood_Door_Left_1
       rect:
         serializedVersion: 2
         x: 160
@@ -2192,7 +2192,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_93
+      name: Wall_Wood_Door_Down_3
       rect:
         serializedVersion: 2
         x: 176
@@ -2214,7 +2214,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_94
+      name: Wall_Wood_Door_Down_2
       rect:
         serializedVersion: 2
         x: 192
@@ -2236,7 +2236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_95
+      name: Wall_Wood_Door_Down_1
       rect:
         serializedVersion: 2
         x: 208
@@ -3023,6 +3023,54 @@ TextureImporter:
       Wall_Brick_Slime_4: 2076774306
       Wall_Brick_SolidBlack: -810429672
       Wall_Brick_SolidWhite: 1216944670
+      Wall_Wood_1: -1252064609
+      Wall_Wood_2: -2126102787
+      Wall_Wood_3: -1755451535
+      Wall_Wood_4: 1982344038
+      Wall_Wood_Connection_1: 1144568976
+      Wall_Wood_Connection_2: -1799052611
+      Wall_Wood_Corner_1: 1260822705
+      Wall_Wood_Corner_2: -1476806673
+      Wall_Wood_Corner_3: 566808551
+      Wall_Wood_Corner_4: 1386519947
+      Wall_Wood_Corner_5: -1306683138
+      Wall_Wood_Corner_6: 2109051587
+      Wall_Wood_Corner_7: -2029827584
+      Wall_Wood_Corner_8: 1660692063
+      Wall_Wood_Crack_1: -1267647859
+      Wall_Wood_Crack_2: -1075327356
+      Wall_Wood_Crack_3: 1902045253
+      Wall_Wood_Crack_4: 249485288
+      Wall_Wood_Dark_1: 1457004190
+      Wall_Wood_Dark_2: -883938045
+      Wall_Wood_Dark_3: 1629589490
+      Wall_Wood_Dark_4: -213606723
+      Wall_Wood_Door_Down_1: 551623150
+      Wall_Wood_Door_Down_2: -622105414
+      Wall_Wood_Door_Down_3: 1738004866
+      Wall_Wood_Door_Down_4: -429352158
+      Wall_Wood_Door_Left_1: -335254959
+      Wall_Wood_Door_Left_2: -575928857
+      Wall_Wood_Door_Left_3: -772958577
+      Wall_Wood_Door_Left_4: 1175127054
+      Wall_Wood_Door_Right_1: 1805406338
+      Wall_Wood_Door_Right_2: 297788347
+      Wall_Wood_Door_Right_3: -1015363632
+      Wall_Wood_Door_Right_4: 53308208
+      Wall_Wood_Door_Up_1: 1219542178
+      Wall_Wood_Door_Up_2: 411744712
+      Wall_Wood_Door_Up_3: -207037334
+      Wall_Wood_Door_Up_4: -1130074755
+      Wall_Wood_Hole_1: -1293652349
+      Wall_Wood_Hole_2: -155217146
+      Wall_Wood_Hole_3: 394971595
+      Wall_Wood_Hole_4: -310965625
+      Wall_Wood_Post_1: 1193121104
+      Wall_Wood_Post_2: 769675845
+      Wall_Wood_Post_3: 1298196956
+      Wall_Wood_Post_4: -792968485
+      Wall_Wood_SolidBlack: 938113099
+      Wall_Wood_SolidWhite: -1587398563
       walls_100: -2006134045
       walls_101: -1777819191
       walls_102: 1356555878
@@ -3051,54 +3099,6 @@ TextureImporter:
       walls_125: 1134752345
       walls_126: -797365433
       walls_127: 1510508770
-      walls_48: 1260822705
-      walls_49: 1982344038
-      walls_50: -2029827584
-      walls_51: -1252064609
-      walls_52: 1193121104
-      walls_53: -1293652349
-      walls_54: -1267647859
-      walls_55: 1457004190
-      walls_56: 1219542178
-      walls_57: 411744712
-      walls_58: -207037334
-      walls_59: 1805406338
-      walls_60: 1144568976
-      walls_61: 2109051587
-      walls_62: -1587398563
-      walls_63: 1660692063
-      walls_64: 769675845
-      walls_65: -155217146
-      walls_66: -1075327356
-      walls_67: -883938045
-      walls_68: -772958577
-      walls_69: -1130074755
-      walls_70: 53308208
-      walls_71: 297788347
-      walls_72: 566808551
-      walls_73: -1755451535
-      walls_74: -1306683138
-      walls_75: -2126102787
-      walls_76: -792968485
-      walls_77: -310965625
-      walls_78: 249485288
-      walls_79: -213606723
-      walls_80: -575928857
-      walls_81: 1175127054
-      walls_82: -429352158
-      walls_83: -1015363632
-      walls_84: 938113099
-      walls_85: 1386519947
-      walls_86: -1799052611
-      walls_87: -1476806673
-      walls_88: 1298196956
-      walls_89: 394971595
-      walls_90: 1902045253
-      walls_91: 1629589490
-      walls_92: -335254959
-      walls_93: 1738004866
-      walls_94: -622105414
-      walls_95: 551623150
       walls_96: 2098106117
       walls_97: 595429143
       walls_98: -177393318

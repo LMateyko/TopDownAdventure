@@ -14,7 +14,7 @@ public class EnemyController : CharacterController
     }
 
     // Update is called once per frame
-    private void Update()
+    protected virtual void Update()
     {
         if (!IsAlive)
         {

@@ -29,10 +29,14 @@ public class CharacterController : MonoBehaviour
     virtual protected void SetFacing(Vector2 moveValue)
     {
         if (moveValue.x > 0)
-            transform.localScale = FaceRightScale;
+            FaceRight();
         else if (moveValue.x < 0)
-            transform.localScale = FaceLeftScale;
+            FaceLeft();
     }
+
+    protected void FaceLeft() { transform.localScale = FaceLeftScale; }
+
+    protected void FaceRight() {  transform.localScale = FaceRightScale; }
 
     protected void PlayAnimation(string animationName)
     {
@@ -55,11 +59,19 @@ public class CharacterController : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
+        // Prevent Damage if already defeated
         if (!IsAlive)
             return;
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Attack"))
-            TakeDamage();
+        // Only process triggers that are attacks
+        if (collision.gameObject.layer != LayerMask.NameToLayer("Attack"))
+            return;
+
+        // Ignore Player v Player and Enemy v Enemy collisions
+        if (collision.attachedRigidbody.gameObject.CompareTag(gameObject.tag))
+            return;
+
+        TakeDamage();
     }
 
     virtual protected void TakeDamage()

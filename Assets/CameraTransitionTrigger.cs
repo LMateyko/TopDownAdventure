@@ -33,6 +33,9 @@ public class CameraTransitionTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject != m_playerToMove)
+            return;
+
         m_roomTransitioner.TransitionToNextRoom(m_cameraDirection);
 
         Vector3 jumpDistance = m_cameraDirection * m_playerJumpDistance;

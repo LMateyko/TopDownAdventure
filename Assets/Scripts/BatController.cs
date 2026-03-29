@@ -18,6 +18,11 @@ public class BatController : EnemyController
         base.Start();
         m_currentOffset = Vector3.zero;
         m_trackedPlayer = FindFirstObjectByType<PlayerController>();
+
+        // Determine starting Angle relative to player
+        var xDif = transform.position.x - m_trackedPlayer.transform.position.x;
+        var yDif = transform.position.y - m_trackedPlayer.transform.position.y;
+        m_currentAngle = Mathf.Atan2(yDif, xDif);
     }
 
     protected override void Update()

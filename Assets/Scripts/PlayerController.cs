@@ -97,7 +97,7 @@ public class PlayerController : CharacterController, InputSystem_Player.IPlayerA
     {
         if (!IsAlive)
         {
-            m_rigidbody.linearVelocity = Vector2.zero;
+            SetVelocity(Vector2.zero, false);
 
             // TODO: Return to checkpoint on death
             if (IsAnimPlaying("Death") && IsAnimComplete())
@@ -108,14 +108,12 @@ public class PlayerController : CharacterController, InputSystem_Player.IPlayerA
 
         if (m_currentWeapon == WeaponConfiguration.WeaponEnum.None)
         {
-            m_rigidbody.linearVelocity = m_targetVelocity;
-            SetFacing(m_rigidbody.linearVelocity);
+            SetVelocity(m_targetVelocity, true);
         }
         else
         {
-            m_rigidbody.linearVelocity = m_targetVelocity * m_weaponMap[m_currentWeapon].SpeedMultiplier;
-            if (m_weaponMap[m_currentWeapon].AllowFacingChange)
-                SetFacing(m_rigidbody.linearVelocity);
+            SetVelocity(m_targetVelocity * m_weaponMap[m_currentWeapon].SpeedMultiplier, 
+                setFacing: m_weaponMap[m_currentWeapon].AllowFacingChange);
 
             if (IsInWeaponAnim(m_weaponMap[m_currentWeapon].WeaponAnimation))
                 m_weaponAnimStarted = true;
@@ -160,7 +158,7 @@ public class PlayerController : CharacterController, InputSystem_Player.IPlayerA
         m_currentWeapon = WeaponConfiguration.WeaponEnum.None;
     }
 
-    protected override void SetFacing(Vector2 moveValue)
+    public override void SetFacing(Vector2 moveValue)
     {
         base.SetFacing(moveValue);
 

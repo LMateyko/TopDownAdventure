@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyController : CharacterController
 {
+    [Header("Enemy Settings")]
+    [SerializeField] private EnemyMovementSetting m_movementBehavior;
+
     private Vector2 m_moveDirection = Vector2.right;
     private readonly float WallOffset = .025f;
 
@@ -11,6 +14,8 @@ public class EnemyController : CharacterController
     {
         base.Start();
         PlayAnimation("Run");
+
+        m_movementBehavior.InitializeMovement();
     }
 
     // Update is called once per frame
@@ -18,11 +23,13 @@ public class EnemyController : CharacterController
     {
         if (!IsAlive)
         {
-            m_rigidbody.linearVelocity = Vector2.zero;
+            SetVelocity(Vector2.zero, false);
             return;
         }
 
-        m_rigidbody.linearVelocity = m_moveDirection * m_speed;
+        m_movementBehavior.OnUpdate();
+
+        //SetVelocity(m_moveDirection * m_speed, true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -30,7 +37,9 @@ public class EnemyController : CharacterController
         if (!IsAlive)
             return;
 
-        SetRandomDirection(collision.contacts);
+        m_movementBehavior.OnCollision(collision);
+
+        //SetRandomDirection(collision.contacts);
     }
 
     private void SetRandomDirection(ContactPoint2D[] currentContacts)

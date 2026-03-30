@@ -9,9 +9,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
+      propertyPath: m_speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
       propertyPath: m_characterPrefix
       value: Bat
       objectReference: {fileID: 0}
+    - target: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
+      propertyPath: m_movementBehavior
+      value: 
+      objectReference: {fileID: 5275842824088794816}
     - target: {fileID: 1501769264795245708, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
       propertyPath: m_Offset.x
       value: 0.17
@@ -26,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: -697763020151794088, guid: 718a0274df1090e4c91da14f852a7af9, type: 3}
     - target: {fileID: 4424084265351566741, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
       propertyPath: m_Name
-      value: Bat
+      value: Enemy_Bat
       objectReference: {fileID: 0}
     - target: {fileID: 4751276403257205970, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
       propertyPath: m_IsActive
@@ -88,31 +96,31 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e73a436649beecf49b16e904687d5147, type: 2}
-    m_RemovedComponents:
-    - {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4424084265351566741, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 6683166348325510053}
+      insertIndex: 2
+      addedObject: {fileID: 5275842824088794816}
   m_SourcePrefab: {fileID: 100100000, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
---- !u!95 &2437974395207117063 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9179847685506101534, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
+--- !u!114 &5951889647562001011 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
   m_PrefabInstance: {fileID: 6823008543773890585}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &6586026307377816733 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 420653454813887620, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
-  m_PrefabInstance: {fileID: 6823008543773890585}
-  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7193852989737913740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d69fe8065cdc03046a4dd5577fd22fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7193852989737913740 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4424084265351566741, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
   m_PrefabInstance: {fileID: 6823008543773890585}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6683166348325510053
+--- !u!114 &5275842824088794816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,14 +129,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7193852989737913740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe3f604edd831074c9c89b5c9c7384ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 23c2d9c9bbb7d164c8df4df69d7932ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_characterPrefix: Bat
-  m_speed: 3
-  m_maxHealth: 3
-  m_animator: {fileID: 2437974395207117063}
-  m_rigidbody: {fileID: 6586026307377816733}
-  m_trackingSpeed: 3
-  m_circleSpeed: 1.5
-  m_circleRadius: 2.25
+  m_enemy: {fileID: 5951889647562001011}
+  m_circleSpeed: 2
+  m_circleRadius: 2.5
+  m_rotateClockwise: 0

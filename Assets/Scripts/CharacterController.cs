@@ -12,7 +12,9 @@ public class CharacterController : MonoBehaviour
 
     [Header("Local Character References")]
     [SerializeField] private Animator m_animator;
-    [SerializeField] protected Rigidbody2D m_rigidbody;
+    [SerializeField] private Rigidbody2D m_rigidbody;
+
+    public float CurrentSpeed => m_speed;
 
     protected bool IsAlive => m_currentHealth > 0;
 
@@ -26,7 +28,13 @@ public class CharacterController : MonoBehaviour
         m_currentHealth = m_maxHealth;
     }
 
-    virtual protected void SetFacing(Vector2 moveValue)
+    public void SetVelocity(Vector2 velocity, bool setFacing)
+    {
+        m_rigidbody.linearVelocity = velocity;
+        SetFacing(m_rigidbody.linearVelocity);
+    }
+
+    public virtual void SetFacing(Vector2 moveValue)
     {
         if (moveValue.x > 0)
             FaceRight();
@@ -34,9 +42,9 @@ public class CharacterController : MonoBehaviour
             FaceLeft();
     }
 
-    protected void FaceLeft() { transform.localScale = FaceLeftScale; }
+    public void FaceLeft() { transform.localScale = FaceLeftScale; }
 
-    protected void FaceRight() {  transform.localScale = FaceRightScale; }
+    public void FaceRight() {  transform.localScale = FaceRightScale; }
 
     protected void PlayAnimation(string animationName)
     {

@@ -51,7 +51,9 @@ public class CharacterController : MonoBehaviour
         if (IsAnimPlaying(animationName))
             return;
 
+        // Play new animation and update to set the state immediately 
         m_animator.Play($"{m_characterPrefix}_{animationName}");
+        m_animator.Update(0);
     }
 
     protected bool IsAnimPlaying(string animationName)
@@ -59,7 +61,7 @@ public class CharacterController : MonoBehaviour
         var fullAnimName = $"{m_characterPrefix}_{animationName}";
         return m_animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash(fullAnimName);
     }
-    
+
     protected bool IsAnimComplete()
     {
         return m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f;
@@ -79,15 +81,23 @@ public class CharacterController : MonoBehaviour
         if (collision.attachedRigidbody.gameObject.CompareTag(gameObject.tag))
             return;
 
-        TakeDamage();
+        if(!IsAnimPlaying("Hurt"))
+        {
+            TakeDamage();
+
+            // TODO: Configure Knockback force by the attack
+            var contactDirection = (transform.position - collision.attachedRigidbody.transform.position).normalized;
+            Knockback(contactDirection, force: 5f);
+        }
+    }
+
+    protected void Knockback(Vector2 direction, float force)
+    {
+        m_rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
     }
 
     virtual protected void TakeDamage()
     {
-        // Prevent Multiple Hits while playing the hurt animation
-        if (IsAnimPlaying("Hurt"))
-            return;
-
         m_currentHealth--;
 
         if (m_currentHealth <= 0)

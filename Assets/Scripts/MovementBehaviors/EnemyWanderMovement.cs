@@ -8,6 +8,11 @@ public class EnemyWanderMovement : EnemyMovementSetting
 
     public override void InitializeMovement() {}
 
+    public override void RestartMovement()
+    {
+        SetRandomDirection(m_enemy);
+    }
+
     public override void OnUpdate()
     {
         m_enemy.SetVelocity(m_moveDirection * m_enemy.CurrentSpeed, true);
@@ -16,6 +21,15 @@ public class EnemyWanderMovement : EnemyMovementSetting
     public override void OnCollision(Collision2D collision)
     {
         SetRandomDirection(m_enemy, collision.contacts);
+    }
+
+    private void SetRandomDirection(EnemyController enemy)
+    {
+        List<Vector2> directions = new List<Vector2>() { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
+        var randomIndex = Random.Range(0, directions.Count);
+        m_moveDirection = directions[randomIndex];
+
+        enemy.SetFacing(m_moveDirection);
     }
 
     private void SetRandomDirection(EnemyController enemy, ContactPoint2D[] currentContacts)
@@ -42,6 +56,4 @@ public class EnemyWanderMovement : EnemyMovementSetting
 
         enemy.SetFacing(m_moveDirection);
     }
-
-    
 }

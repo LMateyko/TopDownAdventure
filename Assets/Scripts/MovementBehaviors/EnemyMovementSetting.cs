@@ -6,6 +6,8 @@ public abstract class EnemyMovementSetting : MonoBehaviour
 
     public abstract void InitializeMovement();
 
+    public abstract void RestartMovement();
+
     public abstract void OnUpdate();
 
     public abstract void OnCollision(Collision2D collision);

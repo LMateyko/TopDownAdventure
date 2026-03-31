@@ -18,6 +18,14 @@ public class EnemyTrackingSpiralMovement : EnemyMovementSetting
         m_currentOffset = Vector3.zero;
         m_trackedPlayer = FindFirstObjectByType<PlayerController>();
 
+        RestartMovement();
+    }
+
+    public override void RestartMovement()
+    {
+        m_currentOffset = Vector3.zero;
+        m_trackedPlayer = FindFirstObjectByType<PlayerController>();
+
         // Determine starting Angle relative to player
         var xDif = m_enemy.transform.position.x - m_trackedPlayer.transform.position.x;
         var yDif = m_enemy.transform.position.y - m_trackedPlayer.transform.position.y;
@@ -26,6 +34,11 @@ public class EnemyTrackingSpiralMovement : EnemyMovementSetting
 
     public override void OnUpdate()
     {
+        m_enemy.SetVelocity(Vector3.zero, false);
+
+        if (m_trackedPlayer == null)
+            return;
+
         // Rotate in a circle around the player
         m_currentOffset.x = m_trackedPlayer.transform.position.x + (Mathf.Cos(m_currentAngle) * m_circleRadius);
         m_currentOffset.y = m_trackedPlayer.transform.position.y + (Mathf.Sin(m_currentAngle) * m_circleRadius);

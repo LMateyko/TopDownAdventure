@@ -106,6 +106,9 @@ public class PlayerController : CharacterController, InputSystem_Player.IPlayerA
             return;
         }
 
+        if (IsAnimPlaying("Hurt"))
+            return;
+
         if (m_currentWeapon == WeaponConfiguration.WeaponEnum.None)
         {
             SetVelocity(m_targetVelocity, true);

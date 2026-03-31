@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 420653454813887620, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 420653454813887620, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
+      propertyPath: m_LinearDamping
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
       propertyPath: m_movementBehavior
       value: 

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : CharacterController, InputSystem_Player.IPlayerActions
+public class PlayerController : BaseCharacterController, InputSystem_Player.IPlayerActions
 {
     [Header("Weapon Configurations")]
     [SerializeField] private Animator m_weaponAnimator;

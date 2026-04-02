@@ -1,7 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class BaseCharacterController : MonoBehaviour
 {
     [Header("Character Settings")]
 
@@ -77,7 +76,7 @@ public class CharacterController : MonoBehaviour
         return Mathf.FloorToInt(m_totalAnimTime % animState.length);
     }
 
-    protected void PlayAnimation(string animationName)
+    public void PlayAnimation(string animationName)
     {
         if (IsAnimPlaying(animationName))
             return;
@@ -115,6 +114,10 @@ public class CharacterController : MonoBehaviour
         if (collision.attachedRigidbody.gameObject.CompareTag(gameObject.tag))
             return;
 
+        BaseCharacterController attacker = collision.attachedRigidbody.GetComponent<BaseCharacterController>();
+        if (attacker != null)
+            attacker.DealtDamage(this);
+
         if(!IsAnimPlaying("Hurt"))
         {
             TakeDamage();
@@ -128,6 +131,12 @@ public class CharacterController : MonoBehaviour
     protected void Knockback(Vector2 direction, float force)
     {
         m_rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
+    }
+
+    virtual protected void DealtDamage(BaseCharacterController defender)
+    {
+        // DOTO: Use this to apply settings for damage and knockback
+        //Debug.Log($"{gameObject.name} dealt damage to {defender.gameObject.name}");
     }
 
     virtual protected void TakeDamage()

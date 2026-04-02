@@ -2,7 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : CharacterController
+public class EnemyController : BaseCharacterController
 {
     [Header("Enemy Settings")]
     [SerializeField] private EnemyMovementSetting m_movementBehavior;
@@ -41,6 +41,12 @@ public class EnemyController : CharacterController
         }
 
         m_movementBehavior.OnUpdate();
+    }
+
+    protected override void DealtDamage(BaseCharacterController defender)
+    {
+        base.DealtDamage(defender);
+        m_movementBehavior.OnDealtDamage(defender);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

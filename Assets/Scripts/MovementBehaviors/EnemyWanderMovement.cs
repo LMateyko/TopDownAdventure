@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyWanderMovement : EnemyMovementSetting
@@ -69,6 +68,8 @@ public class EnemyWanderMovement : EnemyMovementSetting
         if(m_resetMovementConditions.HasFlag(ResetMovementCondition.OnCollision))
             SetRandomDirection(m_enemy, collision.contacts);
     }
+
+    public override void OnDealtDamage(BaseCharacterController defender) {}
 
     private void SetRandomDirection(EnemyController enemy, ContactPoint2D[] currentContacts)
     {

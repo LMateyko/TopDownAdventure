@@ -19,8 +19,10 @@ public class EnemyController : CharacterController
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    protected override void Update()
     {
+        base.Update();
+
         if (!IsAlive)
         {
             SetVelocity(Vector2.zero, false);

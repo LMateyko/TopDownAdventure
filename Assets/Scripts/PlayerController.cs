@@ -93,8 +93,10 @@ public class PlayerController : CharacterController, InputSystem_Player.IPlayerA
         m_playerInputSystem.Dispose();
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
+
         if (!IsAlive)
         {
             SetVelocity(Vector2.zero, false);

@@ -14,11 +14,12 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Animator m_animator;
     [SerializeField] private Rigidbody2D m_rigidbody;
 
-    public float CurrentSpeed => m_speed;
-
+    public float CurrentSpeed => m_movementPaused ? 0f : m_speed;
     protected bool IsAlive => m_currentHealth > 0;
 
     private int m_currentHealth;
+    private bool m_movementPaused = false;
+    private float m_totalAnimTime = 0f;
 
     private readonly Vector3 FaceRightScale = new Vector3(1, 1, 1);
     private readonly Vector3 FaceLeftScale = new Vector3(-1, 1, 1);
@@ -26,6 +27,17 @@ public class CharacterController : MonoBehaviour
     protected virtual void Start()
     {
         m_currentHealth = m_maxHealth;
+    }
+
+    #region Movement and Facing
+    public void PauseMovement()
+    {
+        m_movementPaused = true;
+    }
+
+    public void ResumeMovement()
+    {
+        m_movementPaused = false;
     }
 
     public void SetVelocity(Vector2 velocity, bool setFacing)
@@ -46,6 +58,25 @@ public class CharacterController : MonoBehaviour
 
     public void FaceRight() {  transform.localScale = FaceRightScale; }
 
+    public int GetCharacterContactPoints(ref ContactPoint2D[] contactPoints)
+    {
+        return m_rigidbody.GetContacts(contactPoints);
+    }
+    #endregion
+
+    #region Animation
+
+    public bool IsAnimComplete()
+    {
+        return m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f;
+    }
+
+    public int AnimLoops()
+    {
+        var animState = m_animator.GetCurrentAnimatorStateInfo(0);
+        return Mathf.FloorToInt(m_totalAnimTime % animState.length);
+    }
+
     protected void PlayAnimation(string animationName)
     {
         if (IsAnimPlaying(animationName))
@@ -54,6 +85,7 @@ public class CharacterController : MonoBehaviour
         // Play new animation and update to set the state immediately 
         m_animator.Play($"{m_characterPrefix}_{animationName}");
         m_animator.Update(0);
+        m_totalAnimTime = 0f;
     }
 
     protected bool IsAnimPlaying(string animationName)
@@ -62,9 +94,11 @@ public class CharacterController : MonoBehaviour
         return m_animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash(fullAnimName);
     }
 
-    protected bool IsAnimComplete()
+    #endregion
+
+    protected virtual void Update()
     {
-        return m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f;
+        m_totalAnimTime += Time.deltaTime;
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)

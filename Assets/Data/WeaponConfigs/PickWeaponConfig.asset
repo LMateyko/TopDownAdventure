@@ -15,5 +15,7 @@ MonoBehaviour:
   WeaponType: 2
   WeaponAnimation: Weapon_Pick_Attack
   AllowFacingChange: 0
-  ManualTransition: 0
+  AnimationTransition: 1
   SpeedMultiplier: 0
+  WeaponDamage: 3
+  WeaponKnockback: 5

@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61fb2feac9801a540b2539c34b5d2c31, type: 3}
   m_Name: SwordWeaponConfig
   m_EditorClassIdentifier: 
+  WeaponType: 0
   WeaponAnimation: Weapon_Sword_Attack
   AllowFacingChange: 0
+  AnimationTransition: 1
   SpeedMultiplier: 0.75
+  WeaponDamage: 1
+  WeaponKnockback: 2

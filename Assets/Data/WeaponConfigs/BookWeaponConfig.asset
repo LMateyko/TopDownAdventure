@@ -17,3 +17,5 @@ MonoBehaviour:
   AllowFacingChange: 1
   AnimationTransition: 0
   SpeedMultiplier: 0.75
+  WeaponDamage: 0
+  WeaponKnockback: 0

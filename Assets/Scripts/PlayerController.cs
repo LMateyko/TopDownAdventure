@@ -16,6 +16,9 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     [SerializeField] private Transform m_socketForwardSwing;
     [SerializeField] private Transform m_socketDownSwing;
 
+    public override int Damage => m_weaponMap[m_currentWeapon].WeaponDamage;
+    public override float KnockbackForce => m_weaponMap[m_currentWeapon].WeaponKnockback;
+
     private InputSystem_Player m_playerInputSystem;
     private InputSystem_Player.PlayerActions m_playerActions;
 

@@ -17,9 +17,17 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
+      propertyPath: EnemyContactDamage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
       propertyPath: m_movementBehavior
       value: 
       objectReference: {fileID: 7382219175875864224}
+    - target: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
+      propertyPath: EnemyKnockbackForce
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4424084265351566741, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
       propertyPath: m_Name
       value: Enemy_Slime
@@ -101,3 +109,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemy: {fileID: 2043728537789544583}
+  m_resetMovementConditions: 0
+  m_directionDuration: 0

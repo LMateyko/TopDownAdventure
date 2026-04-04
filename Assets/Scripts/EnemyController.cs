@@ -1,11 +1,14 @@
-using NUnit.Framework;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : BaseCharacterController
 {
     [Header("Enemy Settings")]
     [SerializeField] private EnemyMovementSetting m_movementBehavior;
+    [SerializeField] private int EnemyContactDamage = 1;
+    [SerializeField] private float EnemyKnockbackForce = 5f;
+
+    public override int Damage => EnemyContactDamage;
+    public override float KnockbackForce => EnemyKnockbackForce;
 
     private bool m_wasHurt = false;
 
@@ -43,9 +46,9 @@ public class EnemyController : BaseCharacterController
         m_movementBehavior.OnUpdate();
     }
 
-    protected override void DealtDamage(BaseCharacterController defender)
+    protected override void DamageTarget(BaseCharacterController defender)
     {
-        base.DealtDamage(defender);
+        base.DamageTarget(defender);
         m_movementBehavior.OnDealtDamage(defender);
     }
 

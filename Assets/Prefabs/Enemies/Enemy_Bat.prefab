@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: m_movementBehavior
       value: 
       objectReference: {fileID: 5275842824088794816}
+    - target: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
+      propertyPath: EnemyKnockbackForce
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1501769264795245708, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
       propertyPath: m_Offset.x
       value: 0.17

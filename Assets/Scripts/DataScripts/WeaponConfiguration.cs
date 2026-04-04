@@ -22,4 +22,8 @@ public class WeaponConfiguration : ScriptableObject
     public bool AnimationTransition = true;
     [Tooltip("How the player's speed is adjusted while the weapon is in use")]
     public float SpeedMultiplier = 0.75f;
+
+    [Space]
+    public int WeaponDamage = 1;
+    public float WeaponKnockback = 5f;
 }

@@ -15,6 +15,8 @@ public class BaseCharacterController : MonoBehaviour
 
     public float CurrentSpeed => m_movementPaused ? 0f : m_speed;
     protected bool IsAlive => m_currentHealth > 0;
+    virtual public int Damage => 1;
+    virtual public float KnockbackForce => 5f;
 
     private int m_currentHealth;
     private bool m_movementPaused = false;
@@ -114,18 +116,20 @@ public class BaseCharacterController : MonoBehaviour
         if (collision.attachedRigidbody.gameObject.CompareTag(gameObject.tag))
             return;
 
-        BaseCharacterController attacker = collision.attachedRigidbody.GetComponent<BaseCharacterController>();
-        if (attacker != null)
-            attacker.DealtDamage(this);
-
-        if(!IsAnimPlaying("Hurt"))
+        if (!IsAnimPlaying("Hurt"))
         {
-            TakeDamage();
-
-            // TODO: Configure Knockback force by the attack
-            var contactDirection = (transform.position - collision.attachedRigidbody.transform.position).normalized;
-            Knockback(contactDirection, force: 5f);
+            BaseCharacterController attacker = collision.attachedRigidbody.GetComponent<BaseCharacterController>();
+            if (attacker != null)
+                attacker.DamageTarget(this);
         }
+    }
+
+    virtual protected void DamageTarget(BaseCharacterController defender)
+    {
+        defender.TakeDamage(Damage);
+
+        var contactDirection = (defender.transform.position - transform.position).normalized;
+        defender.Knockback(contactDirection, force: KnockbackForce);
     }
 
     protected void Knockback(Vector2 direction, float force)
@@ -133,15 +137,9 @@ public class BaseCharacterController : MonoBehaviour
         m_rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
     }
 
-    virtual protected void DealtDamage(BaseCharacterController defender)
+    virtual protected void TakeDamage(int damage)
     {
-        // DOTO: Use this to apply settings for damage and knockback
-        //Debug.Log($"{gameObject.name} dealt damage to {defender.gameObject.name}");
-    }
-
-    virtual protected void TakeDamage()
-    {
-        m_currentHealth--;
+        m_currentHealth -= damage;
 
         if (m_currentHealth <= 0)
             KillCharacter();

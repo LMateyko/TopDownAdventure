@@ -927,6 +927,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Weapon_Pick_0
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 22
+        width: 23
+        height: 32
+      alignment: 9
+      pivot: {x: 0.6, y: 0.33}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23c2c9607ba4a6f4d91e8cf51756d450
+      internalID: 1506983749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -957,6 +979,7 @@ TextureImporter:
       Weapon_Bow_3: -7541497256666361603
       Weapon_Bow_4: 2145068757791423242
       Weapon_Bow_5: 1063616505842640342
+      Weapon_Pick_0: 477757474
       Weapon_Pick_1: 7191870180524509763
       Weapon_Pick_2: -3461687270757810840
       Weapon_Pick_3: 2993706479981615044
@@ -967,7 +990,6 @@ TextureImporter:
       Weapon_Sword_3: -2628355943858528398
       Weapon_Sword_4: 7809248645385494123
       Weapon_Sword_5: 1047362786884787520
-      weapons_animated_0: 477757474
       weapons_animated_1: 500490924
       weapons_animated_100: 85671177
       weapons_animated_101: 31178793

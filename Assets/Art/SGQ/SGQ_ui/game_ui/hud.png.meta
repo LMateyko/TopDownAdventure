@@ -100,9 +100,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -113,7 +113,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -173,7 +173,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hud_0
+      name: Hud_Heart_Full
       rect:
         serializedVersion: 2
         x: 2
@@ -195,7 +195,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_1
+      name: Hud_Heart_Half
       rect:
         serializedVersion: 2
         x: 18
@@ -217,7 +217,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_2
+      name: Hud_Heart_Empty
       rect:
         serializedVersion: 2
         x: 34
@@ -239,7 +239,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_3
+      name: Hud_Coin
       rect:
         serializedVersion: 2
         x: 2
@@ -261,7 +261,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_4
+      name: Hud_Bomb
       rect:
         serializedVersion: 2
         x: 18
@@ -283,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_5
+      name: Hud_Key
       rect:
         serializedVersion: 2
         x: 34
@@ -335,7 +335,7 @@ TextureImporter:
         width: 40
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -349,23 +349,23 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_10
+      name: Hud_Panel_Full
       rect:
         serializedVersion: 2
-        x: 4
-        y: 37
-        width: 40
-        height: 38
+        x: 5
+        y: 39
+        width: 38
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 11, z: 4, w: 10}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4132da65cbf81fb50800000000000000
-      internalID: 6625234565909521172
+      spriteID: 6dcaf8220d09dfe4ebe0e2c30e260730
+      internalID: 1601921160
       vertices: []
       indices: 
       edges: []
@@ -384,9 +384,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hud_0: -8355878931891455547
-      hud_1: 799499406603659676
-      hud_10: 6625234565909521172
+      Hud_Bomb: -5356235205854507632
+      Hud_Coin: 7436860926580171409
+      Hud_Heart_Empty: -7801491425260804980
+      Hud_Heart_Full: -8355878931891455547
+      Hud_Heart_Half: 799499406603659676
+      Hud_Key: 7000286213710170695
+      Hud_Panel_Bottom: -1362694204
+      Hud_Panel_Full: 1601921160
+      Hud_Panel_Mid: 372430505
+      Hud_Panel_Top: 6625234565909521172
       hud_11: 4995528953559091192
       hud_12: -8198134604075662670
       hud_13: 7436786116260892006
@@ -396,11 +403,7 @@ TextureImporter:
       hud_17: -8995782541248983973
       hud_18: -4519031521348549980
       hud_19: 4841367913988442963
-      hud_2: -7801491425260804980
       hud_20: 7146671329355084749
-      hud_3: 7436860926580171409
-      hud_4: -5356235205854507632
-      hud_5: 7000286213710170695
       hud_6: -3265510624760232496
       hud_7: 9165623242308869086
       hud_8: 4162731277323802494

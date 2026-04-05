@@ -5382,6 +5382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 784674493}
   - component: {fileID: 784674494}
+  - component: {fileID: 784674496}
   - component: {fileID: 784674495}
   m_Layer: 5
   m_Name: Health Display
@@ -5450,6 +5451,30 @@ MonoBehaviour:
   m_Spacing: {x: 8, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &784674496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784674492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7241be2fc9ca87849915a1d194d9039a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fullHeartSprite: {fileID: -8355878931891455547, guid: 1eb850019dad2a243a660217c0c7f66a, type: 3}
+  m_emptyHeartSprite: {fileID: -7801491425260804980, guid: 1eb850019dad2a243a660217c0c7f66a, type: 3}
+  playerHearts:
+  - {fileID: 1343105917}
+  - {fileID: 279136329}
+  - {fileID: 2088039670}
+  - {fileID: 1927528829}
+  - {fileID: 629980214}
+  - {fileID: 1027223591}
+  - {fileID: 2068753139}
+  - {fileID: 1525786929}
+  - {fileID: 821336053}
 --- !u!1 &821336051
 GameObject:
   m_ObjectHideFlags: 0

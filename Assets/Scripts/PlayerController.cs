@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,6 +16,8 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     [SerializeField] private Transform m_socketUpSwing;
     [SerializeField] private Transform m_socketForwardSwing;
     [SerializeField] private Transform m_socketDownSwing;
+
+    public Action<int, int, int> HealthChanged;
 
     public override int Damage => m_weaponMap[m_currentWeapon].WeaponDamage;
     public override float KnockbackForce => m_weaponMap[m_currentWeapon].WeaponKnockback;
@@ -81,6 +84,13 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         m_weaponMap.Add(WeaponConfiguration.WeaponEnum.Bow,     m_bowConfig);
     }
 
+    protected override void Start()
+    {
+        base.Start();
+
+        HealthChanged?.Invoke(m_maxHealth, m_currentHealth, m_currentHealth);
+    }
+
     private void OnEnable()
     {
         m_playerActions.Enable();
@@ -144,6 +154,13 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     #endregion
 
     #region Character Overrides
+
+    protected override void TakeDamage(int damage)
+    {
+        HealthChanged?.Invoke(m_maxHealth, m_currentHealth, m_currentHealth - damage);
+
+        base.TakeDamage(damage);
+    }
 
     protected override void KillCharacter()
     {

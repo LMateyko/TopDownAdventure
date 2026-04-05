@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
       propertyPath: EnemyContactDamage
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
       propertyPath: m_movementBehavior

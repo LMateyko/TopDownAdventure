@@ -7,18 +7,19 @@ public class BaseCharacterController : MonoBehaviour
     [Tooltip("Animation prefix for this character")]
     [SerializeField] private string m_characterPrefix;
     [SerializeField] protected float m_speed = 5f;
-    [SerializeField] private int m_maxHealth = 3;
+    [SerializeField] protected int m_maxHealth = 3;
 
     [Header("Local Character References")]
     [SerializeField] private Animator m_animator;
     [SerializeField] private Rigidbody2D m_rigidbody;
 
     public float CurrentSpeed => m_movementPaused ? 0f : m_speed;
-    protected bool IsAlive => m_currentHealth > 0;
     virtual public int Damage => 1;
     virtual public float KnockbackForce => 5f;
 
-    private int m_currentHealth;
+    protected bool IsAlive => m_currentHealth > 0;
+
+    protected int m_currentHealth;
     private bool m_movementPaused = false;
     private float m_totalAnimTime = 0f;
 

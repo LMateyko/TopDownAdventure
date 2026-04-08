@@ -9,28 +9,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 328863244197021177, guid: 7899e61c720aaa14781585cf02222548, type: 3}
-      propertyPath: m_Size.x
+      propertyPath: m_Size.y
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 328863244197021177, guid: 7899e61c720aaa14781585cf02222548, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 328863244197021177, guid: 7899e61c720aaa14781585cf02222548, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 328863244197021177, guid: 7899e61c720aaa14781585cf02222548, type: 3}
       propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 477894769014772313, guid: 7899e61c720aaa14781585cf02222548, type: 3}
-      propertyPath: m_cameraDirection.x
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 477894769014772313, guid: 7899e61c720aaa14781585cf02222548, type: 3}
       propertyPath: m_cameraDirection.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 477894769014772313, guid: 7899e61c720aaa14781585cf02222548, type: 3}
+      propertyPath: m_transitionDirection.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1704356935497880536, guid: 7899e61c720aaa14781585cf02222548, type: 3}
       propertyPath: m_LocalPosition.x
@@ -74,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4012675048344993975, guid: 7899e61c720aaa14781585cf02222548, type: 3}
       propertyPath: m_Name
-      value: CameraTransitionTrigger_Door_Right
+      value: CameraTransitionTrigger_Door_Up
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_cameraDirection.y
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 477894769014772313, guid: 7899e61c720aaa14781585cf02222548, type: 3}
+      propertyPath: m_transitionDirection.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1704356935497880536, guid: 7899e61c720aaa14781585cf02222548, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

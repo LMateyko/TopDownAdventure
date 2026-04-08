@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 477894769014772313}
   - component: {fileID: 328863244197021177}
   m_Layer: 0
-  m_Name: CameraTransitionTrigger_Base
+  m_Name: RoomTransitionTrigger_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,10 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164c9209daf83e743a8ffaf64000efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_cameraDirection: {x: 0, y: 0}
+  m_transitionDirection: {x: 0, y: 0}
   m_playerJumpDistance: 2
-  m_roomTransitioner: {fileID: 0}
-  m_playerToMove: {fileID: 0}
 --- !u!61 &328863244197021177
 BoxCollider2D:
   m_ObjectHideFlags: 0

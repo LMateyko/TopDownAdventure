@@ -12,6 +12,7 @@ public class BaseCharacterController : MonoBehaviour
     [Header("Local Character References")]
     [SerializeField] private Animator m_animator;
     [SerializeField] private Rigidbody2D m_rigidbody;
+    [SerializeField] protected SpriteRenderer m_renderer;
 
     public float CurrentSpeed => m_movementPaused ? 0f : m_speed;
     virtual public int Damage => 1;
@@ -79,9 +80,9 @@ public class BaseCharacterController : MonoBehaviour
         return Mathf.FloorToInt(m_totalAnimTime % animState.length);
     }
 
-    public void PlayAnimation(string animationName)
+    public void PlayAnimation(string animationName, bool restart = false)
     {
-        if (IsAnimPlaying(animationName))
+        if (IsAnimPlaying(animationName) && !restart)
             return;
 
         // Play new animation and update to set the state immediately 

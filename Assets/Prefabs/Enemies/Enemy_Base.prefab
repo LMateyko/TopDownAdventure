@@ -141,7 +141,11 @@ MonoBehaviour:
   m_maxHealth: 3
   m_animator: {fileID: 9179847685506101534}
   m_rigidbody: {fileID: 420653454813887620}
+  m_renderer: {fileID: 3820006984270189812}
   m_movementBehavior: {fileID: 0}
+  m_enemyContactDamage: 1
+  m_enemyKnockbackForce: 5
+  m_alwaysSpawnInRoom: 0
 --- !u!95 &9179847685506101534
 Animator:
   serializedVersion: 7

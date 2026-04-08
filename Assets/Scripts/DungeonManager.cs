@@ -16,7 +16,7 @@ public class DungeonManager : MonoBehaviour
         m_mapUI.SetMapCell(m_currentPlayerRoom.x, m_currentPlayerRoom.y, DungeonData.MapCellType.Room);
 
         m_currentPlayerRoom.x += (int)direction.x;
-        m_currentPlayerRoom.y += (int)direction.y;
+        m_currentPlayerRoom.y -= (int)direction.y;
         m_mapUI.SetMapCell(m_currentPlayerRoom.x, m_currentPlayerRoom.y, DungeonData.MapCellType.Player);
     }
 

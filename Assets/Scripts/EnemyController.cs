@@ -1,29 +1,59 @@
 using UnityEngine;
 
-public class EnemyController : BaseCharacterController
+public class EnemyController : BaseCharacterController, IRoomObject
 {
     [Header("Enemy Settings")]
     [SerializeField] private EnemyMovementSetting m_movementBehavior;
-    [SerializeField] private int EnemyContactDamage = 1;
-    [SerializeField] private float EnemyKnockbackForce = 5f;
+    [SerializeField] private int m_enemyContactDamage = 1;
+    [SerializeField] private float m_enemyKnockbackForce = 5f;
+    [SerializeField] private bool m_alwaysSpawnInRoom = false;
 
-    public override int Damage => EnemyContactDamage;
-    public override float KnockbackForce => EnemyKnockbackForce;
-
+    public override int Damage => m_enemyContactDamage;
+    public override float KnockbackForce => m_enemyKnockbackForce;
     private bool m_wasHurt = false;
+    private Vector3 m_spawnLocation;
 
-    protected override void Start()
+    #region IRoomObject Implementation
+    public bool IsEnabled { get; private set; }
+    public bool PersistantRespawn => m_alwaysSpawnInRoom;
+
+    public void EnableObject()
     {
-        base.Start();
-        PlayAnimation("Run");
-
-        m_movementBehavior.InitializeMovement();
+        IsEnabled = true;
+        transform.position = m_spawnLocation;
+        PlayAnimation("Run", restart: true);
         m_movementBehavior.RestartMovement();
+
+        m_renderer.gameObject.SetActive(true);
     }
+
+    public void DisableObject()
+    {
+        IsEnabled = false;
+        m_renderer.gameObject.SetActive(false);
+    }
+    #endregion
+
+    protected void Awake()
+    {
+        m_movementBehavior.InitializeMovement();
+        m_spawnLocation = transform.position;
+    }
+
+    //protected override void Start()
+    //{
+    //    base.Start();
+    //    PlayAnimation("Run");
+
+    //    m_movementBehavior.RestartMovement();
+    //}
 
     // Update is called once per frame
     protected override void Update()
     {
+        // Currently not in the active room
+        if (!IsEnabled) return;
+
         base.Update();
 
         if (!IsAlive)

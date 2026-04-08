@@ -15,6 +15,9 @@ public class RoomManager : MonoBehaviour
     public void EnterRoom()
     {
         // Enable Enemies within room
+        foreach (var enemy in m_roomEnemies)
+            if(enemy != null)
+                enemy.EnableObject();
 
         // Set Camera to room position
         var cameraPosition = Camera.main.transform.position;
@@ -30,6 +33,9 @@ public class RoomManager : MonoBehaviour
     public RoomManager LeaveRoom(Vector2 exitDirection)
     {
         // Disable Enemies within the room
+        foreach (var enemy in m_roomEnemies)
+            if (enemy != null)
+                enemy?.DisableObject();
 
         // Enter Connected Room
         if (exitDirection == Vector2.up)

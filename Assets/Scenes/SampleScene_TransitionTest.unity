@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce35c542957e0c94381b50754eff5fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sceneToLoad: SampleScene_TransitionTest
+  m_sceneToLoad: SampleScene_SGQ
 --- !u!4 &171026174
 Transform:
   m_ObjectHideFlags: 0
@@ -8587,7 +8587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7521504739715578910, guid: 9c19e09916fafbf4ca5aae89ae5e85ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: -3.09375
       objectReference: {fileID: 0}
     - target: {fileID: 7521504739715578910, guid: 9c19e09916fafbf4ca5aae89ae5e85ee, type: 3}
       propertyPath: m_LocalPosition.z

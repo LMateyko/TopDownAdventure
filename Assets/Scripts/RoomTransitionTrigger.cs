@@ -10,7 +10,7 @@ public class RoomTransitionTrigger : MonoBehaviour
     private PlayerController m_playerToMove;
     private DungeonManager m_dungeonManager;
 
-    private void Awake()
+    private void Start()
     {
         // TODO: Retrieve these values via global access when needed instead of finding them on Awake
         m_playerToMove = FindFirstObjectByType<PlayerController>();

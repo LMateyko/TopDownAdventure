@@ -32,6 +32,33 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 
     private Vector2 m_targetVelocity;
 
+    #region Interactables
+    private Interactable m_currentInteractable;
+
+    public void PrepareInteraction(Interactable newInteractable)
+    {
+        m_currentInteractable = newInteractable;
+    }
+
+    public void ClearInteraction(Interactable newInteractable)
+    {
+        if (m_currentInteractable == newInteractable)
+            m_currentInteractable = null;
+    }
+
+    private bool TriggerInteraction()
+    {
+        if (m_currentInteractable != null && m_currentInteractable.gameObject.activeInHierarchy)
+        {
+            m_currentInteractable.TriggerInteraction();
+            return true;
+        }
+        else
+            return false; 
+    }
+
+    #endregion
+
     #region IPlayerActions Implementation
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -41,12 +68,16 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 
     public void OnSword(InputAction.CallbackContext context)
     {
+        if (TriggerInteraction()) return;
+
         if(context.started)
             UseWeapon(m_swordConfig);
     }
 
     public void OnBookBlock(InputAction.CallbackContext context)
     {
+        if (TriggerInteraction()) return;
+
         if (context.started)
         {
             UseWeapon(m_bookConfig);
@@ -59,12 +90,16 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 
     public void OnBowShoot(InputAction.CallbackContext context)
     {
+        if (TriggerInteraction()) return;
+
         if (context.started)
             UseWeapon(m_bowConfig);
     }
 
     public void OnPickSwing(InputAction.CallbackContext context)
     {
+        if (TriggerInteraction()) return;
+
         if (context.started)
             UseWeapon(m_pickConfig);
     }

@@ -19,18 +19,37 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 
     public Action<int, int, int> HealthChanged;
 
-    public override int Damage => m_weaponMap[m_currentWeapon].WeaponDamage;
-    public override float KnockbackForce => m_weaponMap[m_currentWeapon].WeaponKnockback;
+    public override int Damage => m_weaponMap[CurrentWeapon].WeaponDamage;
+    public override float KnockbackForce => m_weaponMap[CurrentWeapon].WeaponKnockback;
+    public WeaponConfiguration.WeaponEnum CurrentWeapon { get; private set; } = WeaponConfiguration.WeaponEnum.None;
 
     private InputSystem_Player m_playerInputSystem;
     private InputSystem_Player.PlayerActions m_playerActions;
 
     private bool m_weaponAnimStarted = false;
-    private WeaponConfiguration.WeaponEnum m_currentWeapon = WeaponConfiguration.WeaponEnum.None;
     private Dictionary<WeaponConfiguration.WeaponEnum, WeaponConfiguration> m_weaponMap 
         = new Dictionary<WeaponConfiguration.WeaponEnum, WeaponConfiguration>();
 
     private Vector2 m_targetVelocity;
+
+    /// <summary>
+    /// Disable player Input for external service ex: dialog. 
+    /// Re-enable with <see cref="ReEnableInput"/>
+    /// </summary>
+    public void DisableInputForExternalInteraction()
+    {
+        // TODO: If this ends up being called from multiple directions, increment count of disabled sources.
+        m_playerActions.Disable();
+    }
+
+    /// <summary>
+    /// Re-enable player input disabled through <see cref="DisableInputForExternalInteraction"/>
+    /// </summary>
+    public void ReEnableInput()
+    {
+        // TODO: If this ends up being called from multiple directions, decrement count of disabled sources.
+        m_playerActions.Enable();
+    }
 
     #region Interactables
     private Interactable m_currentInteractable;
@@ -159,22 +178,22 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         if (IsAnimPlaying("Hurt"))
             return;
 
-        if (m_currentWeapon == WeaponConfiguration.WeaponEnum.None)
+        if (CurrentWeapon == WeaponConfiguration.WeaponEnum.None)
         {
             SetVelocity(m_targetVelocity, true);
         }
         else
         {
-            SetVelocity(m_targetVelocity * m_weaponMap[m_currentWeapon].SpeedMultiplier, 
-                setFacing: m_weaponMap[m_currentWeapon].AllowFacingChange);
+            SetVelocity(m_targetVelocity * m_weaponMap[CurrentWeapon].SpeedMultiplier, 
+                setFacing: m_weaponMap[CurrentWeapon].AllowFacingChange);
 
-            if (IsInWeaponAnim(m_weaponMap[m_currentWeapon].WeaponAnimation))
+            if (IsInWeaponAnim(m_weaponMap[CurrentWeapon].WeaponAnimation))
                 m_weaponAnimStarted = true;
 
-            if (m_weaponMap[m_currentWeapon].AnimationTransition && m_weaponAnimStarted
-                && !IsInWeaponAnim(m_weaponMap[m_currentWeapon].WeaponAnimation))
+            if (m_weaponMap[CurrentWeapon].AnimationTransition && m_weaponAnimStarted
+                && !IsInWeaponAnim(m_weaponMap[CurrentWeapon].WeaponAnimation))
             {
-                m_currentWeapon = WeaponConfiguration.WeaponEnum.None;
+                CurrentWeapon = WeaponConfiguration.WeaponEnum.None;
             }
         }
 
@@ -208,14 +227,14 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     private void UseWeapon(WeaponConfiguration currentWeapon)
     {
         m_weaponAnimStarted = false;
-        m_currentWeapon = currentWeapon.WeaponType;
+        CurrentWeapon = currentWeapon.WeaponType;
         m_weaponAnimator.Play(currentWeapon.WeaponAnimation);
     }
 
     private void StopWeapon()
     {
         m_weaponAnimator.Play("Weapon_Idle");
-        m_currentWeapon = WeaponConfiguration.WeaponEnum.None;
+        CurrentWeapon = WeaponConfiguration.WeaponEnum.None;
     }
 
     public override void SetFacing(Vector2 moveValue)

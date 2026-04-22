@@ -4,20 +4,35 @@ using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
-    [SerializeField] List<EnemyController> m_roomEnemies = new List<EnemyController>();
-
     [Header("Room Connections")]
     [SerializeField] RoomManager m_northRoom;
     [SerializeField] RoomManager m_eastRoom;
     [SerializeField] RoomManager m_southRoom;
     [SerializeField] RoomManager m_westRoom;
 
+    List<IRoomObject> m_roomObjects = new List<IRoomObject>();
+
+    private void Start()
+    {
+        var foundChildren = transform.GetComponentsInChildren<IRoomObject>();
+        m_roomObjects.Clear();
+        foreach(var child in foundChildren)
+        {
+            m_roomObjects.Add(child);
+            child.OnDestroy += OnChildDestroyed;
+        }
+    }
+
+    private void OnChildDestroyed(IRoomObject childObject)
+    {
+        m_roomObjects.Remove(childObject);
+    }
+
     public void EnterRoom()
     {
         // Enable Enemies within room
-        foreach (var enemy in m_roomEnemies)
-            if(enemy != null)
-                enemy.EnableObject();
+        foreach (var enemy in m_roomObjects)
+            enemy.EnableObject();
 
         // Set Camera to room position
         var cameraPosition = Camera.main.transform.position;
@@ -33,9 +48,8 @@ public class RoomManager : MonoBehaviour
     public RoomManager LeaveRoom(Vector2 exitDirection)
     {
         // Disable Enemies within the room
-        foreach (var enemy in m_roomEnemies)
-            if (enemy != null)
-                enemy?.DisableObject();
+        foreach (var enemy in m_roomObjects)
+            enemy.DisableObject();
 
         // Enter Connected Room
         if (exitDirection == Vector2.up)

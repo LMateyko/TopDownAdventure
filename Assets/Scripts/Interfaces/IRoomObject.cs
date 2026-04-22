@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public interface IRoomObject
@@ -11,4 +12,5 @@ public interface IRoomObject
     void EnableObject();
     /// <summary> Disable the object when exitign the room. </summary>
     void DisableObject();
+    Action<IRoomObject> OnDestroy { get; set; }
 }

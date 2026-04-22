@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyController : BaseCharacterController, IRoomObject
@@ -16,10 +17,12 @@ public class EnemyController : BaseCharacterController, IRoomObject
     #region IRoomObject Implementation
     public bool IsEnabled { get; private set; }
     public bool PersistantRespawn => m_alwaysSpawnInRoom;
+    public Action<IRoomObject> OnDestroy { get; set; }
 
     public void EnableObject()
     {
         IsEnabled = true;
+        m_currentHealth = m_maxHealth;
         transform.position = m_spawnLocation;
         PlayAnimation("Run", restart: true);
         m_movementBehavior.RestartMovement();
@@ -39,14 +42,6 @@ public class EnemyController : BaseCharacterController, IRoomObject
         m_movementBehavior.InitializeMovement();
         m_spawnLocation = transform.position;
     }
-
-    //protected override void Start()
-    //{
-    //    base.Start();
-    //    PlayAnimation("Run");
-
-    //    m_movementBehavior.RestartMovement();
-    //}
 
     // Update is called once per frame
     protected override void Update()
@@ -88,5 +83,17 @@ public class EnemyController : BaseCharacterController, IRoomObject
             return;
 
         m_movementBehavior.OnCollision(collision);
+    }
+
+    protected override void KillCharacter()
+    {
+        if(PersistantRespawn)
+            DisableObject();
+        else
+        {
+            OnDestroy?.Invoke(this);
+            base.KillCharacter();
+        }
+            
     }
 }

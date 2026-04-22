@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &27180609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7193852989737913740, guid: 926c511af8e8f5b4f8b4f91055ace04d, type: 3}
+  m_PrefabInstance: {fileID: 1529507076}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &31161195
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8495315b0bfb37846bfbceaae0a5863d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_roomEnemies: []
+  m_roomRoomObjects: []
   m_northRoom: {fileID: 0}
   m_eastRoom: {fileID: 0}
   m_southRoom: {fileID: 1391554905}
@@ -225,6 +230,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 927832485e3bfd14e8b5808c05cd4c62, type: 3}
+--- !u!1 &104063042 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3247138704106585976, guid: 79c7b6406817ca848a3cf30c1598460b, type: 3}
+  m_PrefabInstance: {fileID: 1708093858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &171026171
 GameObject:
   m_ObjectHideFlags: 0
@@ -4343,7 +4353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8495315b0bfb37846bfbceaae0a5863d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_roomEnemies: []
+  m_roomRoomObjects: []
   m_northRoom: {fileID: 183351882}
   m_eastRoom: {fileID: 1391554905}
   m_southRoom: {fileID: 0}
@@ -4710,17 +4720,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6016606012173501139, guid: 927832485e3bfd14e8b5808c05cd4c62, type: 3}
   m_PrefabInstance: {fileID: 79457842}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &742951689 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5951889647562001011, guid: 926c511af8e8f5b4f8b4f91055ace04d, type: 3}
-  m_PrefabInstance: {fileID: 1529507076}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d69fe8065cdc03046a4dd5577fd22fb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &742951690 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2769447785568473230, guid: 926c511af8e8f5b4f8b4f91055ace04d, type: 3}
@@ -8569,17 +8568,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6016606012173501139, guid: 927832485e3bfd14e8b5808c05cd4c62, type: 3}
   m_PrefabInstance: {fileID: 1359455052}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1253922721 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2043728537789544583, guid: 79c7b6406817ca848a3cf30c1598460b, type: 3}
-  m_PrefabInstance: {fileID: 1708093858}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d69fe8065cdc03046a4dd5577fd22fb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1253922722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7542010164506337914, guid: 79c7b6406817ca848a3cf30c1598460b, type: 3}
@@ -8690,7 +8678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8495315b0bfb37846bfbceaae0a5863d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_roomEnemies: []
+  m_roomRoomObjects: []
   m_northRoom: {fileID: 31161196}
   m_eastRoom: {fileID: 0}
   m_southRoom: {fileID: 0}
@@ -8839,6 +8827,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 183351881}
     m_Modifications:
+    - target: {fileID: 2043728537789544583, guid: 79c7b6406817ca848a3cf30c1598460b, type: 3}
+      propertyPath: m_alwaysSpawnInRoom
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3247138704106585976, guid: 79c7b6406817ca848a3cf30c1598460b, type: 3}
       propertyPath: m_Name
       value: Enemy_Slime
@@ -9148,11 +9140,23 @@ PrefabInstance:
     - target: {fileID: 713967950318105577, guid: e6138f756a40ac946921d3bb38934419, type: 3}
       propertyPath: 'm_roomEnemies.Array.data[0]'
       value: 
-      objectReference: {fileID: 1253922721}
+      objectReference: {fileID: 0}
     - target: {fileID: 713967950318105577, guid: e6138f756a40ac946921d3bb38934419, type: 3}
       propertyPath: 'm_roomEnemies.Array.data[1]'
       value: 
-      objectReference: {fileID: 742951689}
+      objectReference: {fileID: 0}
+    - target: {fileID: 713967950318105577, guid: e6138f756a40ac946921d3bb38934419, type: 3}
+      propertyPath: m_roomRoomObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 713967950318105577, guid: e6138f756a40ac946921d3bb38934419, type: 3}
+      propertyPath: 'm_roomRoomObjects.Array.data[0]'
+      value: 
+      objectReference: {fileID: 104063042}
+    - target: {fileID: 713967950318105577, guid: e6138f756a40ac946921d3bb38934419, type: 3}
+      propertyPath: 'm_roomRoomObjects.Array.data[1]'
+      value: 
+      objectReference: {fileID: 27180609}
     - target: {fileID: 2531722710142766568, guid: e6138f756a40ac946921d3bb38934419, type: 3}
       propertyPath: m_Name
       value: DungeonManager
@@ -9326,6 +9330,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6179994877218763031, guid: 927832485e3bfd14e8b5808c05cd4c62, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7438363594616480036, guid: 927832485e3bfd14e8b5808c05cd4c62, type: 3}
       propertyPath: m_Name
       value: Mushroom
@@ -9386,6 +9394,10 @@ PrefabInstance:
     - target: {fileID: 6241904950933078182, guid: d31d48f4430b7c44abe92d2d7bcabdfb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503553170274221460, guid: d31d48f4430b7c44abe92d2d7bcabdfb, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

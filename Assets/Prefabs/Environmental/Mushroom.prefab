@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_effectiveWeapons: 00000000
+  m_respawn: 1
   m_animationPrefix: Mushroom
   m_animator: {fileID: 494195031613305745}
 --- !u!95 &494195031613305745

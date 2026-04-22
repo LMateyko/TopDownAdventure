@@ -14,7 +14,7 @@ public class Interactable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var foundPlayer = collision.attachedRigidbody.gameObject.GetComponent<PlayerController>();
-        if (foundPlayer)
+        if (foundPlayer && collision.CompareTag("Player"))
         {
             foundPlayer.PrepareInteraction(this);
         }
@@ -23,9 +23,9 @@ public class Interactable : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         var foundPlayer = collision.attachedRigidbody.gameObject.GetComponent<PlayerController>();
-        if (foundPlayer)
+        if (foundPlayer && collision.CompareTag("Player"))
         {
-            foundPlayer.PrepareInteraction(this);
+            foundPlayer.ClearInteraction(this);
         }
     }
 }

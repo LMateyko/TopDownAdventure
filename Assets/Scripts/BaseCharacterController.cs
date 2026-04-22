@@ -46,7 +46,8 @@ public class BaseCharacterController : MonoBehaviour
     public void SetVelocity(Vector2 velocity, bool setFacing)
     {
         m_rigidbody.linearVelocity = velocity;
-        SetFacing(m_rigidbody.linearVelocity);
+        if(setFacing)
+            SetFacing(m_rigidbody.linearVelocity);
     }
 
     public virtual void SetFacing(Vector2 moveValue)

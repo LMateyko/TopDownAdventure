@@ -21,8 +21,10 @@ public class PickupObject : MonoBehaviour
                 player.HealCharacter(1);
                 break;
             case PickupType.Key:
+                player.Keys++;
                 break;
             case PickupType.Coin:
+                player.Coins++;
                 break;
         }
     }

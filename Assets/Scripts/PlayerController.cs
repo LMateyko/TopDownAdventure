@@ -18,6 +18,28 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     [SerializeField] private Transform m_socketDownSwing;
 
     public Action<int, int, int> HealthChanged;
+    public Action<int> KeysChanged;
+    public Action<int> CoinsChanged;
+
+    public int Keys 
+    { 
+        get=> m_keys; 
+        set 
+        {
+            KeysChanged?.Invoke(value);
+            m_keys = value; 
+        } 
+    }
+
+    public int Coins
+    {
+        get => m_coins;
+        set
+        {
+            CoinsChanged?.Invoke(value);
+            m_coins = value;
+        }
+    }
 
     public override int Damage => m_weaponMap[CurrentWeapon].WeaponDamage;
     public override float KnockbackForce => m_weaponMap[CurrentWeapon].WeaponKnockback;
@@ -31,6 +53,8 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         = new Dictionary<WeaponConfiguration.WeaponEnum, WeaponConfiguration>();
 
     private Vector2 m_targetVelocity;
+    private int m_keys = 0;
+    private int m_coins = 0;
 
     /// <summary>
     /// Disable player Input for external service ex: dialog. 
@@ -143,6 +167,8 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         base.Start();
 
         HealthChanged?.Invoke(m_maxHealth, m_currentHealth, m_currentHealth);
+        KeysChanged?.Invoke(m_keys);
+        CoinsChanged?.Invoke(m_coins);
     }
 
     private void OnEnable()

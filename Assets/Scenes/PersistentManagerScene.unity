@@ -2367,7 +2367,7 @@ GameObject:
   - component: {fileID: 597148758}
   - component: {fileID: 597148757}
   m_Layer: 5
-  m_Name: Total Text
+  m_Name: Key Total Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4396,7 +4396,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1089678147}
   - component: {fileID: 1089678150}
-  - component: {fileID: 1089678149}
   - component: {fileID: 1089678148}
   m_Layer: 5
   m_Name: Health Display
@@ -4457,30 +4456,6 @@ MonoBehaviour:
   m_Spacing: {x: 8, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &1089678149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1089678146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7241be2fc9ca87849915a1d194d9039a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_fullHeartSprite: {fileID: -8355878931891455547, guid: 1eb850019dad2a243a660217c0c7f66a, type: 3}
-  m_emptyHeartSprite: {fileID: -7801491425260804980, guid: 1eb850019dad2a243a660217c0c7f66a, type: 3}
-  playerHearts:
-  - {fileID: 462441848}
-  - {fileID: 972755723}
-  - {fileID: 1381993549}
-  - {fileID: 1536169229}
-  - {fileID: 2051735618}
-  - {fileID: 22893125}
-  - {fileID: 644215928}
-  - {fileID: 1794732132}
-  - {fileID: 2001835913}
 --- !u!222 &1089678150
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6284,7 +6259,7 @@ GameObject:
   - component: {fileID: 1541299983}
   - component: {fileID: 1541299982}
   m_Layer: 5
-  m_Name: Total Text (1)
+  m_Name: Coin Total Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7538,6 +7513,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1860229828}
+  - component: {fileID: 1860229831}
   - component: {fileID: 1860229830}
   - component: {fileID: 1860229829}
   m_Layer: 5
@@ -7607,6 +7583,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860229827}
   m_CullTransparentMesh: 1
+--- !u!114 &1860229831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860229827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7241be2fc9ca87849915a1d194d9039a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fullHeartSprite: {fileID: -8355878931891455547, guid: 1eb850019dad2a243a660217c0c7f66a, type: 3}
+  m_emptyHeartSprite: {fileID: -7801491425260804980, guid: 1eb850019dad2a243a660217c0c7f66a, type: 3}
+  m_playerHearts:
+  - {fileID: 462441848}
+  - {fileID: 972755723}
+  - {fileID: 1381993549}
+  - {fileID: 1536169229}
+  - {fileID: 2051735618}
+  - {fileID: 22893125}
+  - {fileID: 644215928}
+  - {fileID: 1794732132}
+  - {fileID: 2001835913}
+  m_keyText: {fileID: 597148757}
+  m_coinText: {fileID: 1541299982}
 --- !u!1 &1884781381
 GameObject:
   m_ObjectHideFlags: 0

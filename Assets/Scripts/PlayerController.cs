@@ -209,6 +209,13 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 
     #region Character Overrides
 
+    public override void HealCharacter(int heal)
+    {
+        HealthChanged?.Invoke(m_maxHealth, m_currentHealth, m_currentHealth + heal);
+
+        base.HealCharacter(heal);
+    }
+
     protected override void TakeDamage(int damage)
     {
         HealthChanged?.Invoke(m_maxHealth, m_currentHealth, m_currentHealth - damage);

@@ -140,6 +140,11 @@ public class BaseCharacterController : MonoBehaviour
         m_rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
     }
 
+    virtual public void HealCharacter(int heal)
+    {
+        m_currentHealth = Mathf.Min(m_currentHealth + heal, m_maxHealth);
+    }
+
     virtual protected void TakeDamage(int damage)
     {
         m_currentHealth -= damage;

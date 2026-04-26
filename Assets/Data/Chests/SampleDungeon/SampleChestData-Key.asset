@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fb11ab0c8a55f94ea98d20945966f1e, type: 3}
+  m_Name: SampleChestData-Key
+  m_EditorClassIdentifier: 
+  RevealSprite: {fileID: -8356860057929190541, guid: 27a1420e5a0ae7941bd8745b33fd3ecd, type: 3}
+  RevealText: You Got...\nA Key!
+  RewardType: 1
+  RewardValue: 1

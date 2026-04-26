@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fb11ab0c8a55f94ea98d20945966f1e, type: 3}
+  m_Name: SampleChestData-Coins
+  m_EditorClassIdentifier: 
+  RevealSprite: {fileID: -8031487701402016373, guid: 498831ddc59b198418e0fbfdf3520fdc, type: 3}
+  RevealText: You Got...\nA pile of coins!
+  RewardType: 2
+  RewardValue: 10

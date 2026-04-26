@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,15 +6,22 @@ public class GameDialogRelay : MonoBehaviour
 {
     [SerializeField] string[] m_dialogSequence;
 
+    public Action OnDialogComplete;
+
     private PlayerController m_trackedPlayer;
     private DialogUI m_dialog;
     private int m_currentDialog = 0;
 
     public void TriggerDialogSequence()
     {
+        TriggerDialogSequence(m_dialogSequence[0]);
+    }
+
+    public void TriggerDialogSequence(string dialog)
+    {
         // TODO: Have dialog or GUI manager dictate if the player can or can't have input at any given moment. 
         m_trackedPlayer.DisableInputForExternalInteraction();
-        m_dialog.SetDialogText(m_dialogSequence[0]);
+        m_dialog.SetDialogText(dialog);
 
         m_currentDialog = 0;
 
@@ -37,6 +45,9 @@ public class GameDialogRelay : MonoBehaviour
             var submitAction = InputSystem.actions.FindAction("UI/Submit");
             submitAction.started -= SubmitAction_started;
             m_dialog.SetDialogText("");
+
+            OnDialogComplete?.Invoke();
+
             return;
         }
 

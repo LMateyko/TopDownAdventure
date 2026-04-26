@@ -4,11 +4,11 @@ using UnityEngine.Events;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Interactable : MonoBehaviour
 {
-    [SerializeField] private UnityEvent<Interactable> m_interactionResult = new UnityEvent<Interactable>();
+    [SerializeField] private UnityEvent<Interactable, PlayerController> m_interactionResult = new UnityEvent<Interactable, PlayerController>();
 
-    public virtual void TriggerInteraction()
+    public virtual void TriggerInteraction(PlayerController player)
     {
-        m_interactionResult?.Invoke(this);
+        m_interactionResult?.Invoke(this, player);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

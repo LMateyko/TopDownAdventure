@@ -93,7 +93,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     {
         if (m_currentInteractable != null && m_currentInteractable.gameObject.activeInHierarchy)
         {
-            m_currentInteractable.TriggerInteraction();
+            m_currentInteractable.TriggerInteraction(this);
             return true;
         }
         else

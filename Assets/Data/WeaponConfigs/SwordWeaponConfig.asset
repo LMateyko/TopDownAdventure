@@ -16,6 +16,6 @@ MonoBehaviour:
   WeaponAnimation: Weapon_Sword_Attack
   AllowFacingChange: 0
   AnimationTransition: 1
-  SpeedMultiplier: 0.75
+  SpeedMultiplier: 0
   WeaponDamage: 1
   WeaponKnockback: 2

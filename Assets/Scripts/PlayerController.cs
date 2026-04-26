@@ -225,7 +225,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 
         if(!IsAnimPlaying("Hurt"))
         {
-            if (m_targetVelocity == Vector2.zero)
+            if (CurrentVelocity == Vector2.zero)
                 PlayAnimation("Idle");
             else
                 PlayAnimation("Run");

@@ -15,6 +15,7 @@ public class BaseCharacterController : MonoBehaviour
     [SerializeField] protected SpriteRenderer m_renderer;
 
     public float CurrentSpeed => m_movementPaused ? 0f : m_speed;
+    public Vector2 CurrentVelocity => m_rigidbody.linearVelocity;
     virtual public int Damage => 1;
     virtual public float KnockbackForce => 5f;
 

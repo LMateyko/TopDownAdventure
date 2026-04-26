@@ -14,7 +14,6 @@ public class DungeonManager : MonoBehaviour, IInstaller
     #region Reflex IInstaller
     public void InstallBindings(ContainerBuilder containerBuilder)
     {
-        containerBuilder.RegisterValue("Dungeon Manager");
         containerBuilder.RegisterValue(this);
 
     }

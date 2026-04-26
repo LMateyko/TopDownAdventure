@@ -1,8 +1,11 @@
+using Reflex.Attributes;
 using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
     [SerializeField] private PlayerController m_playerPrefab;
+
+    [Inject] readonly private PlayerManager PlayerManager;
 
     private void Awake()
     {
@@ -10,10 +13,9 @@ public class PlayerSpawner : MonoBehaviour
         var editorRenderer = GetComponent<SpriteRenderer>();
         Destroy(editorRenderer);
 
-        var foundPlayer = FindFirstObjectByType<PlayerController>();
-        if (foundPlayer == null)
-            Instantiate(m_playerPrefab, transform.position, Quaternion.identity);
+        if (PlayerManager.Player == null)
+            PlayerManager.Player = Instantiate(m_playerPrefab, transform.position, Quaternion.identity);
         else
-            foundPlayer.transform.position = transform.position;
+            PlayerManager.Player.transform.position = transform.position;
     }
 }

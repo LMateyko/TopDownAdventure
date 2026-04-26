@@ -9,20 +9,8 @@ public class RoomTransitionTrigger : MonoBehaviour
     [Tooltip("Distance to jump the player into the next room")]
     [SerializeField] private float m_playerJumpDistance = 2f;
 
-    [Inject] private readonly IEnumerable<string> _strings;
     [Inject] private readonly DungeonManager m_dungeonManager;
-
-    private PlayerController m_playerToMove;
-    //private DungeonManager m_dungeonManager;
-
-    private void Start()
-    {
-        // TODO: Retrieve these values via global access when needed instead of finding them on Awake
-        m_playerToMove = FindFirstObjectByType<PlayerController>();
-        //m_dungeonManager = FindFirstObjectByType<DungeonManager>();
-
-        Debug.Log(string.Join(" ", _strings));
-    }
+    [Inject] readonly private PlayerManager PlayerManager;
 
     private void OnValidate()
     {
@@ -40,11 +28,11 @@ public class RoomTransitionTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject != m_playerToMove.gameObject)
+        if (collision.gameObject != PlayerManager.Player.gameObject)
             return;
 
         Vector3 jumpDistance = m_transitionDirection * m_playerJumpDistance;
-        m_playerToMove.transform.position += jumpDistance;
+        PlayerManager.Player.transform.position += jumpDistance;
 
         m_dungeonManager.MovePlayerRoomPosition(m_transitionDirection);
     }

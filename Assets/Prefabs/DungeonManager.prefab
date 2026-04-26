@@ -91,7 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8495315b0bfb37846bfbceaae0a5863d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_roomEnemies: []
   m_northRoom: {fileID: 0}
   m_eastRoom: {fileID: 0}
   m_southRoom: {fileID: 0}

@@ -13,8 +13,14 @@ public class Loader : MonoBehaviour
         // This way you can access ContainerBuilder of the scene that is currently building
         ContainerScope.OnSceneContainerBuilding += InstallExtra;
 
-        // If you are loading scenes without addressables
-        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Greet").completed += operation =>
+        //// If you are loading scenes without addressables
+        //UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("SampleScene_SGQ").completed += operation =>
+        //{
+        //    ContainerScope.OnSceneContainerBuilding -= InstallExtra;
+        //};
+
+        //If you are loading scenes without addressables
+        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("ReflexGreet").completed += operation =>
         {
             ContainerScope.OnSceneContainerBuilding -= InstallExtra;
         };

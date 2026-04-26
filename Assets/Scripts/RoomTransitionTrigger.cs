@@ -1,4 +1,6 @@
 using UnityEngine;
+using Reflex.Attributes;
+using System.Collections.Generic;
 
 public class RoomTransitionTrigger : MonoBehaviour
 {
@@ -7,14 +9,19 @@ public class RoomTransitionTrigger : MonoBehaviour
     [Tooltip("Distance to jump the player into the next room")]
     [SerializeField] private float m_playerJumpDistance = 2f;
 
+    [Inject] private readonly IEnumerable<string> _strings;
+    [Inject] private readonly DungeonManager m_dungeonManager;
+
     private PlayerController m_playerToMove;
-    private DungeonManager m_dungeonManager;
+    //private DungeonManager m_dungeonManager;
 
     private void Start()
     {
         // TODO: Retrieve these values via global access when needed instead of finding them on Awake
         m_playerToMove = FindFirstObjectByType<PlayerController>();
-        m_dungeonManager = FindFirstObjectByType<DungeonManager>();
+        //m_dungeonManager = FindFirstObjectByType<DungeonManager>();
+
+        Debug.Log(string.Join(" ", _strings));
     }
 
     private void OnValidate()

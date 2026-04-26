@@ -1,6 +1,8 @@
 using UnityEngine;
+using Reflex.Core;
+using System;
 
-public class DungeonManager : MonoBehaviour
+public class DungeonManager : MonoBehaviour, IInstaller
 {
     [SerializeField] private DungeonData m_dungeonData;
     [SerializeField] private RoomManager m_startingRoom;
@@ -8,6 +10,15 @@ public class DungeonManager : MonoBehaviour
     private DungeonMapUI m_mapUI;
     private Vector2Int m_currentPlayerRoom;
     private RoomManager m_currentRoom;
+
+    #region Reflex IInstaller
+    public void InstallBindings(ContainerBuilder containerBuilder)
+    {
+        containerBuilder.RegisterValue("Dungeon Manager");
+        containerBuilder.RegisterValue(this);
+
+    }
+    #endregion
 
     public void MovePlayerRoomPosition(Vector2 direction)
     {

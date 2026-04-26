@@ -148,7 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8495315b0bfb37846bfbceaae0a5863d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_roomEnemies: []
   m_northRoom: {fileID: 0}
   m_eastRoom: {fileID: 0}
   m_southRoom: {fileID: 1391554905}
@@ -185,7 +184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &171026172
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4343,7 +4342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8495315b0bfb37846bfbceaae0a5863d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_roomEnemies: []
   m_northRoom: {fileID: 183351882}
   m_eastRoom: {fileID: 1391554905}
   m_southRoom: {fileID: 0}
@@ -4462,10 +4460,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.321875
     y: 0
-    width: 1
-    height: 1
+    width: 0.16666667
+    height: 0.3111111
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -4712,6 +4710,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2769447785568473230, guid: 926c511af8e8f5b4f8b4f91055ace04d, type: 3}
   m_PrefabInstance: {fileID: 1529507076}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &933412607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 933412609}
+  - component: {fileID: 933412608}
+  m_Layer: 0
+  m_Name: SceneScope
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &933412608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933412607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5312032623c34414a54ea00e35a7eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &933412609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933412607}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1075258558}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1075258558 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9215998833439671065, guid: e6138f756a40ac946921d3bb38934419, type: 3}
@@ -8357,7 +8400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8495315b0bfb37846bfbceaae0a5863d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_roomEnemies: []
   m_northRoom: {fileID: 31161196}
   m_eastRoom: {fileID: 0}
   m_southRoom: {fileID: 0}
@@ -8536,7 +8578,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 933412609}
     m_Modifications:
     - target: {fileID: 713967950318105577, guid: e6138f756a40ac946921d3bb38934419, type: 3}
       propertyPath: m_eastRoom
@@ -8584,15 +8626,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9215998833439671065, guid: e6138f756a40ac946921d3bb38934419, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9215998833439671065, guid: e6138f756a40ac946921d3bb38934419, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9215998833439671065, guid: e6138f756a40ac946921d3bb38934419, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9215998833439671065, guid: e6138f756a40ac946921d3bb38934419, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8635,7 +8677,7 @@ SceneRoots:
   - {fileID: 2037030271}
   - {fileID: 690868172}
   - {fileID: 381397309}
-  - {fileID: 322996851695047546}
+  - {fileID: 933412609}
   - {fileID: 390310029}
   - {fileID: 380501260}
   - {fileID: 171026174}

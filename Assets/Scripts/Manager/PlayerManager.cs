@@ -3,13 +3,14 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IInstaller
 {
-    public PlayerController Player { get; set; } = null;
+    [Tooltip("Persisting Player Prefab to spawn and track")]
+    [SerializeField] private PlayerController PlayerPrefab;
 
-    public ChestRewardData TestData;
+    public PlayerController Player { get; private set; } = null;
 
     public void InstallBindings(ContainerBuilder containerBuilder)
     {
-        // TODO: Turn into a Factory and spawning the player here. 
         containerBuilder.RegisterValue(this);
+        Player = Instantiate(PlayerPrefab);
     }
 }

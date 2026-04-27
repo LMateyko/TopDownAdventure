@@ -13,9 +13,6 @@ public class PlayerSpawner : MonoBehaviour
         var editorRenderer = GetComponent<SpriteRenderer>();
         Destroy(editorRenderer);
 
-        if (PlayerManager.Player == null)
-            PlayerManager.Player = Instantiate(m_playerPrefab, transform.position, Quaternion.identity);
-        else
-            PlayerManager.Player.transform.position = transform.position;
+        PlayerManager.Player.transform.position = transform.position;
     }
 }

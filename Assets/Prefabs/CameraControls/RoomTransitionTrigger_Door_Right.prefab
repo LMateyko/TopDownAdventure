@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 328863244197021177, guid: 7899e61c720aaa14781585cf02222548, type: 3}
       propertyPath: m_Offset.x
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 328863244197021177, guid: 7899e61c720aaa14781585cf02222548, type: 3}
       propertyPath: m_Offset.y
@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4012675048344993975, guid: 7899e61c720aaa14781585cf02222548, type: 3}
       propertyPath: m_Name
-      value: CameraTransitionTrigger_Door_Right
+      value: RoomTransitionTrigger_Door_Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

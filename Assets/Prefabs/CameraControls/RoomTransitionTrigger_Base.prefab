@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_transitionDirection: {x: 0, y: 0}
-  m_playerJumpDistance: 2
+  m_playerJumpDistance: 2.25
 --- !u!61 &328863244197021177
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -8,11 +8,10 @@ public class GameDialogRelay : MonoBehaviour
     [SerializeField] string[] m_dialogSequence;
 
     [Inject] readonly private PlayerManager PlayerManager;
+    [Inject] readonly private DialogUI DialogUI;
 
     public Action OnDialogComplete;
 
-    //private PlayerController m_trackedPlayer;
-    private DialogUI m_dialog;
     private int m_currentDialog = 0;
 
     public void TriggerDialogSequence()
@@ -24,18 +23,12 @@ public class GameDialogRelay : MonoBehaviour
     {
         // TODO: Have dialog or GUI manager dictate if the player can or can't have input at any given moment. 
         PlayerManager.Player.DisableInputForExternalInteraction();
-        m_dialog.SetDialogText(dialog);
+        DialogUI.SetDialogText(dialog);
 
         m_currentDialog = 0;
 
         var submitAction = InputSystem.actions.FindAction("UI/Submit");
         submitAction.started += SubmitAction_started;
-    }
-
-    private void Start()
-    {
-        // TODO: Retrieve these values via global access when needed instead of finding them on Start
-        m_dialog = FindFirstObjectByType<DialogUI>();
     }
 
     private void SubmitAction_started(InputAction.CallbackContext obj)
@@ -46,14 +39,14 @@ public class GameDialogRelay : MonoBehaviour
             PlayerManager.Player.ReEnableInput();
             var submitAction = InputSystem.actions.FindAction("UI/Submit");
             submitAction.started -= SubmitAction_started;
-            m_dialog.SetDialogText("");
+            DialogUI.SetDialogText("");
 
             OnDialogComplete?.Invoke();
 
             return;
         }
 
-        m_dialog.SetDialogText(m_dialogSequence[m_currentDialog]);
+        DialogUI.SetDialogText(m_dialogSequence[m_currentDialog]);
     }
 
 }

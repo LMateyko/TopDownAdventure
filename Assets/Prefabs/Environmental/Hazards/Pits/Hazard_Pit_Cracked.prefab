@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2894683397996274465}
   - component: {fileID: 1160480448976298079}
   - component: {fileID: 1192379629138769445}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hazard_Pit_Cracked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 917296215398575247}
   - component: {fileID: 8310644259064414755}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 public class EnemyWanderMovement : EnemyMovementSetting
 {
@@ -18,20 +20,18 @@ public class EnemyWanderMovement : EnemyMovementSetting
     [SerializeField] private ResetMovementCondition m_resetMovementConditions;
     [Tooltip("How long a direction is maintained before randomizing")]
     [SerializeField] private float m_directionDuration;
+    [Tooltip("Layers to that determine invalid movement directions")]
+    [SerializeField] LayerMask m_avoidedLayers;
 
     private Vector2 m_moveDirection = Vector2.right;
     private float m_durationTimer = 0f;
     private int m_lastAnimLoop = 0;
 
-    private ContactPoint2D[] m_contactCache = new ContactPoint2D[10];
-    private readonly float WallOffset = .025f;
-
     public override void InitializeMovement() {}
 
     public override void RestartMovement()
     {
-        m_enemy.GetCharacterContactPoints(ref m_contactCache);
-        SetRandomDirection(m_enemy, m_contactCache);
+        SetRandomDirection(m_enemy);
 
         m_durationTimer = 0f;
     }
@@ -42,8 +42,7 @@ public class EnemyWanderMovement : EnemyMovementSetting
         {
             if (m_enemy.AnimLoops() > m_lastAnimLoop)
             {
-                m_enemy.GetCharacterContactPoints(ref m_contactCache);
-                SetRandomDirection(m_enemy, m_contactCache);
+                SetRandomDirection(m_enemy);
             }
 
             m_lastAnimLoop = m_enemy.AnimLoops();
@@ -54,8 +53,7 @@ public class EnemyWanderMovement : EnemyMovementSetting
             m_durationTimer += Time.deltaTime;
             if (m_durationTimer >= m_directionDuration)
             {
-                m_enemy.GetCharacterContactPoints(ref m_contactCache);
-                SetRandomDirection(m_enemy, m_contactCache);
+                SetRandomDirection(m_enemy);
                 m_durationTimer = 0f;
             }
         }
@@ -66,32 +64,36 @@ public class EnemyWanderMovement : EnemyMovementSetting
     public override void OnCollision(Collision2D collision)
     {
         if(m_resetMovementConditions.HasFlag(ResetMovementCondition.OnCollision))
-            SetRandomDirection(m_enemy, collision.contacts);
+            SetRandomDirection(m_enemy);
     }
 
     public override void OnDealtDamage(BaseCharacterController defender) {}
 
-    private void SetRandomDirection(EnemyController enemy, ContactPoint2D[] currentContacts)
+    private void SetRandomDirection(EnemyController enemy)
     {
         // Determine valid directions based on current contacts 
         List<Vector2> directions = new List<Vector2>() { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
-        Vector3 cleanNormal;
-        foreach (var contact in currentContacts)
+
+        // Reduce directions further looking for hazards
+        for(int i = directions.Count -1; i >= 0; i--)
         {
-            cleanNormal = contact.normal;
-            if (Mathf.Abs(cleanNormal.y) < 0.1f)
-                cleanNormal.y = 0;
-            if (Mathf.Abs(cleanNormal.x) < 0.1f)
-                cleanNormal.x = 0;
+            float castRange = 1f;
 
-            directions.Remove(cleanNormal * -1);
-
-            // ofset position slightly by contact normals
-            enemy.transform.position += cleanNormal * WallOffset;
+            var direction = directions[i];
+            var overlap = Physics2D.OverlapPoint(transform.position + ((Vector3)direction * castRange), m_avoidedLayers);
+            if (overlap != null)
+                directions.RemoveAt(i);
         }
 
-        var randomIndex = UnityEngine.Random.Range(0, directions.Count);
-        m_moveDirection = directions[randomIndex];
+        if(directions.Count > 0)
+        {
+            var randomIndex = UnityEngine.Random.Range(0, directions.Count);
+            m_moveDirection = directions[randomIndex];
+        }
+        else
+        {
+            m_moveDirection = Vector2.zero;
+        }
 
         enemy.SetFacing(m_moveDirection);
     }

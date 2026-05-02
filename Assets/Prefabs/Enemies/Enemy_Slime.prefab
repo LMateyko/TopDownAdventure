@@ -115,3 +115,6 @@ MonoBehaviour:
   m_enemy: {fileID: 2043728537789544583}
   m_resetMovementConditions: 0
   m_directionDuration: 0
+  m_avoidedLayers:
+    serializedVersion: 2
+    m_Bits: 264

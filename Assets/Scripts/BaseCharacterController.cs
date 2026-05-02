@@ -21,6 +21,8 @@ public class BaseCharacterController : MonoBehaviour
     virtual public float KnockbackForce => 5f;
     public bool IsGrounded => m_grounded;
     public bool IsFalling => IsAnimPlaying("Fall");
+    public bool IsHurting => IsAnimPlaying("Hurt");
+    public bool IsDying => IsAnimPlaying("Death");
 
     protected bool IsAlive => m_currentHealth > 0;
 

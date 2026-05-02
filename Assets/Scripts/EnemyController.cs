@@ -57,6 +57,14 @@ public class EnemyController : BaseCharacterController, IRoomObject
             return;
         }
 
+        if (IsAnimPlaying("Fall"))
+        {
+            if (IsAnimComplete())
+                KillCharacter();
+
+            return;
+        }
+
         if (IsAnimPlaying("Hurt"))
         {
             m_wasHurt = true;

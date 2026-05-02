@@ -8,6 +8,7 @@ public class BaseCharacterController : MonoBehaviour
     [SerializeField] private string m_characterPrefix;
     [SerializeField] protected float m_speed = 5f;
     [SerializeField] protected int m_maxHealth = 3;
+    [SerializeField] protected bool m_grounded = true;
 
     [Header("Local Character References")]
     [SerializeField] private Animator m_animator;
@@ -18,6 +19,8 @@ public class BaseCharacterController : MonoBehaviour
     public Vector2 CurrentVelocity => m_rigidbody.linearVelocity;
     virtual public int Damage => 1;
     virtual public float KnockbackForce => 5f;
+    public bool IsGrounded => m_grounded;
+    public bool IsFalling => IsAnimPlaying("Fall");
 
     protected bool IsAlive => m_currentHealth > 0;
 
@@ -94,7 +97,7 @@ public class BaseCharacterController : MonoBehaviour
         if (IsAnimPlaying(animationName) && !restart)
             return;
 
-        //Debug.Log($"PlayAnimation for {this.gameObject}: {animationName}");
+        Debug.Log($"PlayAnimation for {this.gameObject}: {animationName}");
 
         // Play new animation and update to set the state immediately 
         m_animator.Play($"{m_characterPrefix}_{animationName}");
@@ -132,7 +135,7 @@ public class BaseCharacterController : MonoBehaviour
         if (!IsAnimPlaying("Hurt"))
         {
             BaseCharacterController attacker = collision.attachedRigidbody.GetComponent<BaseCharacterController>();
-            if (attacker != null)
+            if (attacker != null && attacker.IsAlive)
                 attacker.DamageTarget(this);
         }
     }

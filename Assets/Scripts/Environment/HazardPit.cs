@@ -10,7 +10,7 @@ public class HazardPit : MonoBehaviour
 
         // TODO: After entering the area, slowly pull the Character towards the center
         var foundCharacter = collision.attachedRigidbody.gameObject.GetComponent<BaseCharacterController>();
-        if (foundCharacter)
+        if (foundCharacter && foundCharacter.IsGrounded && !foundCharacter.IsFalling)
         {
             foundCharacter.transform.position = transform.position;
             foundCharacter.FallIntoPit();

@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_timePerState: 0.5
   m_crackedStates: 3
+  m_openPitSize: {x: 0.25, y: 0.25}
   m_pitAnimator: {fileID: 1160480448976298079}
 --- !u!95 &1160480448976298079
 Animator:

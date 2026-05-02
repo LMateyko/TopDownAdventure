@@ -31,9 +31,7 @@ public class RoomTransitionTrigger : MonoBehaviour
         if (collision.gameObject != PlayerManager.Player.gameObject)
             return;
 
-        Vector3 jumpDistance = m_transitionDirection * m_playerJumpDistance;
-        PlayerManager.Player.transform.position += jumpDistance;
-
+        PlayerManager.MoveToRoom(m_transitionDirection * m_playerJumpDistance);
         m_dungeonManager.MovePlayerRoomPosition(m_transitionDirection);
     }
 }

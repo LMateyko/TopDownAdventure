@@ -1,21 +1,64 @@
+using System.Collections;
 using UnityEngine;
 
-public class HazardCrackedPit : HazardPit
+public class HazardCrackedPit : MonoBehaviour
 {
-    [SerializeField] Animator m_crackAnimator;
+    [Tooltip("Time between crack sprite transitions")]
+    [SerializeField] float m_timePerState;
+    [Tooltip("How many animations while opening, including open")]
+    [SerializeField] int m_crackedStates = 3;
+    [SerializeField] Vector2 m_openPitSize = new Vector2(0.25f, 0.25f);
+    [SerializeField] Animator m_pitAnimator;
 
-    bool CrackOpen => false;
+    private int m_crackIndex = 0;
+    private Coroutine m_crackCountRoutine;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        
+        m_pitAnimator.Play("Pit_Crack_0");
     }
 
-    protected override void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // If the crack is open, do default pit behavior
-        if(CrackOpen)
-            base.Update();
+        if (m_crackIndex >= m_crackedStates)
+            return;
+
+        var foundPlayer = collision.attachedRigidbody.gameObject.GetComponent<PlayerController>();
+        if (foundPlayer && collision.CompareTag("Player"))
+        {
+            m_crackCountRoutine = StartCoroutine(CoCrackCountdown(foundPlayer));
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (m_crackIndex >= m_crackedStates)
+            return;
+
+        var foundPlayer = collision.attachedRigidbody.gameObject.GetComponent<PlayerController>();
+        if (foundPlayer && collision.CompareTag("Player"))
+        {
+            if (m_crackCountRoutine != null)
+                StopCoroutine(m_crackCountRoutine);
+        }
+    }
+
+    private IEnumerator CoCrackCountdown(PlayerController player)
+    {
+        while (m_crackIndex < m_crackedStates - 1)
+        {
+            m_pitAnimator.Play($"Pit_Crack_{m_crackIndex}");
+            yield return new WaitForSeconds(m_timePerState);
+
+            m_crackIndex++;
+        }
+
+        m_pitAnimator.Play($"Pit_Crack_Open");
+        var collider = GetComponent<BoxCollider2D>();
+        collider.size = m_openPitSize;
+
+        gameObject.AddComponent<HazardPit>();
+        player.transform.position = transform.position;
+        player.FallIntoPit();
     }
 }

@@ -1,3 +1,4 @@
+using Reflex.Attributes;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     [SerializeField] private Transform m_socketForwardSwing;
     [SerializeField] private Transform m_socketDownSwing;
 
+    public Action OnFallComplete;
     public Action<int, int, int> HealthChanged;
     public Action<int> KeysChanged;
     public Action<int> CoinsChanged;
@@ -73,6 +75,12 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     {
         // TODO: If this ends up being called from multiple directions, decrement count of disabled sources.
         m_playerActions.Enable();
+    }
+
+    public override void FallIntoPit()
+    {
+        base.FallIntoPit();
+        DisableInputForExternalInteraction();
     }
 
     #region Interactables
@@ -204,6 +212,14 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         if (IsAnimPlaying("Hurt"))
             return;
 
+        if(IsAnimPlaying("Fall"))
+        {
+            if (IsAnimComplete())
+                OnFallComplete?.Invoke();
+
+            return;
+        }
+
         if (CurrentWeapon == WeaponConfiguration.WeaponEnum.None)
         {
             SetVelocity(m_targetVelocity, true);
@@ -223,13 +239,10 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
             }
         }
 
-        if(!IsAnimPlaying("Hurt"))
-        {
-            if (CurrentVelocity == Vector2.zero)
-                PlayAnimation("Idle");
-            else
-                PlayAnimation("Run");
-        }
+        if (CurrentVelocity == Vector2.zero)
+            PlayAnimation("Idle");
+        else
+            PlayAnimation("Run");
     }
     #endregion
 

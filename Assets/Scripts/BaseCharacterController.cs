@@ -34,6 +34,13 @@ public class BaseCharacterController : MonoBehaviour
     }
 
     #region Movement and Facing
+    public virtual void FallIntoPit()
+    {
+        m_movementPaused = true;
+        PlayAnimation("Fall");
+        SetVelocity(Vector2.zero, false);
+    }
+
     public void PauseMovement()
     {
         m_movementPaused = true;
@@ -86,6 +93,8 @@ public class BaseCharacterController : MonoBehaviour
     {
         if (IsAnimPlaying(animationName) && !restart)
             return;
+
+        //Debug.Log($"PlayAnimation for {this.gameObject}: {animationName}");
 
         // Play new animation and update to set the state immediately 
         m_animator.Play($"{m_characterPrefix}_{animationName}");

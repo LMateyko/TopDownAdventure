@@ -79,10 +79,10 @@ public class EnemyController : BaseCharacterController, IRoomObject
         m_movementBehavior.OnUpdate();
     }
 
-    protected override void DamageTarget(BaseCharacterController defender)
+    public override void DamageTarget(IDamageable defender)
     {
         base.DamageTarget(defender);
-        m_movementBehavior.OnDealtDamage(defender);
+        m_movementBehavior.OnDamageTarget(defender);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

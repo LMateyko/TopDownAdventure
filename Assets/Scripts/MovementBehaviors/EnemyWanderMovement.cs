@@ -67,7 +67,7 @@ public class EnemyWanderMovement : EnemyMovementSetting
             SetRandomDirection(m_enemy);
     }
 
-    public override void OnDealtDamage(BaseCharacterController defender) {}
+    public override void OnDamageTarget(IDamageable defender) {}
 
     private void SetRandomDirection(EnemyController enemy)
     {

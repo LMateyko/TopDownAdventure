@@ -96,7 +96,7 @@ public class EnemyTrackingSpiralMovement : EnemyMovementSetting
         m_rotateClockwise = !m_rotateClockwise;
     }
 
-    public override void OnDealtDamage(BaseCharacterController defender)
+    public override void OnDamageTarget(IDamageable defender)
     {
         if(m_pauseCoroutine == null)
             m_pauseCoroutine = StartCoroutine(PauseMovementRoutine());

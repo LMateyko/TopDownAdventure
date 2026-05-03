@@ -12,5 +12,5 @@ public abstract class EnemyMovementSetting : MonoBehaviour
 
     public abstract void OnCollision(Collision2D collision);
 
-    public abstract void OnDealtDamage(BaseCharacterController defender);
+    public abstract void OnDamageTarget(IDamageable defender);
 }

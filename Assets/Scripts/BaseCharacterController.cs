@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BaseCharacterController : MonoBehaviour
+public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
 {
     [Header("Character Settings")]
 
@@ -17,14 +17,10 @@ public class BaseCharacterController : MonoBehaviour
 
     public float CurrentSpeed => m_movementPaused ? 0f : m_speed;
     public Vector2 CurrentVelocity => m_rigidbody.linearVelocity;
-    virtual public int Damage => 1;
-    virtual public float KnockbackForce => 5f;
-    public bool IsGrounded => m_grounded;
+
     public bool IsFalling => IsAnimPlaying("Fall");
     public bool IsHurting => IsAnimPlaying("Hurt");
     public bool IsDying => IsAnimPlaying("Death");
-
-    protected bool IsAlive => m_currentHealth > 0;
 
     protected int m_currentHealth;
     private bool m_movementPaused = false;
@@ -32,6 +28,44 @@ public class BaseCharacterController : MonoBehaviour
 
     private readonly Vector3 FaceRightScale = new Vector3(1, 1, 1);
     private readonly Vector3 FaceLeftScale = new Vector3(-1, 1, 1);
+
+    #region IDamager Implementation
+
+    virtual public int Damage => 1;
+    virtual public float KnockbackForce => 5f;
+    virtual public bool AttackEnabled => IsAlive;
+
+    virtual public void DamageTarget(IDamageable defender)
+    {
+        defender.TakeDamage(Damage);
+
+        var contactDirection = (defender.transform.position - transform.position).normalized;
+        defender.Knockback(contactDirection, force: KnockbackForce);
+    }
+
+    #endregion
+
+    #region IDamageable Implementation
+
+    public bool IsAlive => m_currentHealth > 0;
+    public bool IsGrounded => m_grounded;
+
+    virtual public void TakeDamage(int damage)
+    {
+        m_currentHealth -= damage;
+
+        if (m_currentHealth <= 0)
+            KillCharacter();
+        else
+            PlayAnimation("Hurt");
+    }
+
+    public void Knockback(Vector2 direction, float force)
+    {
+        m_rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
+    }
+
+    #endregion
 
     protected virtual void Start()
     {
@@ -136,38 +170,17 @@ public class BaseCharacterController : MonoBehaviour
 
         if (!IsAnimPlaying("Hurt"))
         {
-            BaseCharacterController attacker = collision.attachedRigidbody.GetComponent<BaseCharacterController>();
-            if (attacker != null && attacker.IsAlive)
+            var attacker = collision.attachedRigidbody.GetComponent<IDamager>();
+            if (attacker != null && attacker.AttackEnabled)
                 attacker.DamageTarget(this);
         }
     }
 
-    virtual protected void DamageTarget(BaseCharacterController defender)
-    {
-        defender.TakeDamage(Damage);
 
-        var contactDirection = (defender.transform.position - transform.position).normalized;
-        defender.Knockback(contactDirection, force: KnockbackForce);
-    }
-
-    public void Knockback(Vector2 direction, float force)
-    {
-        m_rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
-    }
 
     virtual public void HealCharacter(int heal)
     {
         m_currentHealth = Mathf.Min(m_currentHealth + heal, m_maxHealth);
-    }
-
-    virtual public void TakeDamage(int damage)
-    {
-        m_currentHealth -= damage;
-
-        if (m_currentHealth <= 0)
-            KillCharacter();
-        else
-            PlayAnimation("Hurt");
     }
 
     virtual protected void KillCharacter()

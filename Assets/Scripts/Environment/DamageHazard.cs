@@ -1,27 +1,30 @@
 using UnityEngine;
 
-public class DamageHazard : MonoBehaviour
+public class DamageHazard : MonoBehaviour, IDamager
 {
-    [SerializeField] private int m_hazardDamage = 1;
-    [SerializeField] private float m_knockbackForce = 5f;
+    [SerializeField] public int Damage { get; } = 1;
+    [SerializeField] public float KnockbackForce { get; } = 4f;
+
+    public bool AttackEnabled => true;
+
     [SerializeField] private bool m_groundedOnly = true;
     [SerializeField] private BoxCollider2D m_attackCollider;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var foundCharacter = collision.attachedRigidbody.gameObject.GetComponent<BaseCharacterController>();
-        if (foundCharacter && foundCharacter.IsGrounded && !foundCharacter.IsFalling)
+        var foundCharacter = collision.attachedRigidbody.gameObject.GetComponent<IDamageable>();
+        if (foundCharacter != null && foundCharacter.IsGrounded)
         {
             if(!m_groundedOnly || (m_groundedOnly && foundCharacter.IsGrounded))
                 DamageTarget(foundCharacter);
         }
     }
 
-    private void DamageTarget(BaseCharacterController defender)
+    public void DamageTarget(IDamageable defender)
     {
-        defender.TakeDamage(m_hazardDamage);
+        defender.TakeDamage(Damage);
 
         var contactDirection = (defender.transform.position - transform.position).normalized;
-        defender.Knockback(contactDirection, force: m_knockbackForce);
+        defender.Knockback(contactDirection, force: KnockbackForce);
     }
 }

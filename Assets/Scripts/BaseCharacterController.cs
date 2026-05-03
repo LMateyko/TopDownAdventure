@@ -37,6 +37,8 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
 
     virtual public void DamageTarget(IDamageable defender)
     {
+        if (!AttackEnabled) return;
+
         defender.TakeDamage(Damage);
 
         var contactDirection = (defender.transform.position - transform.position).normalized;
@@ -52,6 +54,8 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
 
     virtual public void TakeDamage(int damage)
     {
+        if (!IsAlive) return;
+
         m_currentHealth -= damage;
 
         if (m_currentHealth <= 0)

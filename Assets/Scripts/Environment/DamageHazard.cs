@@ -22,6 +22,8 @@ public class DamageHazard : MonoBehaviour, IDamager
 
     public void DamageTarget(IDamageable defender)
     {
+        if (!AttackEnabled) return;
+
         defender.TakeDamage(Damage);
 
         var contactDirection = (defender.transform.position - transform.position).normalized;

@@ -150,7 +150,7 @@ public class BaseCharacterController : MonoBehaviour
         defender.Knockback(contactDirection, force: KnockbackForce);
     }
 
-    protected void Knockback(Vector2 direction, float force)
+    public void Knockback(Vector2 direction, float force)
     {
         m_rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
     }
@@ -160,7 +160,7 @@ public class BaseCharacterController : MonoBehaviour
         m_currentHealth = Mathf.Min(m_currentHealth + heal, m_maxHealth);
     }
 
-    virtual protected void TakeDamage(int damage)
+    virtual public void TakeDamage(int damage)
     {
         m_currentHealth -= damage;
 

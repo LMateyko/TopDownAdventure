@@ -255,7 +255,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         base.HealCharacter(heal);
     }
 
-    protected override void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
         HealthChanged?.Invoke(m_maxHealth, m_currentHealth, m_currentHealth - damage);
 

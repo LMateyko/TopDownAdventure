@@ -272,14 +272,19 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     #region Weapon
     public void LaunchWeaponProjectile()
     {
-        if (m_weaponMap[CurrentWeapon].Projectile)
+        if (m_weaponMap[CurrentWeapon].Projectile != null)
         {
             // TODO: Replace with pooling
-            var projectile = Instantiate(m_weaponMap[CurrentWeapon].Projectile);
+            Projectile projectile = Instantiate(m_weaponMap[CurrentWeapon].Projectile);
             projectile.transform.position = m_weaponAnimator.transform.parent.position;
             projectile.transform.localScale = m_weaponAnimator.transform.parent.lossyScale;
             projectile.transform.rotation = m_weaponAnimator.transform.parent.rotation;
 
+            projectile.SetAttackData(m_weaponMap[CurrentWeapon].WeaponDamage, m_weaponMap[CurrentWeapon].WeaponKnockback);
+        }
+        else
+        {
+            Debug.LogError($"ERROR: Attempting to fire projectile from [{CurrentWeapon}/{m_weaponMap[CurrentWeapon]}] with no projectile set. ");
         }
     }
 

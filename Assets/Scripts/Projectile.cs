@@ -1,14 +1,36 @@
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour, IDamager
 {
     [SerializeField] private float m_speed = 5f;
     [SerializeField] private SpriteRenderer m_renderer;
 
     private Vector3 TravelVector => transform.localScale.x * transform.right * m_speed * Time.deltaTime;
 
-    // Update is called once per frame
+    #region IDamager
+    public int Damage { get; private set; } 
+
+    public float KnockbackForce { get; private set; }
+
+    public bool AttackEnabled => true;
+
+    public void DamageTarget(IDamageable defender)
+    {
+        if (!AttackEnabled) return;
+
+        defender.TakeDamage(Damage);
+        defender.Knockback(transform.right, force: KnockbackForce);
+    }
+
+    #endregion
+
+    public void SetAttackData(int damage, float knockback)
+    {
+        Damage = damage;
+        KnockbackForce = knockback;
+    }
+
     private void Update()
     {
         transform.position += TravelVector;
@@ -32,4 +54,6 @@ public class Projectile : MonoBehaviour
                                     maxViewportPoint.y > 0f && minViewportPoint.y < 1f);
         return renderOnScreen;
     }
+
+    
 }

@@ -23,7 +23,7 @@ public class WeaponConfiguration : ScriptableObject
     [Tooltip("How the player's speed is adjusted while the weapon is in use")]
     public float SpeedMultiplier = 0.75f;
     [Tooltip("Spawned projectile during this weapon attack")]
-    public GameObject Projectile = default;
+    public Projectile Projectile = default;
 
     [Space]
     public int WeaponDamage = 1;

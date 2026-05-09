@@ -17,6 +17,6 @@ MonoBehaviour:
   AllowFacingChange: 0
   AnimationTransition: 1
   SpeedMultiplier: 0
-  Projectile: {fileID: 9026909196296708138, guid: e588df565728b884ab2d233f2ab3e76e, type: 3}
+  Projectile: {fileID: 7662806657671993054, guid: e588df565728b884ab2d233f2ab3e76e, type: 3}
   WeaponDamage: 1
-  WeaponKnockback: 5
+  WeaponKnockback: 8

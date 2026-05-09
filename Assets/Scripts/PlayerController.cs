@@ -270,13 +270,9 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     #endregion
 
     #region Weapon
-    private void UseWeapon(WeaponConfiguration currentWeapon)
+    public void LaunchWeaponProjectile()
     {
-        m_weaponAnimStarted = false;
-        CurrentWeapon = currentWeapon.WeaponType;
-        m_weaponAnimator.Play(currentWeapon.WeaponAnimation);
-
-        if(m_weaponMap[CurrentWeapon].Projectile)
+        if (m_weaponMap[CurrentWeapon].Projectile)
         {
             // TODO: Replace with pooling
             var projectile = Instantiate(m_weaponMap[CurrentWeapon].Projectile);
@@ -285,6 +281,15 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
             projectile.transform.rotation = m_weaponAnimator.transform.parent.rotation;
 
         }
+    }
+
+    private void UseWeapon(WeaponConfiguration currentWeapon)
+    {
+        m_weaponAnimStarted = false;
+        CurrentWeapon = currentWeapon.WeaponType;
+        m_weaponAnimator.Play(currentWeapon.WeaponAnimation);
+
+        
     }
 
     private void StopWeapon()

@@ -275,6 +275,16 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         m_weaponAnimStarted = false;
         CurrentWeapon = currentWeapon.WeaponType;
         m_weaponAnimator.Play(currentWeapon.WeaponAnimation);
+
+        if(m_weaponMap[CurrentWeapon].Projectile)
+        {
+            // TODO: Replace with pooling
+            var projectile = Instantiate(m_weaponMap[CurrentWeapon].Projectile);
+            projectile.transform.position = m_weaponAnimator.transform.parent.position;
+            projectile.transform.localScale = m_weaponAnimator.transform.parent.lossyScale;
+            projectile.transform.rotation = m_weaponAnimator.transform.parent.rotation;
+
+        }
     }
 
     private void StopWeapon()

@@ -137,7 +137,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
         if (IsAnimPlaying(animationName) && !restart)
             return;
 
-        Debug.Log($"PlayAnimation for {this.gameObject}: {animationName}");
+        //Debug.Log($"PlayAnimation for {this.gameObject}: {animationName}");
 
         // Play new animation and update to set the state immediately 
         m_animator.Play($"{m_characterPrefix}_{animationName}");

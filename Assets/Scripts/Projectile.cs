@@ -8,7 +8,8 @@ public class Projectile : MonoBehaviour, IDamager
     [Space]
     [SerializeField] private SpriteRenderer m_renderer;
 
-    private Vector3 TravelVector => transform.localScale.x * transform.right * m_speed * Time.deltaTime;
+    public Vector3 DirectionVector => transform.localScale.x * transform.right;
+    private Vector3 TravelVector => DirectionVector * m_speed * Time.deltaTime;
 
     #region IDamager
     public int Damage { get; private set; } 
@@ -22,7 +23,7 @@ public class Projectile : MonoBehaviour, IDamager
         if (!AttackEnabled) return;
 
         defender.TakeDamage(Damage);
-        defender.Knockback(transform.right, force: KnockbackForce);
+        defender.Knockback(DirectionVector, force: KnockbackForce);
     }
 
     #endregion

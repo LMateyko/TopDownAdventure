@@ -45,7 +45,7 @@ public class HazardAutoShooter : MonoBehaviour
             projectile.RotateToTransform(transform);
             projectile.SetAttackData(m_projectileDamage, m_projectileKnockback);
 
-            projectile.transform.position += projectile.transform.localScale.x * projectile.transform.right * .85f;
+            projectile.transform.position += projectile.DirectionVector * .85f;
 
             m_launchTimer = 0;
             m_renderer.sprite = m_idleSprite;

@@ -67,6 +67,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
 
     public void Knockback(Vector2 direction, float force)
     {
+        SetVelocity(Vector3.zero, false);
         m_rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
     }
 

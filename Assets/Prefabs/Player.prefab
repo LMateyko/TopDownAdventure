@@ -52,12 +52,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_characterPrefix: Player
   m_speed: 3
-  m_maxHealth: 3
+  m_maxHealth: 9
   m_grounded: 1
   m_animator: {fileID: 4548420627166588551}
   m_rigidbody: {fileID: 6128169809739262719}
   m_renderer: {fileID: 4663418756757276675}
   m_weaponAnimator: {fileID: 5067734557167731747}
+  m_weaponCollider: {fileID: 6867067986105607463}
   m_swordConfig: {fileID: 11400000, guid: 2a15ae4cacd0f494ebbc1ab00e3942f3, type: 2}
   m_bookConfig: {fileID: 11400000, guid: 9b223c9c3114e614081aa228ddf22155, type: 2}
   m_pickConfig: {fileID: 11400000, guid: 03b1dac52baa3bc47bac75de39ced64b, type: 2}
@@ -476,10 +477,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5545730025800789814}
+  - component: {fileID: 7674550891973722876}
   - component: {fileID: 6867067986105607463}
   m_Layer: 7
   m_Name: AttackCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -499,6 +501,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8305947454066232867}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7674550891973722876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5007178542837092514}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272e2350db2326943a4cf7cf00193d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnProjectileBlocked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5596371825897323416}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnBlockProjectile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &6867067986105607463
 BoxCollider2D:
   m_ObjectHideFlags: 0

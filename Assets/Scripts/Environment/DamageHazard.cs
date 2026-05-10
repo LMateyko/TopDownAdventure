@@ -12,7 +12,7 @@ public class DamageHazard : MonoBehaviour, IDamager
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var foundCharacter = collision.attachedRigidbody.gameObject.GetComponent<IDamageable>();
+        var foundCharacter = collision.GetComponent<IDamageable>();
         if (foundCharacter != null && foundCharacter.IsGrounded)
         {
             if(!m_groundedOnly || (m_groundedOnly && foundCharacter.IsGrounded))
@@ -20,13 +20,16 @@ public class DamageHazard : MonoBehaviour, IDamager
         }
     }
 
-    public void DamageTarget(IDamageable defender)
+    public bool DamageTarget(IDamageable defender)
     {
-        if (!AttackEnabled) return;
+        if (!AttackEnabled) return false;
 
-        defender.TakeDamage(Damage);
+        bool validDamage = defender.TakeDamage(Damage);
+        if (!validDamage) return false;
 
         var contactDirection = (defender.transform.position - transform.position).normalized;
         defender.Knockback(contactDirection, force: KnockbackForce);
+
+        return true;
     }
 }

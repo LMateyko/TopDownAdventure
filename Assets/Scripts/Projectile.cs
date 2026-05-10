@@ -18,12 +18,15 @@ public class Projectile : MonoBehaviour, IDamager
 
     public bool AttackEnabled => true;
 
-    public void DamageTarget(IDamageable defender)
+    public bool DamageTarget(IDamageable defender)
     {
-        if (!AttackEnabled) return;
+        if (!AttackEnabled) return false;
 
-        defender.TakeDamage(Damage);
+        bool validDamage = defender.TakeDamage(Damage);
+        if (!validDamage) return false;
+
         defender.Knockback(DirectionVector, force: KnockbackForce);
+        return true;
     }
 
     #endregion
@@ -31,7 +34,7 @@ public class Projectile : MonoBehaviour, IDamager
     public void RotateToTransform(Transform parentTransform)
     {
         transform.position = parentTransform.position;
-        transform.localScale = parentTransform.localScale;
+        transform.localScale = parentTransform.lossyScale;
         transform.rotation = parentTransform.rotation;
     }
 
@@ -51,6 +54,16 @@ public class Projectile : MonoBehaviour, IDamager
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        var foundCharacter = collision.GetComponent<IDamageable>();
+        // Check for valid component and prevent hitting damageable on the same team 
+        if (foundCharacter != null && collision.CompareTag(gameObject.tag) == false)
+        {
+            DamageTarget(foundCharacter);
+        }
+
+        // TODO: Display different effects based on the source of destruction
+            // Hitting target vs terrain vs blocked
+
         Destroy(gameObject);
     }
 

@@ -8,6 +8,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 {
     [Header("Weapon Configurations")]
     [SerializeField] private Animator m_weaponAnimator;
+    [SerializeField] private BoxCollider2D m_weaponCollider;
     [SerializeField] private WeaponConfiguration m_swordConfig;
     [SerializeField] private WeaponConfiguration m_bookConfig;
     [SerializeField] private WeaponConfiguration m_pickConfig;
@@ -125,6 +126,18 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
             UseWeapon(m_swordConfig);
     }
 
+    public void OnBlockProjectile(Projectile projectile)
+    {
+        if(CurrentWeapon == WeaponConfiguration.WeaponEnum.Book)
+        {
+            m_weaponAnimator.Play("Weapon_Book_BlockPulse");
+        }
+        else
+        {
+            Debug.LogError("Non-Book weapon is blocking projectiles");
+        }
+    }
+
     public void OnBookBlock(InputAction.CallbackContext context)
     {
         if (TriggerInteraction()) return;
@@ -132,9 +145,11 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         if (context.started)
         {
             UseWeapon(m_bookConfig);
+            m_weaponCollider.gameObject.layer = LayerMask.NameToLayer("AttackBlocker");
         }
         else if (context.canceled)
         {
+            m_weaponCollider.gameObject.layer = LayerMask.NameToLayer("Attack");
             StopWeapon();
         }
     }
@@ -255,16 +270,20 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         base.HealCharacter(heal);
     }
 
-    public override void TakeDamage(int damage)
+    public override bool TakeDamage(int damage)
     {
-        HealthChanged?.Invoke(m_maxHealth, m_currentHealth, m_currentHealth - damage);
+        bool validDamage = base.TakeDamage(damage);
 
-        base.TakeDamage(damage);
+        if(validDamage)
+            HealthChanged?.Invoke(m_maxHealth, Math.Min(m_currentHealth + damage, m_maxHealth), m_currentHealth);
+
+        return validDamage;
     }
 
     protected override void KillCharacter()
     {
         PlayAnimation("Death");
+        StopWeapon();
     }
     
     #endregion
@@ -290,8 +309,6 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         m_weaponAnimStarted = false;
         CurrentWeapon = currentWeapon.WeaponType;
         m_weaponAnimator.Play(currentWeapon.WeaponAnimation);
-
-        
     }
 
     private void StopWeapon()

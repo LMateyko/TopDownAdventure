@@ -6,5 +6,5 @@ public interface IDamager
     float KnockbackForce { get; }
     bool AttackEnabled { get; }
 
-    void DamageTarget(IDamageable defender);
+    bool DamageTarget(IDamageable defender);
 }

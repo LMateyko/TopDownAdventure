@@ -36,14 +36,17 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     virtual public float KnockbackForce => 5f;
     virtual public bool AttackEnabled => IsAlive;
 
-    virtual public void DamageTarget(IDamageable defender)
+    virtual public bool DamageTarget(IDamageable defender)
     {
-        if (!AttackEnabled) return;
+        if (!AttackEnabled) return false;
 
-        defender.TakeDamage(Damage);
+        bool validAttack = defender.TakeDamage(Damage);
+        if (!validAttack) return false;
 
         var contactDirection = (defender.transform.position - transform.position).normalized;
         defender.Knockback(contactDirection, force: KnockbackForce);
+
+        return true;
     }
 
     #endregion
@@ -53,9 +56,10 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     public bool IsAlive => m_currentHealth > 0;
     public bool IsGrounded => m_grounded;
 
-    virtual public void TakeDamage(int damage)
+    virtual public bool TakeDamage(int damage)
     {
-        if (!IsAlive) return;
+        if (!IsAlive) return false;
+        if (IsAnimPlaying("Hurt")) return false;
 
         m_currentHealth -= damage;
 
@@ -63,6 +67,8 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
             KillCharacter();
         else
             PlayAnimation("Hurt");
+
+        return true;
     }
 
     public void Knockback(Vector2 direction, float force)
@@ -166,23 +172,18 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
         if (!IsAlive)
             return;
 
-        // Only process triggers that are attacks
-        if (collision.gameObject.layer != LayerMask.NameToLayer("Attack"))
+        // Prevent the attack if attacking currently isn't enabled
+        if (!AttackEnabled)
             return;
 
         // Ignore Player v Player and Enemy v Enemy collisions
-        if (collision.attachedRigidbody.gameObject.CompareTag(gameObject.tag))
+        if (collision.CompareTag(gameObject.tag))
             return;
 
-        if (!IsAnimPlaying("Hurt"))
-        {
-            var attacker = collision.attachedRigidbody.GetComponent<IDamager>();
-            if (attacker != null && attacker.AttackEnabled)
-                attacker.DamageTarget(this);
-        }
+        var defender = collision.GetComponent<IDamageable>();
+        if (defender != null)
+            DamageTarget(defender);
     }
-
-
 
     virtual public void HealCharacter(int heal)
     {

@@ -4,6 +4,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour, IDamager
 {
     [SerializeField] private float m_speed = 5f;
+
+    [Space]
     [SerializeField] private SpriteRenderer m_renderer;
 
     private Vector3 TravelVector => transform.localScale.x * transform.right * m_speed * Time.deltaTime;
@@ -24,6 +26,13 @@ public class Projectile : MonoBehaviour, IDamager
     }
 
     #endregion
+
+    public void RotateToTransform(Transform parentTransform)
+    {
+        transform.position = parentTransform.position;
+        transform.localScale = parentTransform.localScale;
+        transform.rotation = parentTransform.rotation;
+    }
 
     public void SetAttackData(int damage, float knockback)
     {

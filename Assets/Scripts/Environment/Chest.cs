@@ -4,6 +4,7 @@ public class Chest : MonoBehaviour
 {
     [SerializeField] private ChestRewardData m_chestReward;
 
+    [Space]
     [Header("Component References")]
     [SerializeField] private SpriteRenderer m_revealSprite;
     [SerializeField] private Animator m_animator;

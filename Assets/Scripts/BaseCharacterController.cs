@@ -10,6 +10,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     [SerializeField] protected int m_maxHealth = 3;
     [SerializeField] protected bool m_grounded = true;
 
+    [Space]
     [Header("Local Character References")]
     [SerializeField] private Animator m_animator;
     [SerializeField] private Rigidbody2D m_rigidbody;

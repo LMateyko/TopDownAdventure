@@ -276,10 +276,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         {
             // TODO: Replace with pooling
             Projectile projectile = Instantiate(m_weaponMap[CurrentWeapon].Projectile);
-            projectile.transform.position = m_weaponAnimator.transform.parent.position;
-            projectile.transform.localScale = m_weaponAnimator.transform.parent.lossyScale;
-            projectile.transform.rotation = m_weaponAnimator.transform.parent.rotation;
-
+            projectile.RotateToTransform(m_weaponAnimator.transform.parent);
             projectile.SetAttackData(m_weaponMap[CurrentWeapon].WeaponDamage, m_weaponMap[CurrentWeapon].WeaponKnockback);
         }
         else

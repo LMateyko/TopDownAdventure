@@ -169,7 +169,11 @@ Transform:
   m_LocalPosition: {x: 10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5490172805488052476}
+  - {fileID: 1997257270}
+  - {fileID: 1086841927}
+  - {fileID: 946668640}
   m_Father: {fileID: 1075258558}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &79457842
@@ -251,7 +255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &171026172
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5244,7 +5248,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 183351881}
+    m_TransformParent: {fileID: 31161197}
     m_Modifications:
     - target: {fileID: 1134794663665704888, guid: fabf43b9bfde3eb43b7bc5f37ba50048, type: 3}
       propertyPath: m_Name
@@ -5272,11 +5276,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3503813251690736297, guid: fabf43b9bfde3eb43b7bc5f37ba50048, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3503813251690736297, guid: fabf43b9bfde3eb43b7bc5f37ba50048, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3503813251690736297, guid: fabf43b9bfde3eb43b7bc5f37ba50048, type: 3}
       propertyPath: m_LocalRotation.z
@@ -5390,7 +5394,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 183351881}
+    m_TransformParent: {fileID: 31161197}
     m_Modifications:
     - target: {fileID: 1134794663665704888, guid: fabf43b9bfde3eb43b7bc5f37ba50048, type: 3}
       propertyPath: m_Name
@@ -5418,11 +5422,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3503813251690736297, guid: fabf43b9bfde3eb43b7bc5f37ba50048, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3503813251690736297, guid: fabf43b9bfde3eb43b7bc5f37ba50048, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3503813251690736297, guid: fabf43b9bfde3eb43b7bc5f37ba50048, type: 3}
       propertyPath: m_LocalRotation.z
@@ -10054,7 +10058,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 183351881}
+    m_TransformParent: {fileID: 31161197}
     m_Modifications:
     - target: {fileID: 1134794663665704888, guid: fabf43b9bfde3eb43b7bc5f37ba50048, type: 3}
       propertyPath: m_Name
@@ -10406,18 +10410,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9011988792021801604, guid: e6138f756a40ac946921d3bb38934419, type: 3}
       insertIndex: -1
       addedObject: {fileID: 742951690}
-    - targetCorrespondingSourceObject: {fileID: 9011988792021801604, guid: e6138f756a40ac946921d3bb38934419, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5490172805488052476}
-    - targetCorrespondingSourceObject: {fileID: 9011988792021801604, guid: e6138f756a40ac946921d3bb38934419, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1997257270}
-    - targetCorrespondingSourceObject: {fileID: 9011988792021801604, guid: e6138f756a40ac946921d3bb38934419, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1086841927}
-    - targetCorrespondingSourceObject: {fileID: 9011988792021801604, guid: e6138f756a40ac946921d3bb38934419, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 946668640}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6138f756a40ac946921d3bb38934419, type: 3}
 --- !u!1001 &2023407879586115605
@@ -10789,7 +10781,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 183351881}
+    m_TransformParent: {fileID: 31161197}
     m_Modifications:
     - target: {fileID: 1134794663665704888, guid: fabf43b9bfde3eb43b7bc5f37ba50048, type: 3}
       propertyPath: m_Name

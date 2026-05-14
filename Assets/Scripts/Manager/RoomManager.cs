@@ -20,6 +20,7 @@ public class RoomManager : MonoBehaviour
         {
             m_roomObjects.Add(child);
             child.OnDestroy += OnChildDestroyed;
+            child.DisableObject();
         }
     }
 

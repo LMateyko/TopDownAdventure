@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
@@ -7,6 +8,8 @@ public class Projectile : MonoBehaviour, IDamager
 
     [Space]
     [SerializeField] private SpriteRenderer m_renderer;
+
+    public Action<Projectile> OnDestroy { get; set; }
 
     public Vector3 DirectionVector => transform.localScale.x * transform.right;
     private Vector3 TravelVector => DirectionVector * m_speed * Time.deltaTime;
@@ -49,7 +52,7 @@ public class Projectile : MonoBehaviour, IDamager
         transform.position += TravelVector;
 
         if (!IsOnScreen())
-            Destroy(gameObject);
+            DestroyProjectile();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -62,9 +65,9 @@ public class Projectile : MonoBehaviour, IDamager
         }
 
         // TODO: Display different effects based on the source of destruction
-            // Hitting target vs terrain vs blocked
+        // Hitting target vs terrain vs blocked
 
-        Destroy(gameObject);
+        DestroyProjectile();
     }
 
     private bool IsOnScreen()
@@ -78,5 +81,10 @@ public class Projectile : MonoBehaviour, IDamager
         return renderOnScreen;
     }
 
+    private void DestroyProjectile()
+    {
+        OnDestroy?.Invoke(this);
+        Destroy(gameObject);
+    }
     
 }

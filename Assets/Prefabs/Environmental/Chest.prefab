@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8750430393254206698}
   - component: {fileID: 5983502219190200342}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 3352853262016715085}
   - component: {fileID: 1689657741229407447}
   - component: {fileID: 5114062937495024893}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1186225355856995264}
   - component: {fileID: 6600528258024847936}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Reveal Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1573904265
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: -8356860057929190541, guid: 27a1420e5a0ae7941bd8745b33fd3ecd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -347,7 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5004182141742213829}
   - component: {fileID: 277023679319474499}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}

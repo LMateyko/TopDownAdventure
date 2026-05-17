@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5544434053942430877}
   - component: {fileID: 8913169337883129477}
   - component: {fileID: 5841183531385596928}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3068571223268966398}
   - component: {fileID: 5913745318626834829}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7394416452757566476}
   - component: {fileID: 4671595482711142481}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9215998833439671065}
   - component: {fileID: 9036357837378036698}
+  - component: {fileID: 7379545675694586657}
   m_Layer: 0
   m_Name: DungeonManager
   m_TagString: Untagged
@@ -47,6 +48,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dungeonData: {fileID: 11400000, guid: caa55e842efcd6b49924f6b95dd2ffd8, type: 2}
   m_startingRoom: {fileID: 713967950318105577}
+  m_wallTiles: {fileID: 0}
+  m_hazardTiles: {fileID: 0}
+  m_displayFullGrid: 0
+--- !u!114 &7379545675694586657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2531722710142766568}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 785c1d21b078f8f4aa353414301063e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_dungeonManager: {fileID: 9036357837378036698}
+  m_gizmoStartPos: {x: 17, y: 18}
+  m_gizmoEndPos: {x: 20, y: 12}
 --- !u!1 &4753702166807172866
 GameObject:
   m_ObjectHideFlags: 0

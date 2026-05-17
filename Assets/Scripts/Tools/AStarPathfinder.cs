@@ -16,30 +16,30 @@ namespace Adventure.Tools
             public double finalCost, gridCost, huristic;
         }
 
-        static public (Stack<Vector3>, Dictionary<Vector2Int, double>) AStarSearch(int[,] m_searchGrid, Grid tileGrid, Vector3Int tilemapOrigin,
-                                                                                Vector3 startPos, Vector3 targetPos)
+        static public List<Vector3Int> AStarSearch(int[,] m_searchGrid, Vector3Int startTile, Vector3Int targetTile, out Dictionary<Vector2Int, double> pathReport)
         {
-            var startTile = tileGrid.WorldToCell(startPos);
-            var targetTile = tileGrid.WorldToCell(targetPos);
+            pathReport = new Dictionary<Vector2Int, double>();
 
             // Start and End tile are the same
             if (startTile == targetTile)
             {
-                return (null, null);
+                return null;
             }
 
             if (!IsValidSquareInGrid(m_searchGrid, startTile.x, startTile.y) || !IsValidSquareInGrid(m_searchGrid, targetTile.x, targetTile.y))
             {
-                return (null, null);
+                return null;
             }
 
             // Target is within a wall or hazard
             if (m_searchGrid[startTile.x, startTile.y] != 0
                 || m_searchGrid[targetTile.x, targetTile.y] != 0)
             {
-                return (null, null);
+                return null;
             }
 
+
+            pathReport.Clear();
             int columns = m_searchGrid.GetLength(0);
             int rows = m_searchGrid.GetLength(1);
 
@@ -73,8 +73,6 @@ namespace Adventure.Tools
 
             openList.Add((0.0, new Vector2Int(currentX, currentY)));
 
-            Dictionary<Vector2Int, double> m_trackedPositions = new Dictionary<Vector2Int, double>();
-
             while (openList.Count > 0)
             {
                 // Removed the lowest value in the set for processing
@@ -107,7 +105,7 @@ namespace Adventure.Tools
                             {
                                 cellDetails[newX, newY].parentX = currentX;
                                 cellDetails[newX, newY].parentY = currentY;
-                                return (TracePath(m_searchGrid, tileGrid, cellDetails, tilemapOrigin, targetTile), m_trackedPositions);
+                                return TracePath(columns, rows, cellDetails, targetTile);
                             }
 
                             if (!closedList[newX, newY] && IsSquareOpenInGrid(m_searchGrid, newX, newY))
@@ -122,10 +120,10 @@ namespace Adventure.Tools
                                 {
                                     var newPos = new Vector2Int(newX, newY);
 
-                                    if (m_trackedPositions.ContainsKey(newPos))
-                                        m_trackedPositions[newPos] = Math.Round(newFinalValue);
+                                    if (pathReport.ContainsKey(newPos))
+                                        pathReport[newPos] = Math.Round(newFinalValue);
                                     else
-                                        m_trackedPositions.Add(newPos, Math.Round(newFinalValue));
+                                        pathReport.Add(newPos, Math.Round(newFinalValue));
 
                                     cellDetails[newX, newY].finalCost = newFinalValue;
                                     cellDetails[newX, newY].gridCost = newGridCost;
@@ -142,7 +140,7 @@ namespace Adventure.Tools
             }
 
             // Invalid Path
-            return (null, m_trackedPositions);
+            return null;
         }
 
         static private bool IsValidSquareInGrid(int[,] m_searchGrid, int x, int y)
@@ -160,26 +158,23 @@ namespace Adventure.Tools
             return Math.Abs(currentX - goalPos.x) + Math.Abs(currentY - goalPos.y);
         }
 
-        static private Stack<Vector3> TracePath(int[,] m_searchGrid, Grid tileGrid, Cell[,] cellDetails, Vector3Int tilemapOrigin, Vector3Int targetPosition)
+        static private List<Vector3Int> TracePath(int columns, int rows, Cell[,] cellDetails, Vector3Int targetPosition)
         {
-            Stack<Vector3> results = new Stack<Vector3>();
-
-            int columns = m_searchGrid.GetLength(0);
-            int rows = m_searchGrid.GetLength(1);
+            List<Vector3Int> results = new List<Vector3Int>();
 
             int currentX = targetPosition.x;
             int currentY = targetPosition.y;
 
-            Stack<Vector2Int> path = new Stack<Vector2Int>();
+            var currentPosition = Vector3Int.zero;
 
             while (cellDetails[currentX, currentY].parentX != currentX
                 || cellDetails[currentX, currentY].parentY != currentY)
             {
-                var currentPosition = Vector3Int.zero;
-                currentPosition.x = currentX + tilemapOrigin.x;
-                currentPosition.y = currentY + tilemapOrigin.y;
+                
+                currentPosition.x = currentX;
+                currentPosition.y = currentY;
 
-                results.Push(tileGrid.GetCellCenterWorld(currentPosition));
+                results.Insert(0, currentPosition);
 
                 int newX = cellDetails[currentX, currentY].parentX;
                 int newY = cellDetails[currentX, currentY].parentY;

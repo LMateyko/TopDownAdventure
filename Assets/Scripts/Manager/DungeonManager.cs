@@ -22,6 +22,7 @@ public class DungeonManager : MonoBehaviour, IInstaller
 
     [Inject] readonly private DungeonMapUI MapUI;
 
+    public Tilemap DungeonWallTilemap => m_wallTiles;
     public (int[,], Grid, Vector3Int) DungeonTileData => (m_searchGrid, m_wallTiles.layoutGrid, m_wallTiles.origin); 
 
     private Vector2Int m_currentPlayerRoom;
@@ -47,6 +48,32 @@ public class DungeonManager : MonoBehaviour, IInstaller
         m_currentPlayerRoom.x += (int)direction.x;
         m_currentPlayerRoom.y -= (int)direction.y;
         MapUI?.SetMapCell(m_currentPlayerRoom.x, m_currentPlayerRoom.y, DungeonData.MapCellType.Player);
+    }
+
+    public Queue<Vector3> GetPathBetweenPoints(Vector3 startPoint, Vector3 endPoint)
+    {
+        return GetPathBetweenPoints( startPoint, endPoint, out _);
+    }
+
+    public Queue<Vector3> GetPathBetweenPoints(Vector3 startPoint, Vector3 endPoint, out Dictionary<Vector2Int, double> pathReport)
+    {
+        var startTile = m_wallTiles.layoutGrid.WorldToCell(startPoint) - m_wallTiles.origin;
+        var targetTile = m_wallTiles.layoutGrid.WorldToCell(endPoint) - m_wallTiles.origin;
+
+        var aStarPath = AStarPathfinder.AStarSearch(m_searchGrid, startTile, targetTile, out pathReport);
+
+        Queue<Vector3> pathPointQueue = new Queue<Vector3>();
+
+        if(aStarPath != null)
+        {
+            for (int i = 0; i < aStarPath.Count; i++)
+            {
+                var worldPosition = m_wallTiles.layoutGrid.GetCellCenterWorld(aStarPath[i] + m_wallTiles.origin);
+                pathPointQueue.Enqueue(worldPosition);
+            }
+        }
+
+        return pathPointQueue;
     }
 
     private void Awake()

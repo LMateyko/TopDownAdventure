@@ -1,4 +1,5 @@
 using Adventure.Tools;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -12,56 +13,55 @@ public class AStarDebugger : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if (m_dungeonManager == null || !isActiveAndEnabled)
+        if (m_dungeonManager == null || !isActiveAndEnabled || Application.isPlaying)
             return;
 
         Gizmos.color = Color.magenta;
-        var tileGrid = m_dungeonManager.DungeonTileData.Item2;
-        var tilemapOrigin = m_dungeonManager.DungeonTileData.Item3;
+        var tileGrid = m_dungeonManager.DungeonWallTilemap.layoutGrid;
+        var tilemapOrigin = m_dungeonManager.DungeonWallTilemap.origin;
 
         var offsetStartPos = (Vector3Int)m_gizmoStartPos + tilemapOrigin;
         var offsetEndPos = (Vector3Int)m_gizmoEndPos + tilemapOrigin;
 
-        Gizmos.DrawSphere(tileGrid.GetCellCenterWorld(offsetStartPos), 0.25f);
-        Gizmos.DrawSphere(tileGrid.GetCellCenterWorld(offsetEndPos), 0.25f);
+        var startWorldPos   = tileGrid.GetCellCenterWorld(offsetStartPos);
+        var endWorldPos     = tileGrid.GetCellCenterWorld(offsetEndPos);
 
-        var debugStart = tileGrid.GetCellCenterWorld((Vector3Int)m_gizmoStartPos);
-        var debugEnd = tileGrid.GetCellCenterWorld((Vector3Int)m_gizmoEndPos);
+        Gizmos.DrawSphere(startWorldPos, 0.25f);
+        Gizmos.DrawSphere(endWorldPos, 0.25f);
 
-        var debugPath = AStarPathfinder.AStarSearch(m_dungeonManager.DungeonTileData.Item1, tileGrid, tilemapOrigin, debugStart, debugEnd);
+        var dungeonPath = m_dungeonManager.GetPathBetweenPoints(startWorldPos, endWorldPos, out Dictionary<Vector2Int, double> pathReport);
 
-        if (debugPath.Item1 != null)
+        if (dungeonPath != null)
         {
             Gizmos.color = Color.blue;
 
-            Vector3 prevPos = tileGrid.GetCellCenterWorld(offsetStartPos);
+            Vector3 prevPos = startWorldPos;
 
-            foreach (var pos in debugPath.Item1)
+            foreach (var pos in dungeonPath)
             {
-                Gizmos.DrawLine(prevPos, pos);
-                prevPos = pos;
+                var worldPosition = pos;
+                Gizmos.DrawLine(prevPos, worldPosition);
+                prevPos = worldPosition;
             }
         }
 
-        if (debugPath.Item2 != null)
+        if (pathReport != null)
         {
             Gizmos.color = Color.black;
 
             Vector3Int currentPosition = Vector3Int.zero;
 
-            foreach (var pos in debugPath.Item2.Keys)
+            foreach (var pos in pathReport.Keys)
             {
                 currentPosition = (Vector3Int)pos + tilemapOrigin;
-
-                float pathSize = (float)debugPath.Item2[pos] * 0.01f;
-                //Gizmos.DrawSphere(tileGrid.GetCellCenterWorld(currentPosition) - (Vector3.forward), pathSize);
 
                 GUIStyle style = new GUIStyle();
                 style.normal.textColor = Color.white;
                 style.alignment = TextAnchor.MiddleCenter;
 
-                UnityEditor.Handles.Label(tileGrid.GetCellCenterWorld(currentPosition) - (Vector3.forward * 3), $"f:{debugPath.Item2[pos]}", style);
+                UnityEditor.Handles.Label(tileGrid.GetCellCenterWorld(currentPosition) - (Vector3.forward * 3), $"f:{pathReport[pos]}", style);
             }
+
         }
     }
 }

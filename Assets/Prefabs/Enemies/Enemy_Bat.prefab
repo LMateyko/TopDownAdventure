@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
       propertyPath: m_speed
-      value: 1.5
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
       propertyPath: m_grounded
@@ -153,9 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemy: {fileID: 5951889647562001011}
-  m_circleSpeed: 1.5
-  m_circleApproachSpeed: 0.25
+  m_circleSpeed: 0.75
+  m_circleApproachSpeed: 0.75
   m_circleRadius: 2.5
-  m_targetDistance: 1
-  m_pauseDuration: 0.5
+  m_contactPauseDuration: 2
   m_rotateClockwise: 0
+  m_maxTrackTime: 3

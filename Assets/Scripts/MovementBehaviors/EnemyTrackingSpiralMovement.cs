@@ -14,13 +14,13 @@ public class EnemyTrackingSpiralMovement : EnemyMovementSetting
     [Tooltip("How far away from the player the enemy tries to rotate")]
     [SerializeField] private float m_circleRadius = 2.5f;
     
-    [Tooltip("Target distance from the player before pausing")]
-    [SerializeField] private float m_targetDistance = .5f;
     [Tooltip("How long the enemy pauses after reaching the player")]
     [SerializeField] private float m_contactPauseDuration = 2f;
 
     [Tooltip("If the Enemy should Start rotating clockwise or counter clockwise")]
     [SerializeField] private bool m_rotateClockwise = false;
+    [Tooltip("If positive, how long the enemy will track towards the player before pausing")]
+    [SerializeField] private float m_maxTrackTime = -1f;
 
     [Inject] readonly private PlayerManager PlayerManager;
     private PlayerController TrackedPlayer => PlayerManager.Player;
@@ -30,6 +30,8 @@ public class EnemyTrackingSpiralMovement : EnemyMovementSetting
     //private PlayerController m_trackedPlayer;
     private float m_currentAngle;
     private float m_currentRadius;
+    private float m_trackTimer = 0f;
+
     private Vector3 m_currentOffset;
     private Coroutine m_pauseCoroutine;
 
@@ -46,11 +48,22 @@ public class EnemyTrackingSpiralMovement : EnemyMovementSetting
         var yDif = m_enemy.transform.position.y - TrackedPlayer.transform.position.y;
         m_currentAngle = Mathf.Atan2(yDif, xDif);
         m_currentRadius = m_circleRadius;
+        var distanceToPlayer = (TrackedPlayer.transform.position - m_enemy.transform.position).magnitude;
+
+        if (distanceToPlayer < m_currentRadius)
+            m_currentRadius = distanceToPlayer;
+
+        m_trackTimer = 0f;
     }
 
     public override void OnUpdate()
     {
         m_enemy.SetVelocity(Vector3.zero, false);
+
+        if (m_enemy.CurrentSpeed == 0)
+            m_enemy.PlayAnimation("Idle", false);
+        else
+            m_enemy.PlayAnimation("Run", false);
 
         if (TrackedPlayer == null || m_enemy.CurrentSpeed <= 0f)
             return;
@@ -72,8 +85,6 @@ public class EnemyTrackingSpiralMovement : EnemyMovementSetting
         if ((m_enemy.transform.position - m_currentOffset).magnitude <= m_circleRadius)
         {
             m_currentRadius -= Time.deltaTime * m_circleApproachSpeed;
-            if (m_currentRadius < m_targetDistance && m_pauseCoroutine == null)
-                m_pauseCoroutine = StartCoroutine(PauseMovementRoutine());
         }
 
         // Advance the Angle
@@ -91,7 +102,16 @@ public class EnemyTrackingSpiralMovement : EnemyMovementSetting
             if (m_currentAngle > Mathf.PI)
                 m_currentAngle -= Mathf.PI * 2.0f;
         }
-            
+
+        m_trackTimer += Time.deltaTime;
+        if(m_maxTrackTime > 0 && m_trackTimer >= m_maxTrackTime)
+        {
+            if (m_pauseCoroutine == null)
+            {
+                m_trackTimer = 0f;
+                m_pauseCoroutine = StartCoroutine(PauseMovementRoutine());
+            }
+        }     
     }
 
     public override void OnCollision(Collision2D collision)

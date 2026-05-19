@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
+/// <summary>
+/// Randomly move orthagonally through the scene, checking for walls and hazards
+/// </summary>
 public class EnemyWanderMovement : EnemyMovementSetting
 {
     [Serializable, Flags]

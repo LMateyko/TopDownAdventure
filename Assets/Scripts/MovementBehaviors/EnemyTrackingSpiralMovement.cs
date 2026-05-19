@@ -2,6 +2,9 @@ using Reflex.Attributes;
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Spiral towards the player's position, tracking the player
+/// </summary>
 public class EnemyTrackingSpiralMovement : EnemyMovementSetting
 {
     [Tooltip("How Quickly the enemy moves around the circle")]
@@ -14,7 +17,7 @@ public class EnemyTrackingSpiralMovement : EnemyMovementSetting
     [Tooltip("Target distance from the player before pausing")]
     [SerializeField] private float m_targetDistance = .5f;
     [Tooltip("How long the enemy pauses after reaching the player")]
-    [SerializeField] private float m_pauseDuration = 2f;
+    [SerializeField] private float m_contactPauseDuration = 2f;
 
     [Tooltip("If the Enemy should Start rotating clockwise or counter clockwise")]
     [SerializeField] private bool m_rotateClockwise = false;
@@ -106,7 +109,7 @@ public class EnemyTrackingSpiralMovement : EnemyMovementSetting
     {
         m_enemy.PauseMovement();
 
-        yield return new WaitForSeconds(m_pauseDuration);
+        yield return new WaitForSeconds(m_contactPauseDuration);
 
         if(TrackedPlayer != null)
             RestartMovement();

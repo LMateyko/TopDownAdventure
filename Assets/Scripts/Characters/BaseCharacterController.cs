@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -10,13 +11,15 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     [SerializeField] protected float m_speed = 5f;
     [SerializeField] protected int m_maxHealth = 3;
     [SerializeField] protected bool m_grounded = true;
-    [SerializeField] protected SpriteParticle m_deathVFX;
 
     [Space]
     [Header("Local Character References")]
     [SerializeField] private Animator m_animator;
     [SerializeField] private Rigidbody2D m_rigidbody;
     [SerializeField] protected SpriteRenderer m_renderer;
+
+    public Action OnKillCharacter { get; set; }
+    public Action OnDestroyCharacter { get; set; }
 
     public float CurrentSpeed => m_movementPaused ? 0f : m_speed;
     public Vector2 CurrentVelocity => m_rigidbody.linearVelocity;
@@ -75,8 +78,10 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
 
     public void Knockback(Vector2 direction, float force)
     {
-        SetVelocity(Vector3.zero, false);
-        m_rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
+        //SetVelocity(Vector3.zero, false);
+        SetVelocity(direction * force, false);
+
+        //m_rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
     }
 
     #endregion
@@ -211,6 +216,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     private IEnumerator DeathRoutine()
     {
         PlayAnimation("Death");
+        SetVelocity(Vector2.zero, false);
 
         while(IsDying)
         {

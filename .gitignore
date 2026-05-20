@@ -74,3 +74,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /Assets/Art/AlienShooter/AlienShooterGB_1.0
+Assets/Scripts/Editor/ReferenceFinder.cs.meta
+Assets/Scripts/Editor/ReferenceFinder.cs
+Assets/Scripts/Editor/PinAssets.cs.meta
+Assets/Scripts/Editor/PinAssets.cs

@@ -97,6 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8709746212063152279}
   - component: {fileID: 876352580963996266}
+  - component: {fileID: 806069980124319503}
   - component: {fileID: 9179847685506101534}
   - component: {fileID: 420653454813887620}
   - component: {fileID: 8538417872181875328}
@@ -140,7 +141,6 @@ MonoBehaviour:
   m_speed: 2
   m_maxHealth: 3
   m_grounded: 1
-  m_deathVFX: {fileID: 8554682819789287338, guid: 0901d9c0567325d46ac63a4f7fcfd1d6, type: 3}
   m_animator: {fileID: 9179847685506101534}
   m_rigidbody: {fileID: 420653454813887620}
   m_renderer: {fileID: 3820006984270189812}
@@ -148,6 +148,18 @@ MonoBehaviour:
   m_enemyContactDamage: 1
   m_enemyKnockbackForce: 5
   m_alwaysSpawnInRoom: 0
+--- !u!114 &806069980124319503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4424084265351566741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4553a9ca2e78854c84bd090655daab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &9179847685506101534
 Animator:
   serializedVersion: 7

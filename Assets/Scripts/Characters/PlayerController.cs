@@ -277,7 +277,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     protected override void KillCharacter()
     {
         base.KillCharacter();
-        SetVelocity(Vector2.zero, false);
+        //SetVelocity(Vector2.zero, false);
         StopWeapon();
     }
 

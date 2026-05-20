@@ -7,6 +7,7 @@ public interface IDamageable
     bool IsAlive { get; }
     bool IsGrounded { get; }
 
-    bool TakeDamage(int damage);
+    bool IsValidTarget();
+    void TakeDamage(int damage);
     void Knockback(Vector2 direction, float force);
 }

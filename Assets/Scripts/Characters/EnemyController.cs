@@ -100,8 +100,6 @@ public class EnemyController : BaseCharacterController, IRoomObject
 
     protected override void DestroyCharacter()
     {
-        //Instantiate(m_deathVFX, transform.position, Quaternion.identity);
-
         if (PersistantRespawn)
             DisableObject();
         else

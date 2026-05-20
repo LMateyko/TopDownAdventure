@@ -24,11 +24,11 @@ public class Projectile : MonoBehaviour, IDamager
     public bool DamageTarget(IDamageable defender)
     {
         if (!AttackEnabled) return false;
-
-        bool validDamage = defender.TakeDamage(Damage);
-        if (!validDamage) return false;
+        if (!defender.IsValidTarget()) return false;
 
         defender.Knockback(DirectionVector, force: KnockbackForce);
+        defender.TakeDamage(Damage);
+
         return true;
     }
 

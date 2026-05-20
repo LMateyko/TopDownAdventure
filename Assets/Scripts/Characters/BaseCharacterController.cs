@@ -34,6 +34,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
 
     private readonly Vector3 FaceRightScale = new Vector3(1, 1, 1);
     private readonly Vector3 FaceLeftScale = new Vector3(-1, 1, 1);
+    private const float DeathKnockbackMultiplier = 2.8f;
 
     #region IDamager Implementation
 
@@ -44,12 +45,11 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     virtual public bool DamageTarget(IDamageable defender)
     {
         if (!AttackEnabled) return false;
-
-        bool validAttack = defender.TakeDamage(Damage);
-        if (!validAttack) return false;
+        if (!defender.IsValidTarget()) return false;
 
         var contactDirection = (defender.transform.position - transform.position).normalized;
         defender.Knockback(contactDirection, force: KnockbackForce);
+        defender.TakeDamage(Damage);
 
         return true;
     }
@@ -61,19 +61,22 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     public bool IsAlive => m_currentHealth > 0;
     public bool IsGrounded => m_grounded;
 
-    virtual public bool TakeDamage(int damage)
+    public bool IsValidTarget()
     {
         if (!IsAlive) return false;
         if (IsHurting) return false;
 
+        return true;
+    }
+
+    virtual public void TakeDamage(int damage)
+    {
         m_currentHealth -= damage;
 
         if (m_currentHealth <= 0)
             KillCharacter();
         else
             PlayAnimation("Hurt");
-
-        return true;
     }
 
     public void Knockback(Vector2 direction, float force)
@@ -216,7 +219,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     private IEnumerator DeathRoutine()
     {
         PlayAnimation("Death");
-        SetVelocity(Vector2.zero, false);
+        m_rigidbody.linearVelocity *= DeathKnockbackMultiplier;
 
         while(IsDying)
         {

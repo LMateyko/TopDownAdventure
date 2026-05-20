@@ -264,14 +264,10 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         base.HealCharacter(heal);
     }
 
-    public override bool TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
-        bool validDamage = base.TakeDamage(damage);
-
-        if(validDamage)
-            HealthChanged?.Invoke(m_maxHealth, Math.Min(m_currentHealth + damage, m_maxHealth), m_currentHealth);
-
-        return validDamage;
+        base.TakeDamage(damage);
+        HealthChanged?.Invoke(m_maxHealth, Math.Min(m_currentHealth + damage, m_maxHealth), m_currentHealth);
     }
 
     protected override void KillCharacter()

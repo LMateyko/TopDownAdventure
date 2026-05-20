@@ -24,11 +24,12 @@ public class DamageHazard : MonoBehaviour, IDamager
     {
         if (!AttackEnabled) return false;
 
-        bool validDamage = defender.TakeDamage(Damage);
-        if (!validDamage) return false;
+        if (!defender.IsValidTarget())
+            return false;
 
         var contactDirection = (defender.transform.position - transform.position).normalized;
         defender.Knockback(contactDirection, force: KnockbackForce);
+        defender.TakeDamage(Damage);
 
         return true;
     }

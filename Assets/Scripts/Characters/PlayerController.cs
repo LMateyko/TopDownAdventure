@@ -215,19 +215,13 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 
         if (!IsAlive)
         {
-            SetVelocity(Vector2.zero, false);
-
-            // TODO: Return to checkpoint on death
-            if (IsAnimPlaying("Death") && IsAnimComplete())
-                Destroy(gameObject);
-
             return;
         }
 
-        if (IsAnimPlaying("Hurt"))
+        if (IsHurting)
             return;
 
-        if(IsAnimPlaying("Fall"))
+        if(IsFalling)
         {
             if (IsAnimComplete())
                 OnFallComplete?.Invoke();
@@ -282,8 +276,15 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 
     protected override void KillCharacter()
     {
-        PlayAnimation("Death");
+        base.KillCharacter();
+        SetVelocity(Vector2.zero, false);
         StopWeapon();
+    }
+
+    protected override void DestroyCharacter()
+    {
+        // TODO: Respawn the player/reload the scene instead of destroying them
+        base.DestroyCharacter();
     }
     
     #endregion

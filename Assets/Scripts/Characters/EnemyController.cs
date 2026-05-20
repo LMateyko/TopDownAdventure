@@ -53,19 +53,18 @@ public class EnemyController : BaseCharacterController, IRoomObject
 
         if (!IsAlive)
         {
-            SetVelocity(Vector2.zero, false);
             return;
         }
 
-        if (IsAnimPlaying("Fall"))
+        if (IsFalling)
         {
             if (IsAnimComplete())
-                KillCharacter();
+                DestroyCharacter();
 
             return;
         }
 
-        if (IsAnimPlaying("Hurt"))
+        if (IsHurting)
         {
             m_wasHurt = true;
             return;
@@ -98,7 +97,7 @@ public class EnemyController : BaseCharacterController, IRoomObject
         m_movementBehavior.OnCollision(collision);
     }
 
-    protected override void KillCharacter()
+    protected override void DestroyCharacter()
     {
         Instantiate(m_deathVFX, transform.position, Quaternion.identity);
 
@@ -107,8 +106,7 @@ public class EnemyController : BaseCharacterController, IRoomObject
         else
         {
             OnDestroy?.Invoke(this);
-            base.KillCharacter();
-        }
-            
+            base.DestroyCharacter();
+        } 
     }
 }

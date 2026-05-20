@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
@@ -22,7 +23,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
 
     public bool IsFalling => IsAnimPlaying("Fall");
     public bool IsHurting => IsAnimPlaying("Hurt");
-    public bool IsDying => IsAnimPlaying("Death");
+    public bool IsDying => IsAnimPlaying("Death") && !IsAnimComplete();
 
     protected int m_currentHealth;
     private bool m_movementPaused = false;
@@ -60,7 +61,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     virtual public bool TakeDamage(int damage)
     {
         if (!IsAlive) return false;
-        if (IsAnimPlaying("Hurt")) return false;
+        if (IsHurting) return false;
 
         m_currentHealth -= damage;
 
@@ -191,8 +192,31 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
         m_currentHealth = Mathf.Min(m_currentHealth + heal, m_maxHealth);
     }
 
+    /// <summary>
+    /// Begin dying and play death animation when health reaches Zero
+    /// </summary>
     virtual protected void KillCharacter()
     {
+        StartCoroutine(DeathRoutine());
+    }
+
+    /// <summary>
+    /// Destroy and cleanup the character. Includes respawning the character or returning to the pool
+    /// </summary>
+    virtual protected void DestroyCharacter()
+    {
         Destroy(gameObject);
+    }
+
+    private IEnumerator DeathRoutine()
+    {
+        PlayAnimation("Death");
+
+        while(IsDying)
+        {
+            yield return null;
+        }
+
+        DestroyCharacter();
     }
 }

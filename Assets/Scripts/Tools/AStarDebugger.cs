@@ -11,6 +11,7 @@ public class AStarDebugger : MonoBehaviour
     [SerializeField] private Vector2Int m_gizmoStartPos;
     [SerializeField] private Vector2Int m_gizmoEndPos;
 
+#if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         if (m_dungeonManager == null || !isActiveAndEnabled || Application.isPlaying)
@@ -64,4 +65,6 @@ public class AStarDebugger : MonoBehaviour
 
         }
     }
+#endif
+
 }

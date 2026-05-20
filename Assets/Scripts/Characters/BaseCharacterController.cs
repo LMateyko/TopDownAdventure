@@ -25,7 +25,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     public Vector2 CurrentVelocity => m_rigidbody.linearVelocity;
 
     public bool IsFalling => IsAnimPlaying("Fall");
-    public bool IsHurting => IsAnimPlaying("Hurt");
+    public bool IsHurting => IsAnimPlaying("Hurt") && !IsAnimComplete();
     public bool IsDying => IsAnimPlaying("Death") && !IsAnimComplete();
 
     protected int m_currentHealth;
@@ -144,7 +144,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     public int AnimLoops()
     {
         var animState = m_animator.GetCurrentAnimatorStateInfo(0);
-        return Mathf.FloorToInt(m_totalAnimTime % animState.length);
+        return Mathf.FloorToInt(m_totalAnimTime / animState.length);
     }
 
     public void PlayAnimation(string animationName, bool restart = false)

@@ -37,11 +37,20 @@ public class EnemyWanderMovement : EnemyMovementSetting
         SetRandomDirection(m_enemy);
 
         m_durationTimer = 0f;
+        m_lastAnimLoop = 0;
+
+        m_enemy.PlayAnimation("Run");
     }
 
     public override void OnUpdate()
     {
-        if(m_resetMovementConditions.HasFlag(ResetMovementCondition.OnAnimComplete))
+        if (m_enemy.CurrentSpeed == 0)
+        {
+            m_enemy.SetVelocity(Vector2.zero, true);
+            return;
+        }
+
+        if (m_resetMovementConditions.HasFlag(ResetMovementCondition.OnAnimComplete))
         {
             if (m_enemy.AnimLoops() > m_lastAnimLoop)
             {

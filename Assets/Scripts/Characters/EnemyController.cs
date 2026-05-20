@@ -72,6 +72,7 @@ public class EnemyController : BaseCharacterController, IRoomObject
         else if(m_wasHurt)
         {
             m_wasHurt = false;
+            PlayAnimation("Idle");
             SetVelocity(Vector2.zero, false);
             m_movementBehavior.RestartMovement();
         }

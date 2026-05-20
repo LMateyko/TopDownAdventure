@@ -100,7 +100,9 @@ public class EnemyController : BaseCharacterController, IRoomObject
 
     protected override void KillCharacter()
     {
-        if(PersistantRespawn)
+        Instantiate(m_deathVFX, transform.position, Quaternion.identity);
+
+        if (PersistantRespawn)
             DisableObject();
         else
         {

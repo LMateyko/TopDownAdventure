@@ -9,6 +9,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     [SerializeField] protected float m_speed = 5f;
     [SerializeField] protected int m_maxHealth = 3;
     [SerializeField] protected bool m_grounded = true;
+    [SerializeField] protected SpriteParticle m_deathVFX;
 
     [Space]
     [Header("Local Character References")]

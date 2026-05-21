@@ -37,13 +37,21 @@ public class HitReactShooter : MonoBehaviour
         Projectile projectile = Instantiate(launchConfig.projectile, transform.position, Quaternion.identity);
         Vector2 launchVelocity = launchConfig.launchDirection;
 
-        if (launchConfig.useHitDirection)
+        if (launchConfig.useHitDirection || launchConfig.useReverseHitDirection)
         {
-            launchVelocity = source.transform.position - target.transform.position;
-        }
-        else if (launchConfig.useReverseHitDirection)
-        {
-            launchVelocity = target.transform.position - source.transform.position;
+            var hitDirectionVector = Vector2.zero;
+
+            if (launchConfig.useHitDirection)
+            {
+                hitDirectionVector = source.transform.position - target.transform.position;
+            }
+            else if (launchConfig.useReverseHitDirection)
+            {
+                hitDirectionVector = target.transform.position - source.transform.position;
+            }
+
+            var hitAngle = Vector2.SignedAngle(Vector2.right, hitDirectionVector);
+            launchVelocity = Quaternion.AngleAxis(hitAngle, Vector3.forward) * launchVelocity;
         }
 
         projectile.SetOwner(target.transform);

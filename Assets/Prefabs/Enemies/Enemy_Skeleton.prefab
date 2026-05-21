@@ -47,7 +47,15 @@ MonoBehaviour:
   m_onHitConfigs:
   - useHitDirection: 0
     useReverseHitDirection: 1
-    launchDirection: {x: 0, y: 0}
+    launchDirection: {x: 1, y: 0}
+    projectile: {fileID: 2240792726059077569, guid: f9d71532afe02e842817a32ee88e63fa, type: 3}
+  - useHitDirection: 0
+    useReverseHitDirection: 1
+    launchDirection: {x: 1, y: 1}
+    projectile: {fileID: 2240792726059077569, guid: f9d71532afe02e842817a32ee88e63fa, type: 3}
+  - useHitDirection: 0
+    useReverseHitDirection: 1
+    launchDirection: {x: 1, y: -1}
     projectile: {fileID: 2240792726059077569, guid: f9d71532afe02e842817a32ee88e63fa, type: 3}
   m_onDeathConfigs:
   - useHitDirection: 0

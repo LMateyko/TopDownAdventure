@@ -34,7 +34,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
 
     private readonly Vector3 FaceRightScale = new Vector3(1, 1, 1);
     private readonly Vector3 FaceLeftScale = new Vector3(-1, 1, 1);
-    private const float DeathKnockbackMultiplier = 2.8f;
+    private const float DeathKnockbackMultiplier = 1.15f;
 
     #region IDamager Implementation
 

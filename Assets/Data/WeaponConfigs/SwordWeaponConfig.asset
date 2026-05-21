@@ -17,5 +17,6 @@ MonoBehaviour:
   AllowFacingChange: 0
   AnimationTransition: 1
   SpeedMultiplier: 0
+  Projectile: {fileID: 0}
   WeaponDamage: 1
-  WeaponKnockback: 2
+  WeaponKnockback: 4

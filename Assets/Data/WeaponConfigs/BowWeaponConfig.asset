@@ -19,4 +19,4 @@ MonoBehaviour:
   SpeedMultiplier: 0
   Projectile: {fileID: 7662806657671993054, guid: e588df565728b884ab2d233f2ab3e76e, type: 3}
   WeaponDamage: 1
-  WeaponKnockback: 8
+  WeaponKnockback: 2

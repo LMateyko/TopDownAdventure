@@ -11612,10 +11612,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Skeleton
       objectReference: {fileID: 0}
-    - target: {fileID: 7085538374300759168, guid: 212abed408fbe514fa86b43074bd9f55, type: 3}
-      propertyPath: m_alwaysSpawnInRoom
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

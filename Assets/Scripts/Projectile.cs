@@ -14,6 +14,8 @@ public class Projectile : MonoBehaviour, IDamager
     public Vector3 DirectionVector => transform.localScale.x * transform.right;
     private Vector3 TravelVector => DirectionVector * m_speed * Time.deltaTime;
 
+    private Transform m_projectileOwner = null;
+
     #region IDamager
     public int Damage { get; private set; } 
 
@@ -27,12 +29,22 @@ public class Projectile : MonoBehaviour, IDamager
         if (!defender.IsValidTarget()) return false;
 
         defender.Knockback(DirectionVector, force: KnockbackForce);
-        defender.TakeDamage(Damage);
+        defender.TakeDamage(this, Damage);
 
         return true;
     }
 
     #endregion
+
+    public void SetOwner(Transform owner)
+    {
+        m_projectileOwner = owner;
+    }
+
+    public void SetLaunchVelocity(Vector2 velocity)
+    {
+        transform.right = velocity.normalized;
+    }
 
     public void RotateToTransform(Transform parentTransform)
     {
@@ -61,6 +73,11 @@ public class Projectile : MonoBehaviour, IDamager
         // Check for valid component and prevent hitting damageable on the same team 
         if (foundCharacter != null && collision.CompareTag(gameObject.tag) == false)
         {
+            if (!foundCharacter.IsValidTarget()) return;
+
+            if (m_projectileOwner != null && foundCharacter.transform == m_projectileOwner)
+                return;
+
             DamageTarget(foundCharacter);
         }
 

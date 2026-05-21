@@ -29,7 +29,7 @@ public class DamageHazard : MonoBehaviour, IDamager
 
         var contactDirection = (defender.transform.position - transform.position).normalized;
         defender.Knockback(contactDirection, force: KnockbackForce);
-        defender.TakeDamage(Damage);
+        defender.TakeDamage(this, Damage);
 
         return true;
     }

@@ -8,6 +8,6 @@ public interface IDamageable
     bool IsGrounded { get; }
 
     bool IsValidTarget();
-    void TakeDamage(int damage);
+    void TakeDamage(IDamager source, int damage);
     void Knockback(Vector2 direction, float force);
 }

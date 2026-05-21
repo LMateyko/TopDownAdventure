@@ -264,16 +264,15 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         base.HealCharacter(heal);
     }
 
-    public override void TakeDamage(int damage)
+    public override void TakeDamage(IDamager source, int damage)
     {
-        base.TakeDamage(damage);
+        base.TakeDamage(source, damage);
         HealthChanged?.Invoke(m_maxHealth, Math.Min(m_currentHealth + damage, m_maxHealth), m_currentHealth);
     }
 
-    protected override void KillCharacter()
+    protected override void KillCharacter(IDamager source)
     {
-        base.KillCharacter();
-        //SetVelocity(Vector2.zero, false);
+        base.KillCharacter(source);
         StopWeapon();
     }
 

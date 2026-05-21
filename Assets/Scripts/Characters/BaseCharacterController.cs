@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
 {
@@ -17,6 +18,15 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     [SerializeField] private Animator m_animator;
     [SerializeField] private Rigidbody2D m_rigidbody;
     [SerializeField] protected SpriteRenderer m_renderer;
+
+    [Space]
+    [Header("Character Events")]
+    [Tooltip("Event that fires when the character is hit.")]
+    [SerializeField] private UnityEvent<IDamager, IDamageable> m_onHitEvent;
+    [Tooltip("Event that fires when the character is initial killed and starts dying")]
+    [SerializeField] private UnityEvent<IDamager, IDamageable> m_onKillEvent;
+    [Tooltip("Event that fires when the character is cleaned up and removed")]
+    [SerializeField] private UnityEvent<IDamager, IDamageable> m_onDestroyEvent;
 
     public Action OnKillCharacter { get; set; }
     public Action OnDestroyCharacter { get; set; }
@@ -49,7 +59,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
 
         var contactDirection = (defender.transform.position - transform.position).normalized;
         defender.Knockback(contactDirection, force: KnockbackForce);
-        defender.TakeDamage(Damage);
+        defender.TakeDamage(this, Damage);
 
         return true;
     }
@@ -69,22 +79,24 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
         return true;
     }
 
-    virtual public void TakeDamage(int damage)
+    virtual public void TakeDamage(IDamager source, int damage)
     {
         m_currentHealth -= damage;
 
         if (m_currentHealth <= 0)
-            KillCharacter();
+        {
+            KillCharacter(source);
+        }
         else
+        {
+            m_onHitEvent?.Invoke(source, this);
             PlayAnimation("Hurt");
+        }
     }
 
     public void Knockback(Vector2 direction, float force)
     {
-        //SetVelocity(Vector3.zero, false);
         SetVelocity(direction * force, false);
-
-        //m_rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
     }
 
     #endregion
@@ -203,9 +215,10 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     /// <summary>
     /// Begin dying and play death animation when health reaches Zero
     /// </summary>
-    virtual protected void KillCharacter()
+    virtual protected void KillCharacter(IDamager source)
     {
-        StartCoroutine(DeathRoutine());
+        m_onKillEvent?.Invoke(source, this);
+        StartCoroutine(DeathRoutine(source));
     }
 
     /// <summary>
@@ -216,7 +229,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
         Destroy(gameObject);
     }
 
-    private IEnumerator DeathRoutine()
+    private IEnumerator DeathRoutine(IDamager source)
     {
         PlayAnimation("Death");
         m_rigidbody.linearVelocity *= DeathKnockbackMultiplier;
@@ -226,6 +239,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
             yield return null;
         }
 
+        m_onDestroyEvent?.Invoke(source, this);
         DestroyCharacter();
     }
 }

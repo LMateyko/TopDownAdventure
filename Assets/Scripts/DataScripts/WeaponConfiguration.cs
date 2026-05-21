@@ -27,5 +27,5 @@ public class WeaponConfiguration : ScriptableObject
 
     [Space]
     public int WeaponDamage = 1;
-    public float WeaponKnockback = 5f;
+    public float WeaponKnockback = 3f;
 }

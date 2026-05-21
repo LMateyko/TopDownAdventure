@@ -45,15 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe5fb16c657ab949930f2051113e0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_projectile: {fileID: 11400000, guid: cd60327ee6e403f4fb5008c64b4ad069, type: 2}
+  m_idleSprite: {fileID: -2071313333, guid: 498831ddc59b198418e0fbfdf3520fdc, type: 3}
+  m_preparedSprite: {fileID: -1167969536, guid: 498831ddc59b198418e0fbfdf3520fdc, type: 3}
+  m_renderer: {fileID: 8732539903419308843}
   m_idleTime: 4
   m_preparedTime: 0.5
   m_timeOffset: 0
-  m_projectileDamage: 1
-  m_projectileKnockback: 5
-  m_idleSprite: {fileID: -2071313333, guid: 498831ddc59b198418e0fbfdf3520fdc, type: 3}
-  m_preparedSprite: {fileID: -1167969536, guid: 498831ddc59b198418e0fbfdf3520fdc, type: 3}
-  m_projectile: {fileID: 3668209238125380830, guid: a4c62a50692f2f644af005616b861dea, type: 3}
-  m_renderer: {fileID: 8732539903419308843}
 --- !u!212 &8732539903419308843
 SpriteRenderer:
   m_ObjectHideFlags: 0

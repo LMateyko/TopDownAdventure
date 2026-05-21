@@ -4,14 +4,11 @@ using UnityEngine;
 
 public abstract class ProjectileHazard : MonoBehaviour, IRoomObject
 {
-    [SerializeField] protected int m_projectileDamage;
-    [SerializeField] protected float m_projectileKnockback;
+    [SerializeField] protected ProjectileData m_projectile;
 
     [Space]
     [SerializeField] protected Sprite m_idleSprite;
     [SerializeField] protected Sprite m_preparedSprite;
-
-    [SerializeField] protected Projectile m_projectile;
 
     [Space]
     [SerializeField] protected SpriteRenderer m_renderer;
@@ -52,9 +49,9 @@ public abstract class ProjectileHazard : MonoBehaviour, IRoomObject
     {
         // Launch Projectile
         // TODO: Pull from pool
-        Projectile projectile = Instantiate(m_projectile);
+        Projectile projectile = Instantiate(m_projectile.Prefab);
         projectile.RotateToTransform(transform);
-        projectile.SetAttackData(m_projectileDamage, m_projectileKnockback);
+        projectile.SetAttackData(m_projectile.Damage, m_projectile.Knockback);
 
         projectile.transform.position += projectile.DirectionVector * .85f;
         m_activeProjectiles.Add(projectile);

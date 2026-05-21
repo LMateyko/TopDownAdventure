@@ -9,7 +9,7 @@ public class HitReactShooter : MonoBehaviour
         public bool useHitDirection;
         public bool useReverseHitDirection;
         public Vector2 launchDirection;
-        public Projectile projectile;
+        public ProjectileData projectile;
     }
 
     [SerializeField] private ProjectileReactionConfig[] m_onHitConfigs;
@@ -34,7 +34,7 @@ public class HitReactShooter : MonoBehaviour
     private void LaunchForConfig(ProjectileReactionConfig launchConfig, IDamager source, IDamageable target)
     {
         // TODO: Use Pool
-        Projectile projectile = Instantiate(launchConfig.projectile, transform.position, Quaternion.identity);
+        Projectile projectile = Instantiate(launchConfig.projectile.Prefab, transform.position, Quaternion.identity);
         Vector2 launchVelocity = launchConfig.launchDirection;
 
         if (launchConfig.useHitDirection || launchConfig.useReverseHitDirection)
@@ -56,6 +56,7 @@ public class HitReactShooter : MonoBehaviour
 
         projectile.SetOwner(target.transform);
         projectile.SetLaunchVelocity(launchVelocity);
+        projectile.SetAttackData(launchConfig.projectile.Damage, launchConfig.projectile.Knockback);
     }
 
 }

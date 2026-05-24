@@ -59,7 +59,10 @@ public class EnemyController : BaseCharacterController, IRoomObject
         if (IsFalling)
         {
             if (IsAnimComplete())
+            {
+                m_currentHealth = 0;
                 DestroyCharacter();
+            }
 
             return;
         }

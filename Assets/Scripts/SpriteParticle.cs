@@ -1,9 +1,12 @@
+using Reflex.Attributes;
 using UnityEngine;
 
 [RequireComponent (typeof(Animator))]
 public class SpriteParticle : MonoBehaviour
 {
-    Animator m_animator;
+    [Inject] readonly private PoolManager PoolManager;
+
+    private Animator m_animator;
     private void Awake()
     {
         m_animator = GetComponent<Animator>();
@@ -15,8 +18,7 @@ public class SpriteParticle : MonoBehaviour
         {
             if(m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
             {
-                // TODO: Return to Pool
-                Destroy(gameObject);
+                PoolManager.ReleaseObject(gameObject);
             }
         }
     }

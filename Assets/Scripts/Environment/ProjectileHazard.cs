@@ -1,3 +1,4 @@
+using Reflex.Attributes;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ public abstract class ProjectileHazard : MonoBehaviour, IRoomObject
 
     protected float m_launchTimer = 0f;
     protected List<Projectile> m_activeProjectiles = new List<Projectile>();
+
+    [Inject] readonly private PoolManager PoolManager;
 
     #region iRoomObject Implementation
     public bool IsEnabled { get; private set; }
@@ -48,8 +51,7 @@ public abstract class ProjectileHazard : MonoBehaviour, IRoomObject
     protected void ShootProjectile()
     {
         // Launch Projectile
-        // TODO: Pull from pool
-        Projectile projectile = Instantiate(m_projectile.Prefab);
+        Projectile projectile = PoolManager.SpawnObject<Projectile>(m_projectile.Prefab);
         projectile.RotateToTransform(transform);
         projectile.SetAttackData(m_projectile.Damage, m_projectile.Knockback);
 

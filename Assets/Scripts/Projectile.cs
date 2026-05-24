@@ -1,3 +1,4 @@
+using Reflex.Attributes;
 using System;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class Projectile : MonoBehaviour, IDamager
 
     [Space]
     [SerializeField] private SpriteRenderer m_renderer;
+
+    [Inject] readonly private PoolManager PoolManager;
 
     public Action<Projectile> OnDestroy { get; set; }
 
@@ -101,7 +104,7 @@ public class Projectile : MonoBehaviour, IDamager
     private void DestroyProjectile()
     {
         OnDestroy?.Invoke(this);
-        Destroy(gameObject);
+        PoolManager.ReleaseObject(gameObject);
     }
     
 }

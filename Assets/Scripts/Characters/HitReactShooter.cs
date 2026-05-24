@@ -1,3 +1,4 @@
+using Reflex.Attributes;
 using System;
 using UnityEngine;
 
@@ -14,6 +15,8 @@ public class HitReactShooter : MonoBehaviour
 
     [SerializeField] private ProjectileReactionConfig[] m_onHitConfigs;
     [SerializeField] private ProjectileReactionConfig[] m_onDeathConfigs;
+
+    [Inject] readonly private PoolManager PoolManager;
 
     public void LaunchHitProjectiles(IDamager source, IDamageable target)
     {
@@ -33,8 +36,10 @@ public class HitReactShooter : MonoBehaviour
 
     private void LaunchForConfig(ProjectileReactionConfig launchConfig, IDamager source, IDamageable target)
     {
-        // TODO: Use Pool
-        Projectile projectile = Instantiate(launchConfig.projectile.Prefab, transform.position, Quaternion.identity);
+        Projectile projectile = PoolManager.SpawnObject(launchConfig.projectile.Prefab);
+        projectile.transform.position = transform.position;
+        projectile.transform.rotation = Quaternion.identity;
+
         Vector2 launchVelocity = launchConfig.launchDirection;
 
         if (launchConfig.useHitDirection || launchConfig.useReverseHitDirection)

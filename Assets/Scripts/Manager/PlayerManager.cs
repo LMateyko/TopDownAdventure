@@ -1,11 +1,8 @@
 using Reflex.Core;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour, IInstaller
+public class PlayerManager 
 {
-    [Tooltip("Persisting Player Prefab to spawn and track")]
-    [SerializeField] private PlayerController PlayerPrefab;
-
     public PlayerController Player { get; private set; } = null;
     public Vector3 RoomSpawnPosition { get; private set; }
 
@@ -15,10 +12,9 @@ public class PlayerManager : MonoBehaviour, IInstaller
         RoomSpawnPosition = Player.transform.position;
     }
 
-    public void InstallBindings(ContainerBuilder containerBuilder)
+    public void SpawnPlayer(PlayerController PlayerPrefab)
     {
-        containerBuilder.RegisterValue(this);
-        Player = Instantiate(PlayerPrefab);
+        Player = GameObject.Instantiate(PlayerPrefab);
         Player.OnFallComplete += RespawnPlayer;
     }
 

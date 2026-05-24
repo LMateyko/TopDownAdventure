@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class DamageHazard : MonoBehaviour, IDamager
 {
-    [SerializeField] public int Damage { get; } = 1;
-    [SerializeField] public float KnockbackForce { get; } = 4f;
+    [SerializeField] public int m_damage = 1;
+    [SerializeField] public float m_knockbackForce = 4f;
+
+    public int Damage  => m_damage;
+    public float KnockbackForce => m_knockbackForce;
 
     public bool AttackEnabled => true;
 

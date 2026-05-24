@@ -48,6 +48,8 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     public override float KnockbackForce => m_weaponMap[CurrentWeapon].WeaponKnockback;
     public WeaponConfiguration.WeaponEnum CurrentWeapon { get; private set; } = WeaponConfiguration.WeaponEnum.None;
 
+    [Inject] readonly private PlayerHealthUI HealthUI;
+
     private InputSystem_Player m_playerInputSystem;
     private InputSystem_Player.PlayerActions m_playerActions;
 
@@ -188,6 +190,9 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     protected override void Start()
     {
         base.Start();
+
+        Reflex.Injectors.GameObjectInjector.InjectObject(gameObject, Reflex.Core.Container.RootContainer);
+        HealthUI.SetPlayerEvents(this);
 
         HealthChanged?.Invoke(m_maxHealth, m_currentHealth, m_currentHealth);
         KeysChanged?.Invoke(m_keys);

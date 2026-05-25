@@ -49,6 +49,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     public WeaponConfiguration.WeaponEnum CurrentWeapon { get; private set; } = WeaponConfiguration.WeaponEnum.None;
 
     [Inject] readonly private PlayerHealthUI HealthUI;
+    [Inject] readonly private PoolManager PoolManager;
 
     private InputSystem_Player m_playerInputSystem;
     private InputSystem_Player.PlayerActions m_playerActions;
@@ -294,8 +295,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     {
         if (m_weaponMap[CurrentWeapon].Projectile != null)
         {
-            // TODO: Replace with pooling
-            Projectile projectile = Instantiate(m_weaponMap[CurrentWeapon].Projectile);
+            Projectile projectile = PoolManager.SpawnObject(m_weaponMap[CurrentWeapon].Projectile);
             projectile.RotateToTransform(m_weaponAnimator.transform.parent);
             projectile.SetAttackData(m_weaponMap[CurrentWeapon].WeaponDamage, m_weaponMap[CurrentWeapon].WeaponKnockback);
         }
@@ -322,12 +322,12 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     {
         base.SetFacing(moveValue);
 
-        if (moveValue.y > 0)
+        if(Mathf.Abs(moveValue.x) > Mathf.Abs(moveValue.y))
+            m_weaponAnimator.transform.SetParent(m_socketForwardSwing, false);
+        else if (moveValue.y > 0)
             m_weaponAnimator.transform.SetParent(m_socketUpSwing, false);
         else if (moveValue.y < 0)
             m_weaponAnimator.transform.SetParent(m_socketDownSwing, false);
-        else if (moveValue.y == 0 && moveValue.x != 0)
-            m_weaponAnimator.transform.SetParent(m_socketForwardSwing, false);
     }
 
     private bool IsInWeaponAnim(string weaponAnim)

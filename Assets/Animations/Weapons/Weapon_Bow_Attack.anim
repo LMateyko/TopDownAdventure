@@ -158,3 +158,10 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.5
+    functionName: PlaySFX
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 8527f6445965d5947880ee358c6a6368, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

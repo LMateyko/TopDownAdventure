@@ -51,7 +51,7 @@ public abstract class ProjectileHazard : MonoBehaviour, IRoomObject
     protected void ShootProjectile()
     {
         // Launch Projectile
-        Projectile projectile = PoolManager.SpawnObject<Projectile>(m_projectile.Prefab);
+        Projectile projectile = PoolManager.SpawnObject(m_projectile.Prefab);
         projectile.RotateToTransform(transform);
         projectile.SetAttackData(m_projectile.Damage, m_projectile.Knockback);
 

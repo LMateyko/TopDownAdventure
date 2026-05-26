@@ -221,6 +221,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 
         if (!IsAlive)
         {
+            SetVelocity(Vector2.zero, false);
             return;
         }
 

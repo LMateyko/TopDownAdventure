@@ -84,4 +84,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: SfxAnimEvent
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: e2953a2135e3e514eb8aa905e0288919, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

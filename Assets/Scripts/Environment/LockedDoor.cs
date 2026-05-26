@@ -10,10 +10,10 @@ public class LockedDoor : MonoBehaviour
 
     [Inject] readonly private AudioManager AudioManager;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        var foundPlayer = collision.attachedRigidbody.gameObject.GetComponent<PlayerController>();
-        if (foundPlayer && collision.CompareTag("Player"))
+        var foundPlayer = collision.rigidbody.gameObject.GetComponent<PlayerController>();
+        if (foundPlayer && collision.transform.CompareTag("Player"))
         {
             CheckLock(foundPlayer);
         }

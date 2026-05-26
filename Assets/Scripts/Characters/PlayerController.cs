@@ -44,6 +44,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         }
     }
 
+    public override bool AttackEnabled => base.AttackEnabled && CurrentWeapon != WeaponConfiguration.WeaponEnum.None;
     public override int Damage => m_weaponMap[CurrentWeapon].WeaponDamage;
     public override float KnockbackForce => m_weaponMap[CurrentWeapon].WeaponKnockback;
     public WeaponConfiguration.WeaponEnum CurrentWeapon { get; private set; } = WeaponConfiguration.WeaponEnum.None;

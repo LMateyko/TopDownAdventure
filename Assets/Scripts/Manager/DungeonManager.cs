@@ -13,6 +13,9 @@ public class DungeonManager : MonoBehaviour, IInstaller
     [SerializeField] private DungeonData m_dungeonData;
     [SerializeField] private RoomManager m_startingRoom;
 
+    [Tooltip("The default direction of the switches in this dungeon")]
+    [SerializeField] private LinkedBarrier.ActiveDirection m_defaultSwitchSetting = LinkedBarrier.ActiveDirection.Right;
+
     [Space]
     [SerializeField] private Tilemap m_wallTiles;
     [SerializeField] private Tilemap m_hazardTiles;
@@ -24,7 +27,9 @@ public class DungeonManager : MonoBehaviour, IInstaller
     [Inject] readonly private AudioManager AudioManager;
 
     public Tilemap DungeonWallTilemap => m_wallTiles;
-    public (int[,], Grid, Vector3Int) DungeonTileData => (m_searchGrid, m_wallTiles.layoutGrid, m_wallTiles.origin); 
+    public (int[,], Grid, Vector3Int) DungeonTileData => (m_searchGrid, m_wallTiles.layoutGrid, m_wallTiles.origin);
+    public LinkedBarrier.ActiveDirection CurrentSwitchDirection { get; private set; }
+    public Action<LinkedBarrier.ActiveDirection> OnFlipSwitch { get; set; }
 
     private Vector2Int m_currentPlayerRoom;
     private RoomManager m_currentRoom;
@@ -77,9 +82,19 @@ public class DungeonManager : MonoBehaviour, IInstaller
         return pathPointQueue;
     }
 
+    public void FlipSwitch()
+    {
+        if (CurrentSwitchDirection == LinkedBarrier.ActiveDirection.Left)
+            CurrentSwitchDirection = LinkedBarrier.ActiveDirection.Right;
+        else
+            CurrentSwitchDirection = LinkedBarrier.ActiveDirection.Left;
+
+        OnFlipSwitch?.Invoke(CurrentSwitchDirection);
+    }
+
     private void Awake()
     {
-        //BuildPathSearchGrid();
+        CurrentSwitchDirection = m_defaultSwitchSetting;
     }
 
     private void Start()

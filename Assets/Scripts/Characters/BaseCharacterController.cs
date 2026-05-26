@@ -36,7 +36,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
 
     public bool IsFalling => IsAnimPlaying("Fall");
     public bool IsHurting => IsAnimPlaying("Hurt") && !IsAnimComplete();
-    public bool IsDying => IsAnimPlaying("Death") && !IsAnimComplete();
+    public bool IsDying => (IsAnimPlaying("Death") || IsFalling) && !IsAnimComplete();
 
     protected int m_currentHealth;
     private bool m_movementPaused = false;

@@ -62,8 +62,14 @@ public class HazardCrackedPit : MonoBehaviour
         var collider = GetComponent<BoxCollider2D>();
         collider.size = m_openPitSize;
 
-        gameObject.AddComponent<HazardPit>();
+        HazardPit hazardPit = gameObject.AddComponent<HazardPit>();
+
+        if(player is IDamageable damageable)
+            hazardPit.DamageTarget(damageable);
+
         player.transform.position = transform.position;
         player.FallIntoPit();
+
+        m_crackIndex = m_crackedStates;
     }
 }

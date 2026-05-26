@@ -9,7 +9,7 @@ public class RoomTransitionTrigger : MonoBehaviour
     [Tooltip("Distance to jump the player into the next room")]
     [SerializeField] private float m_playerJumpDistance = 2f;
 
-    [Inject] private readonly DungeonManager m_dungeonManager;
+    [Inject] readonly private DungeonManager m_dungeonManager;
     [Inject] readonly private PlayerManager PlayerManager;
 
     private void OnValidate()

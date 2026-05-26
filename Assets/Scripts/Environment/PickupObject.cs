@@ -15,7 +15,7 @@ public class PickupObject : MonoBehaviour
     [SerializeField] private PickupType m_pickupType;
     [SerializeField] private AudioClip m_audioClip;
 
-    [Inject] private readonly AudioManager AudioManager;
+    [Inject] readonly private AudioManager AudioManager;
 
     protected virtual void OnCollectPickup(PlayerController player)
     {

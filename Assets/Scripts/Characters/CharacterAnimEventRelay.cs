@@ -4,7 +4,7 @@ using UnityEngine;
 public class CharacterAnimEventRelay : MonoBehaviour
 {
     [Inject] readonly private PoolManager PoolManager;
-    [Inject] private readonly AudioManager AudioManager;
+    [Inject] readonly private AudioManager AudioManager;
 
     /// <summary>
     /// Called via Anim Event to spawn a VFX at a specific time

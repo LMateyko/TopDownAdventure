@@ -9,6 +9,6 @@ public class ChestRewardData : ScriptableObject
     public PickupObject.PickupType RewardType;
     public int RewardValue;
 
-    // TODO: Reward Audio
+    public AudioClip RevealAudio;
     // TODO: Allow for unlocking equipment etc. mine pick
 }

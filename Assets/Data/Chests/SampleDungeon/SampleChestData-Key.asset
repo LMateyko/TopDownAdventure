@@ -16,3 +16,4 @@ MonoBehaviour:
   RevealText: You Got...\nA Key!
   RewardType: 1
   RewardValue: 1
+  RevealAudio: {fileID: 8300000, guid: 8c60af4ae36af57449715995ba94d5fa, type: 3}

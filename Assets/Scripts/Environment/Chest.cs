@@ -1,3 +1,4 @@
+using Reflex.Attributes;
 using UnityEngine;
 
 public class Chest : MonoBehaviour
@@ -10,6 +11,8 @@ public class Chest : MonoBehaviour
     [SerializeField] private Animator m_animator;
     [SerializeField] private GameDialogRelay m_dialogRelay;
 
+    [Inject] readonly private AudioManager AudioManager;
+
     private bool m_rewarded = false;
 
     public void ClaimReward(Interactable interactable, PlayerController player)
@@ -17,6 +20,7 @@ public class Chest : MonoBehaviour
         if (m_rewarded) return;
         m_rewarded = true;
 
+        AudioManager.PlaySfxAtLocation(m_chestReward.RevealAudio, transform.position);
         m_revealSprite.sprite = m_chestReward.RevealSprite;
         m_animator.Play("Chest_Opening");
 

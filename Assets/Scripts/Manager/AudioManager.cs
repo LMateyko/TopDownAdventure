@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource m_musicAudioSource;
     [SerializeField] private PooledSfxSource m_sfxPrefab;
 
-    [Inject] private readonly PoolManager PoolManager;
+    [Inject] readonly private PoolManager PoolManager;
 
     public void PlayMusic(AudioClip newMusic)
     {

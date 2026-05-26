@@ -1,2 +1,13 @@
 fileFormatVersion: 2
 guid: 3fb11ab0c8a55f94ea98d20945966f1e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - RevealSprite: {instanceID: 0}
+  - RevealAudio: {fileID: 8300000, guid: 8c60af4ae36af57449715995ba94d5fa, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

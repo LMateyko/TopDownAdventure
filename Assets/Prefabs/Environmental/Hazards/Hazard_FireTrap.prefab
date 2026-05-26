@@ -48,12 +48,14 @@ MonoBehaviour:
   m_projectile: {fileID: 11400000, guid: b266f2813590034448abdb445d867b3d, type: 2}
   m_idleSprite: {fileID: -2071313333, guid: 498831ddc59b198418e0fbfdf3520fdc, type: 3}
   m_preparedSprite: {fileID: -862002524, guid: 498831ddc59b198418e0fbfdf3520fdc, type: 3}
+  m_shootAudio: {fileID: 8300000, guid: 2d0ce57fc185209448b6f84e897a1fb2, type: 3}
   m_renderer: {fileID: 8732539903419308843}
   m_cooldownTime: 3
   m_delay: 0.25
   m_triggerWidth: 0.75
 --- !u!212 &8732539903419308843
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -72,6 +74,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -93,9 +97,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -862002524, guid: 498831ddc59b198418e0fbfdf3520fdc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -105,5 +111,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0

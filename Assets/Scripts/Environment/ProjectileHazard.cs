@@ -10,6 +10,7 @@ public abstract class ProjectileHazard : MonoBehaviour, IRoomObject
     [Space]
     [SerializeField] protected Sprite m_idleSprite;
     [SerializeField] protected Sprite m_preparedSprite;
+    [SerializeField] protected AudioClip m_shootAudio;
 
     [Space]
     [SerializeField] protected SpriteRenderer m_renderer;
@@ -18,6 +19,7 @@ public abstract class ProjectileHazard : MonoBehaviour, IRoomObject
     protected List<Projectile> m_activeProjectiles = new List<Projectile>();
 
     [Inject] readonly private PoolManager PoolManager;
+    [Inject] readonly private AudioManager AudioManager;
 
     #region iRoomObject Implementation
     public bool IsEnabled { get; private set; }
@@ -58,6 +60,9 @@ public abstract class ProjectileHazard : MonoBehaviour, IRoomObject
         projectile.transform.position += projectile.DirectionVector * .85f;
         m_activeProjectiles.Add(projectile);
         projectile.OnDestroy += ClearProjectile;
+
+        if(m_shootAudio != null)
+            AudioManager.PlaySfxAtLocation(m_shootAudio, transform.position);
     }
 
     private void Start()

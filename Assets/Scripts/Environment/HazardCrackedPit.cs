@@ -1,14 +1,18 @@
+using Reflex.Attributes;
 using System.Collections;
 using UnityEngine;
 
 public class HazardCrackedPit : MonoBehaviour
 {
+    [SerializeField] AudioClip m_crackOpenAudio;
     [Tooltip("Time between crack sprite transitions")]
     [SerializeField] float m_timePerState;
     [Tooltip("How many animations while opening, including open")]
     [SerializeField] int m_crackedStates = 3;
     [SerializeField] Vector2 m_openPitSize = new Vector2(0.25f, 0.25f);
     [SerializeField] Animator m_pitAnimator;
+
+    [Inject] readonly private AudioManager AudioManager;
 
     private int m_crackIndex = 0;
     private Coroutine m_crackCountRoutine;
@@ -53,6 +57,7 @@ public class HazardCrackedPit : MonoBehaviour
             m_crackIndex++;
         }
 
+        AudioManager.PlaySfxAtLocation(m_crackOpenAudio, transform.position);
         m_pitAnimator.Play($"Pit_Crack_Open");
         var collider = GetComponent<BoxCollider2D>();
         collider.size = m_openPitSize;

@@ -8,8 +8,8 @@ public class WeaponAnimEvent : MonoBehaviour
     [SerializeField] private UnityEvent OnWeaponFire;
     [SerializeField] private UnityEvent OnWeaponEnd;
 
-    [Inject] private readonly PoolManager PoolManager;
-    [Inject] private readonly AudioManager AudioManager;
+    [Inject] readonly private PoolManager PoolManager;
+    [Inject] readonly private AudioManager AudioManager;
 
     public void FireWeaponStart() { OnWeaponStart?.Invoke(); }
     public void FireWeaponFire() { OnWeaponFire?.Invoke(); }

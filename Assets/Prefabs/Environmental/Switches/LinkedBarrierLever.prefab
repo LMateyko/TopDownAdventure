@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   m_leftSwitchSprite: {fileID: 7100573107659375487, guid: 498831ddc59b198418e0fbfdf3520fdc, type: 3}
   m_rightSwitchSprite: {fileID: 2958209659818720517, guid: 498831ddc59b198418e0fbfdf3520fdc, type: 3}
+  m_switchFlipAudio: {fileID: 8300000, guid: d32f9a57da0563440a987f221e1973f4, type: 3}
 --- !u!212 &743596578308738780
 SpriteRenderer:
   serializedVersion: 2

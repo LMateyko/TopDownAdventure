@@ -6,11 +6,13 @@ public class LinkedBarrierLever : MonoBehaviour, IDamageable
 {
     [SerializeField] private Sprite m_leftSwitchSprite;
     [SerializeField] private Sprite m_rightSwitchSprite;
+    [SerializeField] private AudioClip m_switchFlipAudio;
 
     public bool IsAlive => true;
     public bool IsGrounded => false;
 
     [Inject] readonly private DungeonManager DungeonManager;
+    [Inject] readonly private AudioManager AudioManager;
 
     private SpriteRenderer m_spriteRenderer;
 
@@ -23,6 +25,7 @@ public class LinkedBarrierLever : MonoBehaviour, IDamageable
 
     public void TakeDamage(IDamager source, int damage)
     {
+        AudioManager.PlaySfxAtLocation(m_switchFlipAudio, transform.position);
         DungeonManager.FlipSwitch();
     }
 

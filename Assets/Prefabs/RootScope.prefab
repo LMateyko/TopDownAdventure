@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 5681575444342702469}
   - component: {fileID: 1652082329710162002}
   m_Layer: 0
-  m_Name: AudioManager
+  m_Name: AudioManagerInstaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8658c9b486b9c4e99fbe5ca50867c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_managerPrefab: {fileID: 8513749088935156130, guid: 082bf5e790343b34ab7ef56f404f9f9a, type: 3}
 --- !u!1 &6908143810843584686
 GameObject:
   m_ObjectHideFlags: 0

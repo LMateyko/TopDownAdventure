@@ -16,6 +16,8 @@ public class DungeonData : ScriptableObject
     }
 
     public string DungeonName = "Lost Caverns";
+    public AudioClip DungeonMusic;
+
     [TextArea(minLines: 7, maxLines: 7)]
     public string BasicDungeonMap = "";
 

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SampleDungeon
   m_EditorClassIdentifier: 
   DungeonName: Sample Dungeon
+  DungeonMusic: {fileID: 8300000, guid: 21e06cc9ccd978e4188901e0eab55a45, type: 3}
   BasicDungeonMap: '00000000
 
     00000000

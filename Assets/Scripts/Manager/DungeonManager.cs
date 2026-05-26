@@ -21,6 +21,7 @@ public class DungeonManager : MonoBehaviour, IInstaller
     [SerializeField] private bool m_displayFullGrid = false;
 
     [Inject] readonly private DungeonMapUI MapUI;
+    [Inject] readonly private AudioManager AudioManager;
 
     public Tilemap DungeonWallTilemap => m_wallTiles;
     public (int[,], Grid, Vector3Int) DungeonTileData => (m_searchGrid, m_wallTiles.layoutGrid, m_wallTiles.origin); 
@@ -83,6 +84,7 @@ public class DungeonManager : MonoBehaviour, IInstaller
 
     private void Start()
     {
+        AudioManager.PlayMusic(m_dungeonData.DungeonMusic);
         MapUI.ConfigureMapDisplay(m_dungeonData);
 
         m_currentPlayerRoom = m_dungeonData.PlayerStart;

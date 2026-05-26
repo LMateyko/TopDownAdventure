@@ -1,3 +1,4 @@
+using Reflex.Attributes;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,9 +13,15 @@ public class PickupObject : MonoBehaviour
     }
 
     [SerializeField] private PickupType m_pickupType;
+    [SerializeField] private AudioClip m_audioClip;
+
+    [Inject] private readonly AudioManager AudioManager;
 
     protected virtual void OnCollectPickup(PlayerController player)
     {
+        if(m_audioClip != null)
+            AudioManager.PlaySfxAtLocation(m_audioClip, transform.position);
+
         switch (m_pickupType)
         {
             case PickupType.Heart:

@@ -28,8 +28,8 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     [Tooltip("Event that fires when the character is cleaned up and removed")]
     [SerializeField] private UnityEvent<IDamager, IDamageable> m_onDestroyEvent;
 
-    public Action OnKillCharacter { get; set; }
-    public Action OnDestroyCharacter { get; set; }
+    public Action<BaseCharacterController> OnKillCharacter { get; set; }
+    public Action<BaseCharacterController> OnDestroyCharacter { get; set; }
 
     public float CurrentSpeed => m_movementPaused ? 0f : m_speed;
     public Vector2 CurrentVelocity => m_rigidbody.linearVelocity;
@@ -218,6 +218,8 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     virtual protected void KillCharacter(IDamager source)
     {
         m_onKillEvent?.Invoke(source, this);
+        OnKillCharacter?.Invoke(this);
+
         StartCoroutine(DeathRoutine(source));
     }
 
@@ -226,6 +228,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     /// </summary>
     virtual protected void DestroyCharacter()
     {
+        OnDestroyCharacter?.Invoke(this);
         Destroy(gameObject);
     }
 

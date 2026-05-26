@@ -25,6 +25,9 @@ public class LinkedBarrierLever : MonoBehaviour, IDamageable
 
     public void TakeDamage(IDamager source, int damage)
     {
+        if (source is EnemyController)
+            return;
+
         AudioManager.PlaySfxAtLocation(m_switchFlipAudio, transform.position);
         DungeonManager.FlipSwitch();
     }

@@ -80,3 +80,10 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.083333336
+    functionName: SfxAnimEvent
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 616884a4913e2e948bc44b51a26d810f, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

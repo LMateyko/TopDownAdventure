@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemy: {fileID: 2043728537789544583}
-  m_resetMovementConditions: 0
+  m_resetMovementConditions: 1
   m_directionDuration: 0
   m_avoidedLayers:
     serializedVersion: 2

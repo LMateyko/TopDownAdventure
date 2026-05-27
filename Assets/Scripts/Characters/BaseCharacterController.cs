@@ -71,6 +71,8 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     public bool IsAlive => m_currentHealth > 0;
     public bool IsGrounded => m_grounded;
 
+    public bool IsFloating { get; set; }
+
     public bool IsValidTarget()
     {
         if (!IsAlive) return false;

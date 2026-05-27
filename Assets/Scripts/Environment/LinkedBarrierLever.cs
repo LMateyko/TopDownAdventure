@@ -1,7 +1,7 @@
 using Reflex.Attributes;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D))]
 public class LinkedBarrierLever : MonoBehaviour, IDamageable
 {
     [SerializeField] private Sprite m_leftSwitchSprite;

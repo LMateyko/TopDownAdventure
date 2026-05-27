@@ -1,7 +1,7 @@
 using Reflex.Attributes;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer), typeof(Collider2D))]
+[RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D))]
 public class LinkedBarrier : MonoBehaviour
 {
     public enum ActiveDirection { Left, Right }
@@ -13,7 +13,7 @@ public class LinkedBarrier : MonoBehaviour
     [Inject] readonly private DungeonManager DungeonManager;
 
     private SpriteRenderer m_spriteRenderer;
-    private Collider2D m_collider;
+    private BoxCollider2D m_collider;
 
     private void OnValidate()
     {
@@ -24,7 +24,7 @@ public class LinkedBarrier : MonoBehaviour
     private void Awake()
     {
         m_spriteRenderer = GetComponent<SpriteRenderer>();
-        m_collider = GetComponent<Collider2D>();
+        m_collider = GetComponent<BoxCollider2D>();
     }
 
     private void Start()

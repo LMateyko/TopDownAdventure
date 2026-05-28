@@ -6,6 +6,14 @@ using UnityEngine;
 [RequireComponent (typeof(BoxCollider2D))]
 public class DynamicBridge : MonoBehaviour
 {
+    [SerializeField] private bool m_startDisabled = true;
+
+    private void Awake()
+    {
+        if(m_startDisabled)
+            gameObject.SetActive(false);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var foundCharacter = collision.attachedRigidbody.gameObject.GetComponent<BaseCharacterController>();

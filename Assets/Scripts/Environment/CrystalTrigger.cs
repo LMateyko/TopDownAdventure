@@ -1,5 +1,6 @@
 using Reflex.Attributes;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent (typeof(SpriteRenderer), typeof(BoxCollider2D))]
 public class CrystalTrigger : MonoBehaviour, IDamageable
@@ -7,6 +8,9 @@ public class CrystalTrigger : MonoBehaviour, IDamageable
     [SerializeField] private Sprite m_resetSprite;
     [SerializeField] private Sprite m_activeSprite;
     [SerializeField] private AudioClip m_triggerAudio;
+
+    [Space]
+    [SerializeField] private UnityEvent m_activationEvent;
 
     [Inject] readonly private AudioManager AudioManager;
 
@@ -30,6 +34,8 @@ public class CrystalTrigger : MonoBehaviour, IDamageable
 
         AudioManager.PlaySfxAtLocation(m_triggerAudio, transform.position);
         m_spriteRenderer.sprite = m_activeSprite;
+        m_activationEvent?.Invoke();
+
         IsAlive = false;
     }
 

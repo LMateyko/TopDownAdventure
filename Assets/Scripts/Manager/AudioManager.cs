@@ -17,6 +17,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void PauseMusic()
+    {
+        m_musicAudioSource.Stop();
+    }
+
+    public void ResumeMusic()
+    {
+        m_musicAudioSource.Play();
+    }
+
     public void PlaySfxAtLocation(AudioClip clip, Vector3 position)
     {
         PooledSfxSource sfx = PoolManager.SpawnObject(m_sfxPrefab);

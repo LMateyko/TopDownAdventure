@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pickupType: 0
-  m_audioClip: {fileID: 8300000, guid: e09f68627f1c87649b076d1d65cbd851, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 536d08f44a2276441b562348a5c83b1e, type: 3}
 --- !u!212 &3730656065483580481
 SpriteRenderer:
   serializedVersion: 2

@@ -20,7 +20,7 @@ public class DynamicBridge : MonoBehaviour
         m_bridgeActive = m_startActive;
         for (int i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).gameObject.SetActive(false);
+            transform.GetChild(i).gameObject.SetActive(m_bridgeActive);
         }
     }
 

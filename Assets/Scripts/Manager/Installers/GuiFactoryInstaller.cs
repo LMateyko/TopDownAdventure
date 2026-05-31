@@ -14,6 +14,9 @@ public class GuiFactoryInstaller : MonoBehaviour, IInstaller
         PlayerHealthUI playerUI = fullGui.GetComponentInChildren<PlayerHealthUI>(); 
         containerBuilder.RegisterValue(playerUI);
 
+        PlayerInputUI playerInputUI = fullGui.GetComponentInChildren<PlayerInputUI>();
+        containerBuilder.RegisterValue(playerInputUI);
+
         DungeonMapUI mapUI = fullGui.GetComponentInChildren<DungeonMapUI>();
         containerBuilder.RegisterValue(mapUI);
 

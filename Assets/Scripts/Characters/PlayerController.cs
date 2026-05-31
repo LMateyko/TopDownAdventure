@@ -50,6 +50,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     public WeaponConfiguration.WeaponEnum CurrentWeapon { get; private set; } = WeaponConfiguration.WeaponEnum.None;
 
     [Inject] readonly private PlayerHealthUI HealthUI;
+    [Inject] readonly private PlayerInputUI InputUI;
     [Inject] readonly private PoolManager PoolManager;
 
     private InputSystem_Player m_playerInputSystem;

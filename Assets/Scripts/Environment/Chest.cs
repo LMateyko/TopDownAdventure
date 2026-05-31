@@ -15,7 +15,7 @@ public class Chest : MonoBehaviour
 
     private bool m_rewarded = false;
 
-    public void ClaimReward(Interactable interactable, PlayerController player)
+    public void ClaimReward(InteractableObject interactable, PlayerController player)
     {
         if (m_rewarded) return;
         m_rewarded = true;

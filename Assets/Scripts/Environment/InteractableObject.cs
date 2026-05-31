@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Object that allows for generic player interaction to trigger a Unity Event
+/// </summary>
 [RequireComponent(typeof(BoxCollider2D))]
-public class Interactable : MonoBehaviour
+public class InteractableObject : MonoBehaviour
 {
-    [SerializeField] private UnityEvent<Interactable, PlayerController> m_interactionResult = new UnityEvent<Interactable, PlayerController>();
+    [SerializeField] private UnityEvent<InteractableObject, PlayerController> m_interactionResult = new UnityEvent<InteractableObject, PlayerController>();
 
     public virtual void TriggerInteraction(PlayerController player)
     {

@@ -89,14 +89,14 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     }
 
     #region Interactables
-    private Interactable m_currentInteractable;
+    private InteractableObject m_currentInteractable;
 
-    public void PrepareInteraction(Interactable newInteractable)
+    public void PrepareInteraction(InteractableObject newInteractable)
     {
         m_currentInteractable = newInteractable;
     }
 
-    public void ClearInteraction(Interactable newInteractable)
+    public void ClearInteraction(InteractableObject newInteractable)
     {
         if (m_currentInteractable == newInteractable)
             m_currentInteractable = null;

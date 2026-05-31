@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1727130861703065188}
   - component: {fileID: 7538847649000383357}
   - component: {fileID: 5861990292983718556}
+  - component: {fileID: 8565769524319893217}
   - component: {fileID: 1222726807891577317}
   - component: {fileID: 3437970406103636342}
   m_Layer: 0
@@ -44,7 +45,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2828104492417058342}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b9319b82f1657047a0da0b22db740c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 5688fa62f17e5574190b050d0fa72aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimelinePlayer
 --- !u!320 &5861990292983718556
@@ -71,6 +72,35 @@ PlayableDirector:
     - 1a9debbef6b43154b93aa522992aaec6: {fileID: 0}
     - 971b5a5aad8788f4fab8bb24cbfe8c6f: {fileID: 0}
     - 4af8eb5acb45e754c943b8c100309c25: {fileID: 2828104492417058342}
+--- !u!114 &8565769524319893217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2828104492417058342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308d7746c6cc9db48bd0ef7024e7fe3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VfxSignalReceiver
+  signalAssetEventPairs:
+  - signalAsset: {fileID: 11400000, guid: 56c3119ea7c317d438ca616325bc0b14, type: 2}
+    events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7538847649000383357}
+          m_TargetAssemblyTypeName: TimelineSignalPlayer, Assembly-CSharp
+          m_MethodName: PlayVFX
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1222726807891577317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +120,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f7bca08172d142948b22adc68021bbcc, type: 2}
     - {fileID: 11400000, guid: c32eb412dc14cd84c89d962a14e98ef7, type: 2}
     - {fileID: 11400000, guid: fdd92226cdab97642816b32661fc9f20, type: 2}
+    - {fileID: 11400000, guid: 56c3119ea7c317d438ca616325bc0b14, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -148,14 +179,16 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     - m_PersistentCalls:
+        m_Calls: []
+    - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: DynamicBridge, Assembly-CSharp
-          m_MethodName: ActivateBridge
+        - m_Target: {fileID: 2828104492417058342}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgumentAssemblyTypeName: 
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

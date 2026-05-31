@@ -22,7 +22,7 @@ public class GameDialogRelay : MonoBehaviour
     public void TriggerDialogSequence(string dialog)
     {
         // TODO: Have dialog or GUI manager dictate if the player can or can't have input at any given moment. 
-        PlayerManager.Player.DisableInputForExternalInteraction();
+        PlayerManager.PausePlayer();
         DialogUI.SetDialogText(dialog);
 
         m_currentDialog = 0;
@@ -36,7 +36,7 @@ public class GameDialogRelay : MonoBehaviour
         m_currentDialog++;
         if (m_currentDialog >= m_dialogSequence.Length)
         {
-            PlayerManager.Player.ReEnableInput();
+            PlayerManager.ResumePlayer();
             var submitAction = InputSystem.actions.FindAction("UI/Submit");
             submitAction.started -= SubmitAction_started;
             DialogUI.SetDialogText("");

@@ -18,10 +18,20 @@ public class PlayerManager
         Player.OnFallComplete += RespawnPlayer;
     }
 
+    public void PausePlayer()
+    {
+        Player.DisableInputForExternalInteraction();
+    }
+
+    public void ResumePlayer()
+    {
+        Player.ReEnableInput();
+    }
+
     private void RespawnPlayer()
     {
         Player.transform.position = RoomSpawnPosition;
-        Player.ReEnableInput();
+        ResumePlayer();
         Player.PlayAnimation("Idle");
     }
 }

@@ -10,12 +10,12 @@ public class TimelineSignalPlayer : MonoBehaviour
 
     public void PlayerInput_Pause()
     {
-        PlayerManager.Player.DisableInputForExternalInteraction();
+        PlayerManager.PausePlayer();
     }
 
     public void PlayerInput_Resume()
     {
-        PlayerManager.Player.ReEnableInput();
+        PlayerManager.ResumePlayer();
     }
 
     public void Music_Pause()

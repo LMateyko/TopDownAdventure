@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_lockedAudio: {fileID: 8300000, guid: 2db2a853d607ff141aff57e898c1d2e3, type: 3}
-  m_unlockAudio: {fileID: 8300000, guid: 9328619387e0083418ba73d6c84d73f1, type: 3}
+  m_unlockAudio: {fileID: 8300000, guid: 2f6f66c21abfd934dbbd650b7b5bb50e, type: 3}
   m_lockedText: {fileID: 6354516064557963110}
 --- !u!114 &6354516064557963110
 MonoBehaviour:

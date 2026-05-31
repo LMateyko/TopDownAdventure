@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b40af55691c1bfe47aece91c11cd55e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleDoor
-  m_unlockAudio: {fileID: 8300000, guid: 9328619387e0083418ba73d6c84d73f1, type: 3}
-  m_foughtEnemies: []
+  m_unlockAudio: {fileID: 8300000, guid: 2f6f66c21abfd934dbbd650b7b5bb50e, type: 3}
 --- !u!61 &351105050904486390
 BoxCollider2D:
   m_ObjectHideFlags: 0

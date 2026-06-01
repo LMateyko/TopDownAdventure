@@ -9,7 +9,11 @@ public class PickupObject : MonoBehaviour
     { 
         Heart,
         Key,
-        Coin
+        Coin,
+        Weapon_Sword,
+        Weapon_Book,
+        Weapon_Bow,
+        Weapon_Pick
     }
 
     [SerializeField] private PickupType m_pickupType;
@@ -33,6 +37,19 @@ public class PickupObject : MonoBehaviour
                 break;
             case PickupType.Coin:
                 PlayerInventory.Coins++;
+                break;
+
+            case PickupType.Weapon_Sword:
+                PlayerInventory.AddWeaponToInventory(WeaponConfiguration.WeaponEnum.Sword);
+                break;
+            case PickupType.Weapon_Pick:
+                PlayerInventory.AddWeaponToInventory(WeaponConfiguration.WeaponEnum.Pick);
+                break;
+            case PickupType.Weapon_Book:
+                PlayerInventory.AddWeaponToInventory(WeaponConfiguration.WeaponEnum.Book);
+                break;
+            case PickupType.Weapon_Bow:
+                PlayerInventory.AddWeaponToInventory(WeaponConfiguration.WeaponEnum.Bow);
                 break;
         }
     }

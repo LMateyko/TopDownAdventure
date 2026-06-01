@@ -10,5 +10,4 @@ public class ChestRewardData : ScriptableObject
     public int RewardValue;
 
     public AudioClip RevealAudio;
-    // TODO: Allow for unlocking equipment etc. mine pick
 }

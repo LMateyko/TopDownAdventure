@@ -36,6 +36,19 @@ public class Chest : MonoBehaviour
             case PickupObject.PickupType.Coin:
                 PlayerInventory.Coins += m_chestReward.RewardValue;
                 break;
+
+            case PickupObject.PickupType.Weapon_Sword:
+                PlayerInventory.AddWeaponToInventory(WeaponConfiguration.WeaponEnum.Sword);
+                break;
+            case PickupObject.PickupType.Weapon_Pick:
+                PlayerInventory.AddWeaponToInventory(WeaponConfiguration.WeaponEnum.Pick);
+                break;
+            case PickupObject.PickupType.Weapon_Book:
+                PlayerInventory.AddWeaponToInventory(WeaponConfiguration.WeaponEnum.Book);
+                break;
+            case PickupObject.PickupType.Weapon_Bow:
+                PlayerInventory.AddWeaponToInventory(WeaponConfiguration.WeaponEnum.Bow);
+                break;
         }
 
         m_dialogRelay.TriggerDialogSequence(m_chestReward.RevealText);

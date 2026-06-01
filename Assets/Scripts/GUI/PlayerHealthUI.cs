@@ -17,20 +17,21 @@ public class PlayerHealthUI : MonoBehaviour
     [SerializeField] private TMP_Text m_coinText;
 
     [Inject] readonly private PlayerManager PlayerManager;
-
-    public void SetInventoryEvents(PlayerInventory inventory)
-    {
-        inventory.OnKeysChanged += OnKeyChanged;
-        inventory.OnCoinsChanged += OnCoinsChanged;
-    }
+    [Inject] readonly private PlayerInventory PlayerInventory;
 
     private void Start()
     {
         Reflex.Injectors.GameObjectInjector.InjectObject(gameObject, Container.RootContainer);
-        PlayerManager.Player.OnHealthChanged += OnHeathChanged;
 
-        // Trigger OnHealthChange
+        // Configure Player Events
+        PlayerManager.Player.OnHealthChanged += OnHeathChanged;
         PlayerManager.Player.HealCharacter(0);
+
+        // Configure Player Inventory Events
+        PlayerInventory.OnKeysChanged += OnKeyChanged;
+        PlayerInventory.OnCoinsChanged += OnCoinsChanged;
+
+        PlayerInventory.LoadInitialValues();
     }
 
     private void OnHeathChanged(int maxHealth, int currentHealth, int newHealth)

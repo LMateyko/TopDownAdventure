@@ -39,11 +39,18 @@ public class PlayerInventory
     /// </summary>
     public void LoadInitialValues()
     {
+        Coins = 0;
+        Keys = 0;
+    }
+
+    /// <summary>
+    /// Load the initial weapons for the player
+    /// </summary>
+    public void LoadInitialWeapons()
+    {
         AddWeaponToInventory(WeaponConfiguration.WeaponEnum.Sword);
         AddWeaponToInventory(WeaponConfiguration.WeaponEnum.Book);
 
-        Coins = 0;
-        Keys = 0;
     }
 
     /// <summary>

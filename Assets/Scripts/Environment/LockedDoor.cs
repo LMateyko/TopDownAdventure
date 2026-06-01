@@ -9,6 +9,7 @@ public class LockedDoor : MonoBehaviour
     [SerializeField] private GameDialogRelay m_lockedText;
 
     [Inject] readonly private AudioManager AudioManager;
+    [Inject] readonly private PlayerInventory PlayerInventory;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,10 +22,10 @@ public class LockedDoor : MonoBehaviour
 
     private void CheckLock(PlayerController player)
     {
-        if(player.Keys > 0)
+        if(PlayerInventory.Keys > 0)
         {
             AudioManager.PlaySfxAtLocation(m_unlockAudio, transform.position);
-            player.Keys--;
+            PlayerInventory.Keys--;
             Destroy(gameObject);
         }
         else

@@ -12,6 +12,7 @@ public class Chest : MonoBehaviour
     [SerializeField] private GameDialogRelay m_dialogRelay;
 
     [Inject] readonly private AudioManager AudioManager;
+    [Inject] readonly private PlayerInventory PlayerInventory;
 
     private bool m_rewarded = false;
 
@@ -30,10 +31,10 @@ public class Chest : MonoBehaviour
                 player.HealCharacter(m_chestReward.RewardValue);
                 break;
             case PickupObject.PickupType.Key:
-                player.Keys += m_chestReward.RewardValue;
+                PlayerInventory.Keys += m_chestReward.RewardValue;
                 break;
             case PickupObject.PickupType.Coin:
-                player.Coins += m_chestReward.RewardValue;
+                PlayerInventory.Coins += m_chestReward.RewardValue;
                 break;
         }
 

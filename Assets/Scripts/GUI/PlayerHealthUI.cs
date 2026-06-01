@@ -19,8 +19,12 @@ public class PlayerHealthUI : MonoBehaviour
     public void SetPlayerEvents(PlayerController player)
     {
         player.HealthChanged += OnHeathChanged;
-        player.KeysChanged += OnKeyChanged;
-        player.CoinsChanged += OnCoinsChanged;
+    }
+
+    public void SetInventoryEvents(PlayerInventory inventory)
+    {
+        inventory.KeysChanged += OnKeyChanged;
+        inventory.CoinsChanged += OnCoinsChanged;
     }
 
     private void OnHeathChanged(int maxHealth, int currentHealth, int newHealth)

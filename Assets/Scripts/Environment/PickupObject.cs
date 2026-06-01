@@ -16,6 +16,7 @@ public class PickupObject : MonoBehaviour
     [SerializeField] private AudioClip m_audioClip;
 
     [Inject] readonly private AudioManager AudioManager;
+    [Inject] readonly private PlayerInventory PlayerInventory;
 
     protected virtual void OnCollectPickup(PlayerController player)
     {
@@ -28,10 +29,10 @@ public class PickupObject : MonoBehaviour
                 player.HealCharacter(1);
                 break;
             case PickupType.Key:
-                player.Keys++;
+                PlayerInventory.Keys++;
                 break;
             case PickupType.Coin:
-                player.Coins++;
+                PlayerInventory.Coins++;
                 break;
         }
     }

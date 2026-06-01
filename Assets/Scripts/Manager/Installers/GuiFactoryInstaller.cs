@@ -22,6 +22,12 @@ public class GuiFactoryInstaller : MonoBehaviour, IInstaller
 
         DialogUI dialogUI = fullGui.GetComponentInChildren<DialogUI>();
         containerBuilder.RegisterValue(dialogUI);
+
+        PlayerInventory playerInventory = new PlayerInventory();
+        containerBuilder.RegisterValue(playerInventory);
+        playerUI.SetInventoryEvents(playerInventory);
+
+        playerInventory.LoadInitialValues();
     }
 
 }

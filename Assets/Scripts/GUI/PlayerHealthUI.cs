@@ -23,8 +23,8 @@ public class PlayerHealthUI : MonoBehaviour
 
     public void SetInventoryEvents(PlayerInventory inventory)
     {
-        inventory.KeysChanged += OnKeyChanged;
-        inventory.CoinsChanged += OnCoinsChanged;
+        inventory.OnKeysChanged += OnKeyChanged;
+        inventory.OnCoinsChanged += OnCoinsChanged;
     }
 
     private void OnHeathChanged(int maxHealth, int currentHealth, int newHealth)

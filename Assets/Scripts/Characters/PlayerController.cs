@@ -28,8 +28,8 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     public WeaponConfiguration.WeaponEnum CurrentWeapon { get; private set; } = WeaponConfiguration.WeaponEnum.None;
 
     [Inject] readonly private PlayerHealthUI HealthUI;
-    [Inject] readonly private PlayerInputUI InputUI;
     [Inject] readonly private PoolManager PoolManager;
+    [Inject] readonly private PlayerInventory PlayerInventory;
 
     private InputSystem_Player m_playerInputSystem;
     private InputSystem_Player.PlayerActions m_playerActions;
@@ -101,6 +101,8 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 
     public void OnSword(InputAction.CallbackContext context)
     {
+        if (!PlayerInventory.WeaponAvailable(m_swordConfig.WeaponType)) return;
+
         if (TriggerInteraction()) return;
 
         if(context.started)
@@ -121,6 +123,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 
     public void OnBookBlock(InputAction.CallbackContext context)
     {
+        if (!PlayerInventory.WeaponAvailable(m_bookConfig.WeaponType)) return;
         if (TriggerInteraction()) return;
 
         if (context.started)
@@ -137,6 +140,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 
     public void OnBowShoot(InputAction.CallbackContext context)
     {
+        if (!PlayerInventory.WeaponAvailable(m_bowConfig.WeaponType)) return;
         if (TriggerInteraction()) return;
 
         if (context.started)
@@ -145,6 +149,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 
     public void OnPickSwing(InputAction.CallbackContext context)
     {
+        if (!PlayerInventory.WeaponAvailable(m_pickConfig.WeaponType)) return;
         if (TriggerInteraction()) return;
 
         if (context.started)

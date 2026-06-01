@@ -6600,14 +6600,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f51c1689aa67d45a8856ef84b0f902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputUI
-  SwordEnabledDisplay: {fileID: 461783461670555689}
-  SwordDisabledDisplay: {fileID: 7882325189142415562}
-  PickEnabledDisplay: {fileID: 3226424391162544702}
-  PickDisabledDisplay: {fileID: 330018017570956863}
-  BookEnabledDisplay: {fileID: 340278836839164683}
-  BookDisabledDisplay: {fileID: 7447085436346477673}
-  BowEnabledDisplay: {fileID: 8473692110730451978}
-  BowDisabledDisplay: {fileID: 4818500091653575531}
+  m_inputDisplays:
+  - weaponKey: 0
+    enabledDisplay: {fileID: 461783461670555689}
+    disabledDisplay: {fileID: 7882325189142415562}
+  - weaponKey: 2
+    enabledDisplay: {fileID: 3226424391162544702}
+    disabledDisplay: {fileID: 330018017570956863}
+  - weaponKey: 1
+    enabledDisplay: {fileID: 340278836839164683}
+    disabledDisplay: {fileID: 7447085436346477673}
+  - weaponKey: 3
+    enabledDisplay: {fileID: 8473692110730451978}
+    disabledDisplay: {fileID: 4818500091653575531}
 --- !u!114 &7905794058528363760
 MonoBehaviour:
   m_ObjectHideFlags: 0

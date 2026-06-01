@@ -11,21 +11,22 @@ public class GuiFactoryInstaller : MonoBehaviour, IInstaller
     {
         var fullGui = Instantiate(GuiPrefab);
 
+        PlayerInventory playerInventory = new PlayerInventory();
+        containerBuilder.RegisterValue(playerInventory);
+
         PlayerHealthUI playerUI = fullGui.GetComponentInChildren<PlayerHealthUI>(); 
         containerBuilder.RegisterValue(playerUI);
+        playerUI.SetInventoryEvents(playerInventory);
 
         PlayerInputUI playerInputUI = fullGui.GetComponentInChildren<PlayerInputUI>();
-        containerBuilder.RegisterValue(playerInputUI);
+        playerInputUI.SetInventoryEvents(playerInventory);
+        //containerBuilder.RegisterValue(playerInputUI);
 
         DungeonMapUI mapUI = fullGui.GetComponentInChildren<DungeonMapUI>();
         containerBuilder.RegisterValue(mapUI);
 
         DialogUI dialogUI = fullGui.GetComponentInChildren<DialogUI>();
         containerBuilder.RegisterValue(dialogUI);
-
-        PlayerInventory playerInventory = new PlayerInventory();
-        containerBuilder.RegisterValue(playerInventory);
-        playerUI.SetInventoryEvents(playerInventory);
 
         playerInventory.LoadInitialValues();
     }

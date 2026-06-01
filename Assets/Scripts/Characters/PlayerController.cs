@@ -20,14 +20,13 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     [SerializeField] private Transform m_socketDownSwing;
 
     public Action OnFallComplete;
-    public Action<int, int, int> HealthChanged;
+    public Action<int, int, int> OnHealthChanged;
 
     public override bool AttackEnabled => base.AttackEnabled && CurrentWeapon != WeaponConfiguration.WeaponEnum.None;
     public override int Damage => m_weaponMap[CurrentWeapon].WeaponDamage;
     public override float KnockbackForce => m_weaponMap[CurrentWeapon].WeaponKnockback;
     public WeaponConfiguration.WeaponEnum CurrentWeapon { get; private set; } = WeaponConfiguration.WeaponEnum.None;
 
-    [Inject] readonly private PlayerHealthUI HealthUI;
     [Inject] readonly private PoolManager PoolManager;
     [Inject] readonly private PlayerInventory PlayerInventory;
 
@@ -176,9 +175,6 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         base.Start();
 
         Reflex.Injectors.GameObjectInjector.InjectObject(gameObject, Reflex.Core.Container.RootContainer);
-        HealthUI.SetPlayerEvents(this);
-
-        HealthChanged?.Invoke(m_maxHealth, m_currentHealth, m_currentHealth);
     }
 
     private void OnEnable()
@@ -247,7 +243,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 
     public override void HealCharacter(int heal)
     {
-        HealthChanged?.Invoke(m_maxHealth, m_currentHealth, m_currentHealth + heal);
+        OnHealthChanged?.Invoke(m_maxHealth, m_currentHealth, m_currentHealth + heal);
 
         base.HealCharacter(heal);
     }
@@ -255,7 +251,7 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     public override void TakeDamage(IDamager source, int damage)
     {
         base.TakeDamage(source, damage);
-        HealthChanged?.Invoke(m_maxHealth, Math.Min(m_currentHealth + damage, m_maxHealth), m_currentHealth);
+        OnHealthChanged?.Invoke(m_maxHealth, Math.Min(m_currentHealth + damage, m_maxHealth), m_currentHealth);
     }
 
     protected override void KillCharacter(IDamager source)

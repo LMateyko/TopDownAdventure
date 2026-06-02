@@ -1,5 +1,4 @@
 using Reflex.Attributes;
-using Reflex.Core;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,9 +15,12 @@ public class PlayerInputUI : MonoBehaviour
 
     [SerializeField] private InputDisplay[] m_inputDisplays;
 
-    [Inject] readonly private PlayerInventory PlayerInventory;
-
     Dictionary<WeaponConfiguration.WeaponEnum, (GameObject, GameObject)> m_weaponEnabledDisplays = new Dictionary<WeaponConfiguration.WeaponEnum, (GameObject, GameObject)> ();
+
+    public void SetInventoryEvents(PlayerInventory inventory)
+    {
+        inventory.OnWeaponAdded += RevealWeapon;
+    }
 
     private void Awake()
     {
@@ -27,16 +29,6 @@ public class PlayerInputUI : MonoBehaviour
             m_weaponEnabledDisplays.Add(input.weaponKey, (input.enabledDisplay, input.disabledDisplay));
             HideWeapon(input.weaponKey);
         }
-    }
-
-    private void Start()
-    {
-        Reflex.Injectors.GameObjectInjector.InjectObject(gameObject, Container.RootContainer);
-
-        // Configure Player Inventory Events
-        PlayerInventory.OnWeaponAdded += RevealWeapon;
-
-        PlayerInventory.LoadInitialWeapons();
     }
 
     private void HideWeapon(WeaponConfiguration.WeaponEnum newWeapon)

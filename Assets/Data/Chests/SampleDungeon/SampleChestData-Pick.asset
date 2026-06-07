@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SampleChestData-Pick
   m_EditorClassIdentifier: 
   RevealSprite: {fileID: 1995937309, guid: 966e0213322468b44a4af43b99c93376, type: 3}
-  RevealText: You found...\nA Pick Axe!
+  RevealText: You found...\nA Pick Axe!\nDestroy cracked blocks
   RewardType: 6
   RewardValue: 1
   RevealAudio: {fileID: 8300000, guid: 8c60af4ae36af57449715995ba94d5fa, type: 3}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SampleChestData-Bow
   m_EditorClassIdentifier: 
   RevealSprite: {fileID: 2724290557161508762, guid: 98f1d3d3766482a49990633ce74a26fc, type: 3}
-  RevealText: You found...\nThe Bow!
+  RevealText: You found...\nThe Bow!\nAttack at a distance.
   RewardType: 5
   RewardValue: 1
   RevealAudio: {fileID: 8300000, guid: 8c60af4ae36af57449715995ba94d5fa, type: 3}

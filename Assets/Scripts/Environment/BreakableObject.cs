@@ -21,12 +21,14 @@ public class BreakableObject : MonoBehaviour, IRoomObject
     {
         IsEnabled = true;
         m_animator.Play($"{m_animationPrefix}_Idle");
+        m_animator.Update(0);
     }
 
     public void DisableObject()
     {
         IsEnabled = false;
         m_animator.Play($"{m_animationPrefix}_Disable");
+        m_animator.Update(0);
     }
     #endregion
 

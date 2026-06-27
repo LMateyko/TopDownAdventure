@@ -6299,15 +6299,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: -0.25
     y: 0
-    width: 1
-    height: 1
+    width: 0.5
+    height: 0
   near clip plane: 0
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 0
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6386,7 +6386,7 @@ MonoBehaviour:
     DefaultMode: 2
   DefaultBlend:
     Style: 1
-    Time: 1
+    Time: 0
     CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -13563,7 +13563,7 @@ Tilemap:
       - {fileID: -1521021195, guid: 498831ddc59b198418e0fbfdf3520fdc, type: 3}
       - {fileID: 202842821, guid: 498831ddc59b198418e0fbfdf3520fdc, type: 3}
       - {fileID: 1947540736, guid: 498831ddc59b198418e0fbfdf3520fdc, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:

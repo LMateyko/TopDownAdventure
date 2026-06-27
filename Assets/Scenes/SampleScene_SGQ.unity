@@ -6299,15 +6299,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: -0.25
+    x: 0
     y: 0
-    width: 0.5
-    height: 0
+    width: 1
+    height: 1
   near clip plane: 0
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 0
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -14564,9 +14564,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1891437823479416417, guid: e6138f756a40ac946921d3bb38934419, type: 3}
-      propertyPath: Lens.NearClipPlane
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2531722710142766568, guid: e6138f756a40ac946921d3bb38934419, type: 3}
       propertyPath: m_Name
       value: DungeonManager

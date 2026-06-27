@@ -455,3 +455,10 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.5833333
+    functionName: PlayScreenShakeImpulse
+    data: 
+    objectReferenceParameter: {fileID: 635845962788855460, guid: 64612c19834ce8543a0cb843b227b464, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

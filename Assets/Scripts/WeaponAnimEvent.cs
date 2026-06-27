@@ -1,4 +1,5 @@
 using Reflex.Attributes;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,6 +15,11 @@ public class WeaponAnimEvent : MonoBehaviour
     public void FireWeaponStart() { OnWeaponStart?.Invoke(); }
     public void FireWeaponFire() { OnWeaponFire?.Invoke(); }
     public void FireWeaponEnd() { OnWeaponEnd?.Invoke(); }
+
+    public void PlayScreenShakeImpulse(CinemachineImpulseSource impulse)
+    {
+        impulse.GenerateImpulseWithForce(1f);
+    }
 
     public void OnPlayVFX(SpriteParticle particle)
     {

@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dungeonData: {fileID: 11400000, guid: caa55e842efcd6b49924f6b95dd2ffd8, type: 2}
   m_startingRoom: {fileID: 713967950318105577}
+  m_cameraBrain: {fileID: 0}
   m_defaultSwitchSetting: 1
   m_wallTiles: {fileID: 0}
   m_hazardTiles: {fileID: 0}
@@ -118,6 +119,14 @@ PrefabInstance:
     - target: {fileID: 4471024352493404425, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
       propertyPath: m_Name
       value: DungeonRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335082549142409322, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: Priority.Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335082549142409322, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: Priority.m_Value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

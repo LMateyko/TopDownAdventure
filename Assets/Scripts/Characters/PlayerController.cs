@@ -1,11 +1,15 @@
 using Reflex.Attributes;
 using System;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : BaseCharacterController, InputSystem_Player.IPlayerActions
 {
+    [Header("Player Settings")]
+    [SerializeField] private AnimationCurve m_transitionBlending;
+
     [Header("Weapon Configurations")]
     [SerializeField] private Animator m_weaponAnimator;
     [SerializeField] private BoxCollider2D m_weaponCollider;
@@ -195,6 +199,17 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
     protected override void Update()
     {
         base.Update();
+
+        if (CinemachineBrain.GetActiveBrain(0).ActiveBlend != null)
+        {
+            PlayAnimation("Idle");
+            SetVelocity(Vector2.zero, false);
+            var currentColor = m_renderer.color;
+            currentColor.a = m_transitionBlending.Evaluate(CinemachineBrain.GetActiveBrain(0).ActiveBlend.BlendWeight);
+            m_renderer.color = currentColor;
+
+            return;
+        }
 
         if (!IsAlive)
         {

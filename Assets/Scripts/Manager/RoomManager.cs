@@ -1,9 +1,12 @@
 
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
+    [SerializeField] CinemachineCamera m_roomCamera;
+
     [Header("Room Connections")]
     [SerializeField] RoomManager m_northRoom;
     [SerializeField] RoomManager m_eastRoom;
@@ -36,11 +39,7 @@ public class RoomManager : MonoBehaviour
             enemy.EnableObject();
 
         // Set Camera to room position
-        var cameraPosition = Camera.main.transform.position;
-        cameraPosition.x = transform.position.x;
-        cameraPosition.y = transform.position.y;
-
-        Camera.main.transform.position = cameraPosition;
+        m_roomCamera.Priority = 1;
     }
 
     /// <summary>Leave the current room and enter the connected room in a direction. </summary>
@@ -48,6 +47,8 @@ public class RoomManager : MonoBehaviour
     /// <returns>Returns resulting room in desired direction.</returns>
     public RoomManager LeaveRoom(Vector2 exitDirection)
     {
+        m_roomCamera.Priority = 0;
+
         // Disable Enemies within the room
         foreach (var enemy in m_roomObjects)
             enemy.DisableObject();

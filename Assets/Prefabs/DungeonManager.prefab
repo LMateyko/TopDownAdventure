@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dungeonData: {fileID: 11400000, guid: caa55e842efcd6b49924f6b95dd2ffd8, type: 2}
   m_startingRoom: {fileID: 713967950318105577}
+  m_defaultSwitchSetting: 1
   m_wallTiles: {fileID: 0}
   m_hazardTiles: {fileID: 0}
   m_displayFullGrid: 0
@@ -66,51 +67,76 @@ MonoBehaviour:
   m_dungeonManager: {fileID: 9036357837378036698}
   m_gizmoStartPos: {x: 17, y: 18}
   m_gizmoEndPos: {x: 20, y: 12}
---- !u!1 &4753702166807172866
-GameObject:
+--- !u!1001 &9220220952308504075
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9011988792021801604}
-  - component: {fileID: 713967950318105577}
-  m_Layer: 0
-  m_Name: DungeonRoom
-  m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9011988792021801604
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4753702166807172866}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9215998833439671065}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &713967950318105577
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9215998833439671065}
+    m_Modifications:
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471024352493404425, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_Name
+      value: DungeonRoom
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+--- !u!114 &713967950318105577 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8510756610577999330, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+  m_PrefabInstance: {fileID: 9220220952308504075}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4753702166807172866}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8495315b0bfb37846bfbceaae0a5863d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_northRoom: {fileID: 0}
-  m_eastRoom: {fileID: 0}
-  m_southRoom: {fileID: 0}
-  m_westRoom: {fileID: 0}
+--- !u!4 &9011988792021801604 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+  m_PrefabInstance: {fileID: 9220220952308504075}
+  m_PrefabAsset: {fileID: 0}

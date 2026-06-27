@@ -7,11 +7,13 @@ using UnityEngine.Tilemaps;
 using UnityEditor;
 using UnityEngine.SceneManagement;
 using Adventure.Tools;
+using Unity.Cinemachine;
 
 public class DungeonManager : MonoBehaviour, IInstaller
 {
     [SerializeField] private DungeonData m_dungeonData;
     [SerializeField] private RoomManager m_startingRoom;
+    [SerializeField] private CinemachineBrain m_cameraBrain;
 
     [Tooltip("The default direction of the switches in this dungeon")]
     [SerializeField] private LinkedBarrier.ActiveDirection m_defaultSwitchSetting = LinkedBarrier.ActiveDirection.Right;

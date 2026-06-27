@@ -67,6 +67,30 @@ MonoBehaviour:
   m_onDestroyEvent:
     m_PersistentCalls:
       m_Calls: []
+  m_transitionBlending:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.007142857
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9916667
+      value: 1
+      inSlope: 4.4897904
+      outSlope: 4.4897904
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.059322096
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   m_weaponAnimator: {fileID: 5067734557167731747}
   m_weaponCollider: {fileID: 6867067986105607463}
   m_swordConfig: {fileID: 11400000, guid: 2a15ae4cacd0f494ebbc1ab00e3942f3, type: 2}

@@ -1,6 +1,7 @@
 using UnityEngine;
 using Reflex.Attributes;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 
 public class RoomTransitionTrigger : MonoBehaviour
 {

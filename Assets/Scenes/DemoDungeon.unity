@@ -2302,54 +2302,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &348832918
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 348832919}
-  - component: {fileID: 348832920}
-  m_Layer: 0
-  m_Name: DungeonRoom_Crossroads
-  m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &348832919
+--- !u!4 &348832919 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+  m_PrefabInstance: {fileID: 1545405677}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348832918}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1075258558}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &348832920
+--- !u!114 &348832920 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8510756610577999330, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+  m_PrefabInstance: {fileID: 1545405677}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348832918}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8495315b0bfb37846bfbceaae0a5863d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_northRoom: {fileID: 0}
-  m_eastRoom: {fileID: 0}
-  m_southRoom: {fileID: 322996851695047547}
-  m_westRoom: {fileID: 0}
 --- !u!1 &380501257
 GameObject:
   m_ObjectHideFlags: 0
@@ -2442,6 +2410,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2528,15 +2497,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.029166669
     y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
+    width: 0.16666667
+    height: 0.30185184
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.5277777
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2561,7 +2530,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2591,6 +2560,38 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
+  ShowDebugText: 0
+  ShowCameraFrustum: 1
+  IgnoreTimeScale: 0
+  WorldUpOverride: {fileID: 0}
+  ChannelMask: -1
+  UpdateMethod: 2
+  BlendUpdateMethod: 1
+  LensModeOverride:
+    Enabled: 0
+    DefaultMode: 2
+  DefaultBlend:
+    Style: 1
+    Time: 1
+    CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  CustomBlends: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -4259,6 +4260,67 @@ Transform:
   - {fileID: 1075258558}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1545405677
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1075258558}
+    m_Modifications:
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208795153458302095, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471024352493404425, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_Name
+      value: DungeonRoom_Crossroads
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510756610577999330, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
+      propertyPath: m_southRoom
+      value: 
+      objectReference: {fileID: 322996851695047547}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 08a1117f1941f094fa18efbf862f1435, type: 3}
 --- !u!1 &1553703360
 GameObject:
   m_ObjectHideFlags: 0
@@ -4503,6 +4565,10 @@ PrefabInstance:
     - target: {fileID: 713967950318105577, guid: e6138f756a40ac946921d3bb38934419, type: 3}
       propertyPath: 'm_roomRoomObjects.Array.data[1]'
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891437823479416417, guid: e6138f756a40ac946921d3bb38934419, type: 3}
+      propertyPath: Lens.NearClipPlane
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2531722710142766568, guid: e6138f756a40ac946921d3bb38934419, type: 3}
       propertyPath: m_Name

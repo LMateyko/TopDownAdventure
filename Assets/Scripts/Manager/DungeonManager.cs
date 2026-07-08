@@ -13,7 +13,7 @@ public class DungeonManager : MonoBehaviour, IInstaller
 {
     [SerializeField] private DungeonData m_dungeonData;
     [SerializeField] private RoomManager m_startingRoom;
-    [SerializeField] private CinemachineBrain m_cameraBrain;
+    [SerializeField] private Transform m_roomTransitionRoot;
 
     [Tooltip("The default direction of the switches in this dungeon")]
     [SerializeField] private LinkedBarrier.ActiveDirection m_defaultSwitchSetting = LinkedBarrier.ActiveDirection.Right;
@@ -50,6 +50,7 @@ public class DungeonManager : MonoBehaviour, IInstaller
     public void MovePlayerRoomPosition(Vector2 direction)
     {
         m_currentRoom = m_currentRoom.LeaveRoom(direction);
+        m_roomTransitionRoot.position = m_currentRoom.transform.position;
 
         MapUI?.SetMapCell(m_currentPlayerRoom.x, m_currentPlayerRoom.y, DungeonData.MapCellType.Room);
 
@@ -107,6 +108,8 @@ public class DungeonManager : MonoBehaviour, IInstaller
         m_currentPlayerRoom = m_dungeonData.PlayerStart;
         m_currentRoom = m_startingRoom;
         m_currentRoom.EnterRoom();
+
+        m_roomTransitionRoot.position = m_currentRoom.transform.position;
     }
 
     private void OnValidate()

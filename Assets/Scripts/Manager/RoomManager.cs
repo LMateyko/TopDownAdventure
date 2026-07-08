@@ -47,7 +47,7 @@ public class RoomManager : MonoBehaviour
     /// <returns>Returns resulting room in desired direction.</returns>
     public RoomManager LeaveRoom(Vector2 exitDirection)
     {
-        m_roomCamera.Priority = 0;
+        m_roomCamera.Priority = -1;
 
         // Disable Enemies within the room
         foreach (var enemy in m_roomObjects)

@@ -7,15 +7,26 @@ using UnityEngine.Events;
 [RequireComponent(typeof(BoxCollider2D))]
 public class InteractableObject : MonoBehaviour
 {
+    [SerializeField] private bool m_singleInteraction = false;
     [SerializeField] private UnityEvent<InteractableObject, PlayerController> m_interactionResult = new UnityEvent<InteractableObject, PlayerController>();
+
+    private bool m_disabledInteraction = false;
 
     public virtual void TriggerInteraction(PlayerController player)
     {
         m_interactionResult?.Invoke(this, player);
+        if (m_singleInteraction)
+        {
+            m_disabledInteraction = true;
+            player.ClearInteraction(this);
+        } 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
+        if (m_disabledInteraction)
+            return;
+
         var foundPlayer = collision.attachedRigidbody.gameObject.GetComponent<PlayerController>();
         if (foundPlayer && collision.CompareTag("Player"))
         {
@@ -23,8 +34,11 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
+        if (m_disabledInteraction)
+            return;
+
         var foundPlayer = collision.attachedRigidbody.gameObject.GetComponent<PlayerController>();
         if (foundPlayer && collision.CompareTag("Player"))
         {

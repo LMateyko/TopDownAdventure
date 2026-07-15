@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b651e277c19d874bb567551793ed13b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LockedInteractableObject
+  m_singleInteraction: 1
   m_interactionResult:
     m_PersistentCalls:
       m_Calls:

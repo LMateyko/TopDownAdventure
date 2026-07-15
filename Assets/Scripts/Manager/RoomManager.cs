@@ -9,9 +9,9 @@ public class RoomManager : MonoBehaviour
 
     [Header("Room Connections")]
     [SerializeField] RoomManager m_northRoom;
+    [SerializeField] RoomManager m_westRoom;
     [SerializeField] RoomManager m_eastRoom;
     [SerializeField] RoomManager m_southRoom;
-    [SerializeField] RoomManager m_westRoom;
 
     List<IRoomObject> m_roomObjects = new List<IRoomObject>();
 

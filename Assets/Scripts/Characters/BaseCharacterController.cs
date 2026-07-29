@@ -218,12 +218,13 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     /// <summary>
     /// Begin dying and play death animation when health reaches Zero
     /// </summary>
-    virtual protected void KillCharacter(IDamager source)
+    virtual protected void KillCharacter(IDamager source, bool instant = false)
     {
         m_onKillEvent?.Invoke(source, this);
         OnKillCharacter?.Invoke(this);
 
-        StartCoroutine(DeathRoutine(source));
+        if(!instant)
+            StartCoroutine(DeathRoutine(source));
     }
 
     /// <summary>

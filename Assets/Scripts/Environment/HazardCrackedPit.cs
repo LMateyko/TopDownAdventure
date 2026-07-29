@@ -27,6 +27,7 @@ public class HazardCrackedPit : MonoBehaviour
         if (m_crackIndex >= m_crackedStates)
             return;
 
+        // TODO: Enable this for all characters
         var foundPlayer = collision.attachedRigidbody.gameObject.GetComponent<PlayerController>();
         if (foundPlayer && collision.CompareTag("Player"))
         {

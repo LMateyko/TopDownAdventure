@@ -58,6 +58,8 @@ public class EnemyWanderMovement : EnemyMovementSetting
             }
 
             m_lastAnimLoop = m_enemy.AnimLoops();
+
+            // TODO: Support Delay between jumps
         }
         
         if(m_resetMovementConditions.HasFlag(ResetMovementCondition.OnDuration))

@@ -17,7 +17,7 @@ public class EnemySeekerMovement : EnemyMovementSetting
     [Inject] readonly private DungeonManager DungeonManager;
 
     private PlayerController TrackedPlayer => PlayerManager.Player;
-    private Vector3 NextPathPosition => m_currentPath.Peek();
+    private Vector3 NextPathPosition => m_currentPath.Count > 0 ? m_currentPath.Peek() : m_enemy.transform.position;
 
     private Queue<Vector3> m_currentPath = new Queue<Vector3>();
     private int m_initialPathLength = 0;

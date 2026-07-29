@@ -270,9 +270,9 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
         OnHealthChanged?.Invoke(m_maxHealth, Math.Min(m_currentHealth + damage, m_maxHealth), m_currentHealth);
     }
 
-    protected override void KillCharacter(IDamager source)
+    protected override void KillCharacter(IDamager source, bool instant = false)
     {
-        base.KillCharacter(source);
+        base.KillCharacter(source, instant);
         StopWeapon();
     }
 

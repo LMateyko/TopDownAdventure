@@ -61,6 +61,7 @@ public class EnemyController : BaseCharacterController, IRoomObject
             if (IsAnimComplete())
             {
                 m_currentHealth = 0;
+                KillCharacter(null, instant: true);
                 DestroyCharacter();
             }
 

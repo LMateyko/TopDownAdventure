@@ -28,8 +28,6 @@ public class HazardPit : MonoBehaviour, IDamager
         var foundCharacter = collision.attachedRigidbody.gameObject.GetComponent<BaseCharacterController>();
         if (foundCharacter )
         {
-            
-
             TriggerPit(foundCharacter);
         }
     }

@@ -9,16 +9,16 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     [Header("Character Settings")]
 
     [Tooltip("Animation prefix for this character")]
-    [SerializeField] private string m_characterPrefix;
-    [SerializeField] protected float m_speed = 5f;
-    [SerializeField] protected int m_maxHealth = 3;
-    [SerializeField] protected bool m_grounded = true;
+    [SerializeField, PrefabEditOnly] private string m_characterPrefix;
+    [SerializeField, PrefabEditOnly] protected float m_speed = 5f;
+    [SerializeField, PrefabEditOnly] protected int m_maxHealth = 3;
+    [SerializeField, PrefabEditOnly] protected bool m_grounded = true;
 
     [Space]
     [Header("Local Character References")]
-    [SerializeField] private Animator m_animator;
-    [SerializeField] private Rigidbody2D m_rigidbody;
-    [SerializeField] protected SpriteRenderer m_renderer;
+    [SerializeField, PrefabEditOnly] private Animator m_animator;
+    [SerializeField, PrefabEditOnly] private Rigidbody2D m_rigidbody;
+    [SerializeField, PrefabEditOnly] protected SpriteRenderer m_renderer;
 
     [Space]
     [Header("Character Events")]

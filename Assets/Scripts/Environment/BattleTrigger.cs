@@ -16,6 +16,7 @@ public class BattleTrigger : MonoBehaviour
     }
 
     [SerializeField] private bool m_pausePlayerForRewards = false;
+    [SerializeField, ConditionalHide("m_pausePlayerForRewards")] private float m_playerPauseDelay = 0.25f;
     [SerializeField] private AudioClip m_rewardAudio;
     [SerializeField] private EnemyController[] m_foughtEnemies;
     [SerializeField] private List<BattleRewardEvent> m_rewardTriggers;
@@ -50,30 +51,32 @@ public class BattleTrigger : MonoBehaviour
 
     private IEnumerator ResolveEventsRoutine()
     {
-        if(m_pausePlayerForRewards)
-            PlayerManager.PausePlayer();
-
         int i = 0;
-        float delayTimer = 0;
+
+        if (m_pausePlayerForRewards)
+        {
+            PlayerManager.PausePlayer();
+            yield return new WaitForSeconds(m_playerPauseDelay);
+        }
 
         yield return new WaitForEndOfFrame();
 
         while (i < m_rewardTriggers.Count)
         {
-            delayTimer += Time.deltaTime;
+            if (m_rewardTriggers[i].delay < 0)
+                yield return new WaitForSeconds(m_rewardTriggers[i].delay);
 
-            if (delayTimer >= m_rewardTriggers[i].delay)
-            {
-                m_rewardTriggers[i].triggeredEvent?.Invoke();
-                delayTimer = 0;
-                i++;
-            }
+            m_rewardTriggers[i].triggeredEvent?.Invoke();
+            i++;
 
             yield return null;
         }
 
         if (m_pausePlayerForRewards)
+        {
+            yield return new WaitForSeconds(m_playerPauseDelay);
             PlayerManager.ResumePlayer();
+        }
 
         Destroy(gameObject);
     }

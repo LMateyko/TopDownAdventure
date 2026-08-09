@@ -4,10 +4,10 @@ using UnityEngine;
 public class EnemyController : BaseCharacterController, IRoomObject
 {
     [Header("Enemy Settings")]
-    [SerializeField] private EnemyMovementSetting m_movementBehavior;
-    [SerializeField] private int m_enemyContactDamage = 1;
-    [SerializeField] private float m_enemyKnockbackForce = 5f;
-    [SerializeField] private bool m_alwaysSpawnInRoom = false;
+    [SerializeField, PrefabEditOnly] private EnemyMovementSetting m_movementBehavior;
+    [SerializeField, PrefabEditOnly] private int m_enemyContactDamage = 1;
+    [SerializeField, PrefabEditOnly] private float m_enemyKnockbackForce = 5f;
+    [SerializeField, PrefabEditOnly] private bool m_alwaysSpawnInRoom = false;
 
     public override int Damage => m_enemyContactDamage;
     public override float KnockbackForce => m_enemyKnockbackForce;

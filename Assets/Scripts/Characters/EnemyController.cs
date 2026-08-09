@@ -25,7 +25,7 @@ public class EnemyController : BaseCharacterController, IRoomObject
         m_currentHealth = m_maxHealth;
         transform.position = m_spawnLocation;
         PlayAnimation("Run", restart: true);
-        m_movementBehavior.RestartMovement();
+        m_movementBehavior?.RestartMovement();
 
         m_renderer.gameObject.SetActive(true);
     }
@@ -39,7 +39,7 @@ public class EnemyController : BaseCharacterController, IRoomObject
 
     protected void Awake()
     {
-        m_movementBehavior.InitializeMovement();
+        m_movementBehavior?.InitializeMovement();
         m_spawnLocation = transform.position;
     }
 
@@ -78,10 +78,10 @@ public class EnemyController : BaseCharacterController, IRoomObject
             m_wasHurt = false;
             PlayAnimation("Idle");
             SetVelocity(Vector2.zero, false);
-            m_movementBehavior.RestartMovement();
+            m_movementBehavior?.RestartMovement();
         }
 
-        m_movementBehavior.OnUpdate();
+        m_movementBehavior?.OnUpdate();
     }
 
     public override bool DamageTarget(IDamageable defender)
@@ -89,7 +89,7 @@ public class EnemyController : BaseCharacterController, IRoomObject
         bool validDamage = base.DamageTarget(defender);
         
         if(validDamage)
-            m_movementBehavior.OnDamageTarget(defender);
+            m_movementBehavior?.OnDamageTarget(defender);
 
         return validDamage;
     }
@@ -99,7 +99,7 @@ public class EnemyController : BaseCharacterController, IRoomObject
         if (!IsAlive)
             return;
 
-        m_movementBehavior.OnCollision(collision);
+        m_movementBehavior?.OnCollision(collision);
     }
 
     protected override void DestroyCharacter()

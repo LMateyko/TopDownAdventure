@@ -1,5 +1,6 @@
 using Reflex.Attributes;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class HazardCrackedPit : MonoBehaviour
@@ -16,6 +17,7 @@ public class HazardCrackedPit : MonoBehaviour
 
     private int m_crackIndex = 0;
     private Coroutine m_crackCountRoutine;
+    private List<BaseCharacterController> m_detectedCharacters = new List<BaseCharacterController>();
 
     private void Start()
     {
@@ -27,11 +29,16 @@ public class HazardCrackedPit : MonoBehaviour
         if (m_crackIndex >= m_crackedStates)
             return;
 
-        // TODO: Enable this for all characters
-        var foundPlayer = collision.attachedRigidbody.gameObject.GetComponent<PlayerController>();
-        if (foundPlayer && collision.CompareTag("Player"))
+        var foundCharacter = collision.attachedRigidbody.gameObject.GetComponent<BaseCharacterController>();
+        if (foundCharacter && !foundCharacter.IsFloating)
         {
-            m_crackCountRoutine = StartCoroutine(CoCrackCountdown(foundPlayer));
+            m_detectedCharacters.Add(foundCharacter);
+
+            // Trigger for enemies immedietely 
+            if (collision.CompareTag("Player"))
+                m_crackCountRoutine = StartCoroutine(CoCrackCountdown(foundCharacter));
+            else
+                CrackPit();
         }
     }
 
@@ -40,15 +47,17 @@ public class HazardCrackedPit : MonoBehaviour
         if (m_crackIndex >= m_crackedStates)
             return;
 
-        var foundPlayer = collision.attachedRigidbody.gameObject.GetComponent<PlayerController>();
-        if (foundPlayer && collision.CompareTag("Player"))
+        var foundCharacter = collision.attachedRigidbody.gameObject.GetComponent<BaseCharacterController>();
+        if (foundCharacter)
         {
-            if (m_crackCountRoutine != null)
+            m_detectedCharacters.Remove(foundCharacter);
+
+            if (collision.CompareTag("Player") && m_crackCountRoutine != null)
                 StopCoroutine(m_crackCountRoutine);
         }
     }
 
-    private IEnumerator CoCrackCountdown(PlayerController player)
+    private IEnumerator CoCrackCountdown(BaseCharacterController player)
     {
         while (m_crackIndex < m_crackedStates - 1)
         {
@@ -58,6 +67,13 @@ public class HazardCrackedPit : MonoBehaviour
             m_crackIndex++;
         }
 
+        CrackPit();
+        
+        m_crackCountRoutine = null;
+    }
+
+    private void CrackPit()
+    {
         AudioManager.PlaySfxAtLocation(m_crackOpenAudio, transform.position);
         m_pitAnimator.Play($"Pit_Crack_Open");
         var collider = GetComponent<BoxCollider2D>();
@@ -65,11 +81,14 @@ public class HazardCrackedPit : MonoBehaviour
 
         HazardPit hazardPit = gameObject.AddComponent<HazardPit>();
 
-        if(player is IDamageable damageable)
-            hazardPit.DamageTarget(damageable);
+        foreach(var character in m_detectedCharacters)
+        {
+            if (character is IDamageable damageable)
+                hazardPit.DamageTarget(damageable);
 
-        player.transform.position = transform.position;
-        player.FallIntoPit();
+            character.transform.position = transform.position;
+            character.FallIntoPit();
+        }
 
         m_crackIndex = m_crackedStates;
     }

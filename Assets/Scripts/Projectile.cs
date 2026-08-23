@@ -44,9 +44,9 @@ public class Projectile : MonoBehaviour, IDamager
         m_projectileOwner = owner;
     }
 
-    public void SetLaunchVelocity(Vector2 velocity)
+    public void SetLaunchDirection(Vector2 direction)
     {
-        transform.right = velocity.normalized;
+        transform.right = direction.normalized;
     }
 
     public void RotateToTransform(Transform parentTransform)

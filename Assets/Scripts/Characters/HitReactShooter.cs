@@ -40,7 +40,7 @@ public class HitReactShooter : MonoBehaviour
         projectile.transform.position = transform.position;
         projectile.transform.rotation = Quaternion.identity;
 
-        Vector2 launchVelocity = launchConfig.launchDirection;
+        Vector2 launchDirection = launchConfig.launchDirection;
 
         if (launchConfig.useHitDirection || launchConfig.useReverseHitDirection)
         {
@@ -56,11 +56,11 @@ public class HitReactShooter : MonoBehaviour
             }
 
             var hitAngle = Vector2.SignedAngle(Vector2.right, hitDirectionVector);
-            launchVelocity = Quaternion.AngleAxis(hitAngle, Vector3.forward) * launchVelocity;
+            launchDirection = Quaternion.AngleAxis(hitAngle, Vector3.forward) * launchDirection;
         }
 
-        projectile.SetOwner(target.transform);
-        projectile.SetLaunchVelocity(launchVelocity);
+        projectile.SetOwner(source.transform);
+        projectile.SetLaunchDirection(launchDirection);
         projectile.SetAttackData(launchConfig.projectile.Damage, launchConfig.projectile.Knockback);
     }
 

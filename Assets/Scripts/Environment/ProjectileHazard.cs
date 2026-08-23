@@ -7,6 +7,7 @@ public abstract class ProjectileHazard : MonoBehaviour, IRoomObject
 {
     [SerializeField] protected ProjectileData m_projectile;
 
+    // TODO: Split projectile behavior away from hazard sprite adjustment
     [Space]
     [SerializeField] protected Sprite m_idleSprite;
     [SerializeField] protected Sprite m_preparedSprite;
@@ -30,13 +31,16 @@ public abstract class ProjectileHazard : MonoBehaviour, IRoomObject
     {
         IsEnabled = true;
         SetDefaultTime();
-        m_renderer.gameObject.SetActive(true);
+
+        if (m_renderer != null)
+            m_renderer.gameObject.SetActive(true);
     }
 
     public void DisableObject()
     {
         IsEnabled = false;
-        m_renderer.gameObject.SetActive(false);
+        if(m_renderer != null)
+            m_renderer.gameObject.SetActive(false);
 
         foreach (var projectile in m_activeProjectiles)
         {
@@ -54,15 +58,20 @@ public abstract class ProjectileHazard : MonoBehaviour, IRoomObject
     {
         // Launch Projectile
         Projectile projectile = PoolManager.SpawnObject(m_projectile.Prefab);
+        SetProjectileSettings(projectile);
+        projectile.OnDestroy += ClearProjectile;
+
+        if(m_shootAudio != null)
+            AudioManager.PlaySfxAtLocation(m_shootAudio, transform.position);
+    }
+
+    protected virtual void SetProjectileSettings(Projectile projectile)
+    {
         projectile.RotateToTransform(transform);
         projectile.SetAttackData(m_projectile.Damage, m_projectile.Knockback);
 
         projectile.transform.position += projectile.DirectionVector * .85f;
         m_activeProjectiles.Add(projectile);
-        projectile.OnDestroy += ClearProjectile;
-
-        if(m_shootAudio != null)
-            AudioManager.PlaySfxAtLocation(m_shootAudio, transform.position);
     }
 
     private void Start()

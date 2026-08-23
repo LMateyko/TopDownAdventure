@@ -1,5 +1,57 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4443353106629510897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1632529027467430924}
+  - component: {fileID: 5611200154949176267}
+  m_Layer: 6
+  m_Name: ProjectileShooter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1632529027467430924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443353106629510897}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5843422362083115742}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5611200154949176267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443353106629510897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330ad60facfe0714aa1449e6e097ec74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HazardShootAtPlayer
+  m_projectile: {fileID: 11400000, guid: 1052858434a27134996be0d2b376f81d, type: 2}
+  m_idleSprite: {fileID: 0}
+  m_preparedSprite: {fileID: 0}
+  m_shootAudio: {fileID: 0}
+  m_renderer: {fileID: 0}
+  m_fireDelay: 2.5
+  m_timeOffset: 0
+  m_owner: {fileID: 5843422362083115742}
 --- !u!1001 &3010442655493376585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
       propertyPath: m_grounded
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
+      propertyPath: m_maxHealth
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 876352580963996266, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
       propertyPath: m_characterPrefix
@@ -70,6 +126,14 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: ede75cdd52807f74ba295ac73b13fbeb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8709746212063152279, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1632529027467430924}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
+--- !u!4 &5843422362083115742 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8709746212063152279, guid: 4b3f511b7837d0d4088d8b2563b90b66, type: 3}
+  m_PrefabInstance: {fileID: 3010442655493376585}
+  m_PrefabAsset: {fileID: 0}

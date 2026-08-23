@@ -5,16 +5,15 @@ using UnityEngine;
 public class HazardAutoShooter : ProjectileHazard
 {
     [Header("Auto Fire Settings")]
-    [SerializeField] float m_idleTime = 5f;
-    [SerializeField] float m_preparedTime = .25f;
-    [SerializeField] float m_timeOffset = 0f;
+    [SerializeField] private float m_idleTime = 5f;
+    [SerializeField] private float m_preparedTime = .25f;
+    [SerializeField] private float m_timeOffset = 0f;
 
     protected override void SetDefaultTime()
     {
         m_launchTimer = m_timeOffset;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (!IsEnabled) return;

@@ -1,4 +1,5 @@
 using Reflex.Core;
+using System;
 using UnityEngine;
 
 public class PlayerManager 
@@ -15,7 +16,8 @@ public class PlayerManager
     public void SpawnPlayer(PlayerController PlayerPrefab)
     {
         Player = GameObject.Instantiate(PlayerPrefab);
-        Player.OnFallComplete += RespawnPlayer;
+        Player.OnFallComplete += RespawnPlayerFromPit;
+        Player.OnDestroyCharacter += RespawnPlayerFromDeath;
     }
 
     public void PausePlayer()
@@ -28,10 +30,16 @@ public class PlayerManager
         Player.ReEnableInput();
     }
 
-    private void RespawnPlayer()
+    private void RespawnPlayerFromPit()
     {
         Player.transform.position = RoomSpawnPosition;
         ResumePlayer();
         Player.PlayAnimation("Idle");
+    }
+
+    private void RespawnPlayerFromDeath(BaseCharacterController controller)
+    {
+        ResumePlayer();
+        Player.RestoreCharacter();
     }
 }

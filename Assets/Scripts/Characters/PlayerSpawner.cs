@@ -1,4 +1,5 @@
 using Reflex.Attributes;
+using System;
 using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
@@ -14,5 +15,16 @@ public class PlayerSpawner : MonoBehaviour
         Destroy(editorRenderer);
 
         PlayerManager.Player.transform.position = transform.position;
+        PlayerManager.Player.OnDestroyCharacter += ResetDungeonPosition;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerManager.Player.OnDestroyCharacter -= ResetDungeonPosition;
+    }
+
+    private void ResetDungeonPosition(BaseCharacterController controller)
+    {
+        controller.transform.position = transform.position;
     }
 }

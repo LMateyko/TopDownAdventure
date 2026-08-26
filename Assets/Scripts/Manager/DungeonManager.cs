@@ -27,7 +27,7 @@ public class DungeonManager : MonoBehaviour, IInstaller
 
     [Inject] readonly private DungeonMapUI MapUI;
     [Inject] readonly private AudioManager AudioManager;
-
+    [Inject] readonly private PlayerManager PlayerManager;
     public Tilemap DungeonWallTilemap => m_wallTiles;
     public (int[,], Grid, Vector3Int) DungeonTileData => (m_searchGrid, m_wallTiles.layoutGrid, m_wallTiles.origin);
     public LinkedBarrier.ActiveDirection CurrentSwitchDirection { get; private set; }
@@ -105,6 +105,22 @@ public class DungeonManager : MonoBehaviour, IInstaller
         AudioManager.PlayMusic(m_dungeonData.DungeonMusic);
         MapUI.ConfigureMapDisplay(m_dungeonData);
 
+        m_currentPlayerRoom = m_dungeonData.PlayerStart;
+        m_currentRoom = m_startingRoom;
+        m_currentRoom.EnterRoom();
+
+        m_roomTransitionRoot.position = m_currentRoom.transform.position;
+
+        PlayerManager.Player.OnDestroyCharacter += OnPlayerDestroyed;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerManager.Player.OnDestroyCharacter -= OnPlayerDestroyed;
+    }
+
+    private void OnPlayerDestroyed(BaseCharacterController controller)
+    {
         m_currentPlayerRoom = m_dungeonData.PlayerStart;
         m_currentRoom = m_startingRoom;
         m_currentRoom.EnterRoom();

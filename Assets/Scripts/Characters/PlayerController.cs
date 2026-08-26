@@ -278,8 +278,8 @@ public class PlayerController : BaseCharacterController, InputSystem_Player.IPla
 
     protected override void DestroyCharacter()
     {
-        // TODO: Respawn the player/reload the scene instead of destroying them
-        base.DestroyCharacter();
+        //base.DestroyCharacter();
+        OnDestroyCharacter?.Invoke(this);
     }
     
     #endregion

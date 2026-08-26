@@ -210,6 +210,12 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
             DamageTarget(defender);
     }
 
+    public void RestoreCharacter()
+    {
+        HealCharacter(m_maxHealth);
+        PlayAnimation("Idle");
+    }
+
     virtual public void HealCharacter(int heal)
     {
         m_currentHealth = Mathf.Min(m_currentHealth + heal, m_maxHealth);

@@ -78,6 +78,6 @@ public class BattleTrigger : MonoBehaviour
             PlayerManager.ResumePlayer();
         }
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

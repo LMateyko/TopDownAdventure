@@ -82,7 +82,7 @@ AnimationClip:
   - time: 0.41666666
     functionName: VfxAnimEvent
     data: 
-    objectReferenceParameter: {fileID: 8554682819789287338, guid: 0901d9c0567325d46ac63a4f7fcfd1d6, type: 3}
+    objectReferenceParameter: {fileID: 11400000, guid: 22a07b8601eebba4988bd749ae859631, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

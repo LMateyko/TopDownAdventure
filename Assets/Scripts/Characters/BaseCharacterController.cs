@@ -11,6 +11,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
     [Tooltip("Animation prefix for this character")]
     [SerializeField, PrefabEditOnly] private string m_characterPrefix;
     [SerializeField, PrefabEditOnly] protected float m_speed = 5f;
+    [SerializeField, PrefabEditOnly] protected float m_knockbackScale = 1f;
     [SerializeField, PrefabEditOnly] protected int m_maxHealth = 3;
     [SerializeField, PrefabEditOnly] protected bool m_grounded = true;
 
@@ -99,7 +100,7 @@ public class BaseCharacterController : MonoBehaviour, IDamageable, IDamager
 
     public void Knockback(Vector2 direction, float force)
     {
-        SetVelocity(direction * force, false);
+        SetVelocity(direction * force * m_knockbackScale, false);
     }
 
     #endregion

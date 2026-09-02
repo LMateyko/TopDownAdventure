@@ -81,7 +81,10 @@ public class EnemyController : BaseCharacterController, IRoomObject
             m_movementBehavior?.RestartMovement();
         }
 
-        m_movementBehavior?.OnUpdate();
+        if(m_movementBehavior != null)
+            m_movementBehavior?.OnUpdate();
+        else
+            PlayAnimation("Idle");
     }
 
     public override bool DamageTarget(IDamageable defender)

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9479d11f56dca6a46bbe4770097097b9, type: 3}
+  m_Name: AnimVfx_SlimeKing_DeathExplosion_3
+  m_EditorClassIdentifier: Assembly-CSharp::VFXAnimData
+  Offset: {x: 0, y: 0, z: 0}
+  animEventParticle: {fileID: 8804017866554574868, guid: 041b294aafff78146af2850c80103d79, type: 3}

@@ -1,4 +1,5 @@
 using Reflex.Attributes;
+using System;
 using UnityEngine;
 
 public class CharacterAnimEventRelay : MonoBehaviour
@@ -10,10 +11,10 @@ public class CharacterAnimEventRelay : MonoBehaviour
     /// Called via Anim Event to spawn a VFX at a specific time
     /// </summary>
     /// <param name="animEventParticle"></param>
-    public void VfxAnimEvent(SpriteParticle animEventParticle)
+    public void VfxAnimEvent(VFXAnimData animEventParticle)
     {
-        var spawnedParticle = PoolManager.SpawnObject(animEventParticle);
-        spawnedParticle.transform.position = transform.position;
+        var spawnedParticle = PoolManager.SpawnObject(animEventParticle.animEventParticle);
+        spawnedParticle.transform.position = transform.position + animEventParticle.Offset;
         spawnedParticle.transform.rotation = Quaternion.identity;
     }
 
@@ -22,3 +23,5 @@ public class CharacterAnimEventRelay : MonoBehaviour
         AudioManager.PlaySfxAtLocation(audioClip, transform.position);
     }
 }
+
+

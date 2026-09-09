@@ -25,6 +25,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "PickSwing",
+                    "type": "Button",
+                    "id": "7b962bbf-1ea9-4307-b1e2-9c845612c3c5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "BookBlock",
                     "type": "Button",
                     "id": "60339b14-ee25-4107-b7ff-345739e2add7",
@@ -37,15 +46,6 @@
                     "name": "BowShoot",
                     "type": "Button",
                     "id": "94ac3424-0a66-4c97-b3c0-059c6612e4eb",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "PickSwing",
-                    "type": "Button",
-                    "id": "7b962bbf-1ea9-4307-b1e2-9c845612c3c5",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -143,8 +143,8 @@
                 },
                 {
                     "name": "",
-                    "id": "f91a8db2-4df7-4795-af16-ded2b54fb45f",
-                    "path": "<Keyboard>/x",
+                    "id": "7c4aacee-d2ca-4913-a38c-6fa05220fa0f",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
@@ -176,8 +176,8 @@
                 },
                 {
                     "name": "",
-                    "id": "915d54fc-5ab2-48b6-a896-72551d9bed27",
-                    "path": "<Keyboard>/c",
+                    "id": "5decc6a4-b890-45bc-b372-f35d0cab3878",
+                    "path": "<Keyboard>/v",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
@@ -209,8 +209,8 @@
                 },
                 {
                     "name": "",
-                    "id": "f4a084ac-3055-4c4f-9891-a4e380a300f2",
-                    "path": "<Keyboard>/v",
+                    "id": "93e96180-4af4-4001-8934-5766683b6466",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",

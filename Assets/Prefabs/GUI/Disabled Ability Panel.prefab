@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7900878923599040116, guid: 9eb82fac0b1505049b70555ef772a2b1, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
     - target: {fileID: 8517325329068746220, guid: 9eb82fac0b1505049b70555ef772a2b1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

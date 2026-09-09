@@ -121,9 +121,12 @@ public class DungeonManager : MonoBehaviour, IInstaller
 
     private void OnPlayerDestroyed(BaseCharacterController controller)
     {
+        MapUI?.SetMapCell(m_currentPlayerRoom.x, m_currentPlayerRoom.y, DungeonData.MapCellType.Room);
+
         m_currentPlayerRoom = m_dungeonData.PlayerStart;
         m_currentRoom = m_startingRoom;
         m_currentRoom.EnterRoom();
+        MapUI?.SetMapCell(m_currentPlayerRoom.x, m_currentPlayerRoom.y, DungeonData.MapCellType.Player);
 
         m_roomTransitionRoot.position = m_currentRoom.transform.position;
     }

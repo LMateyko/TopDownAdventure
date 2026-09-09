@@ -25871,7 +25871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8913169337883129477, guid: 12f0484b3ec9ca84e802fa98b0266269, type: 3}
       propertyPath: 'm_dialogSequence.Array.data[0]'
-      value: You sword can break various objects.
+      value: Your sword can break\nvarious objects.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
